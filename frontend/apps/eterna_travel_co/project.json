@@ -19,7 +19,8 @@
         "assets": [
           {
             "glob": "**/*",
-            "input": "apps/eterna_travel_co/public"
+            "input": "apps/eterna_travel_co/public",
+            "output": "assets"
           }
         ],
         "styles": ["apps/eterna_travel_co/src/styles.scss"]
@@ -52,6 +53,9 @@
       "defaultConfiguration": "production"
     },
     "serve": {
+      "options": {
+        "port": 8100
+      },
       "continuous": true,
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
@@ -71,7 +75,15 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint"
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/eterna_travel_co/**/*.ts",
+          "apps/eterna_travel_co/**/*.spec.ts",
+          "apps/eterna_travel_co/**/*.scss",
+          "apps/eterna_travel_co/**/*.html"
+        ]
+      }
     },
     "test": {
       "executor": "@nx/vite:test",
