@@ -1,0 +1,102 @@
+@use '../../layout_mixins' as *;
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: var(--color-primary-05);
+
+  @media (min-width: 576px) {
+    padding: 10px 40px;
+  }
+
+  &__left,
+  &__right,
+  &__currency-section,
+  &__language-section,
+  &__currency-button {
+    display: flex;
+    align-items: center;
+  }
+
+  &__currency-section,
+  &__language-section {
+    position: relative;
+  }
+
+  &__mobile,
+  &__email,
+  &__currency {
+    @include text-style;
+  }
+
+  &__email,
+  &__social-media {
+    display: none;
+  }
+
+  &__social-icon,
+  &__icon {
+    color: var(--color-primary-60);
+  }
+
+  &__left,
+  &__social-media {
+    gap: 10px;
+  }
+
+  &__social-icon,
+  &__currency-section,
+  &__currency {
+    cursor: pointer;
+  }
+
+  &__social-icon {
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  &__right {
+    gap: 16px;
+  }
+
+  &__email {
+    @media (min-width: 576px) {
+      display: inline;
+      padding-left: 10px;
+      border-left: var(--border-color-40);
+    }
+  }
+
+  &__social-media {
+    @media (min-width: 576px) {
+      display: flex;
+      align-items: center;
+      padding-right: 16px;
+      border-right: var(--border-color-40);
+    }
+  }
+
+  &__social-icon {
+    font-size: 20px;
+  }
+
+  &__currency-section {
+    gap: 4px;
+  }
+
+  &__icon {
+    font-size: 10px;
+  }
+
+  &__language-section {
+    gap: 8px;
+  }
+
+  &__flag {
+    width: 20px;
+  }
+}
