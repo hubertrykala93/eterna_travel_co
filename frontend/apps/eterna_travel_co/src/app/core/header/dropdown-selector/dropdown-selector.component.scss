@@ -5,6 +5,10 @@
   z-index: 1;
 }
 
+:host(navbar) {
+  position: static;
+}
+
 .dropdown {
   width: max-content;
   padding: 10px 15px;
@@ -14,11 +18,27 @@
 
   &__item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
+    margin-bottom: 10px;
+
+    font-size: var(--text-body-small-size);
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: var(--color-secondary);
+    }
   }
 
   &__flag {
     width: 20px;
+    border: var(--border-color-10);
   }
 }

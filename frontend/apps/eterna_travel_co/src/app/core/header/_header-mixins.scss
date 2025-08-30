@@ -1,0 +1,12 @@
+@mixin content-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  font-size: var(--text-caption-size);
+  color: var(--color-primary-80);
+
+  @media (min-width: 576px) {
+    padding: 10px 40px;
+  }
+}

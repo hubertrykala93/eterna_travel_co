@@ -1,0 +1,27 @@
+:host {
+  display: none;
+
+  @media (min-width: 992px) {
+    display: flex;
+  }
+}
+
+.nav {
+  &__list {
+    display: flex;
+    gap: 26px;
+    font-size: var(--text-body-size);
+    line-height: var(--text-body-line);
+    color: var(--color-primary-80);
+  }
+
+  &__item {
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+}

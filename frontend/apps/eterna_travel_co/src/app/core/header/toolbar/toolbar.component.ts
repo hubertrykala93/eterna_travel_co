@@ -34,15 +34,19 @@ export class ToolbarComponent {
 
   protected readonly languagesButtonConfig$: Observable<DropdownButtonConfig[]> = of([
     {
-      key: '',
+      key: 'core.header.toolbar.english-us',
       defaultLabel: 'English (US)',
+      lang: 'en',
       iconUrl: 'assets/header/flags/united-states-flag.jpg',
+      alt: 'United states flag',
       type: MenuType.LANGUAGE,
     },
     {
-      key: '',
+      key: 'core.header.toolbar.polish-pl',
       defaultLabel: 'Polish (PL)',
+      lang: 'pl',
       iconUrl: 'assets/header/flags/poland-flag.jpg',
+      alt: 'Poland flag',
       type: MenuType.LANGUAGE,
     },
   ]);

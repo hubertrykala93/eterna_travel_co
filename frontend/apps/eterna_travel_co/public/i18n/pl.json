@@ -1,0 +1,18 @@
+{
+  "core": {
+    "header": {
+      "toolbar": {
+        "polish-pl": "Polski (PL)",
+        "english-us": "Angielski (US)"
+      },
+      "nav": {
+        "home": "Home",
+        "about": "O Nas",
+        "tours": "Wycieczki",
+        "destinations": "Kierunki",
+        "blog": "Blog",
+        "contact-us": "Kontakt"
+      }
+    }
+  }
+}

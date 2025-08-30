@@ -1,17 +1,9 @@
+@use '../header-mixins' as *;
+
 .toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-
-  font-size: var(--text-caption-size);
-  color: var(--color-primary-80);
-
   background-color: var(--color-primary-05);
 
-  @media (min-width: 576px) {
-    padding: 10px 40px;
-  }
+  @include content-layout;
 
   &__contact-section,
   &__locale-section,
