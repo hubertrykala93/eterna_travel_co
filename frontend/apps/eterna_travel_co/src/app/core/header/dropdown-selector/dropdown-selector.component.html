@@ -1,0 +1,32 @@
+@let buttons = dropdownButtonsConfig() | async;
+
+<ul class="dropdown">
+  @for (button of buttons; track $index) {
+    <li>{{ button.defaultLabel }}</li>
+  }
+</ul>
+
+<!-- @if (menuType() === 'currency') {
+  <ul class="dropdown">
+    <li>USD</li>
+    <li>EUR</li>
+    <li>PLN</li>
+    <li>GBP</li>
+  </ul>
+} @else {
+  <ul class="dropdown">
+    <li class="dropdown__item">
+      <span>Polish (PL)</span>
+      <img class="dropdown__flag" src="assets/header/flags/poland-flag.jpg" alt="Poland flag" />
+    </li>
+
+    <li class="dropdown__item">
+      <span>English (US)</span>
+      <img
+        class="dropdown__flag"
+        src="assets/header/flags/united-states-flag.jpg"
+        alt="United states flag"
+      />
+    </li>
+  </ul>
+} -->

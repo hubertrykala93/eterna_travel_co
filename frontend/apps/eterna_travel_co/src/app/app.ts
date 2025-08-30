@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { LayoutComponent } from './core/layout/layout.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @Component({
-  imports: [RouterModule, LayoutComponent],
+  imports: [RouterModule, HeaderComponent],
   selector: 'et-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

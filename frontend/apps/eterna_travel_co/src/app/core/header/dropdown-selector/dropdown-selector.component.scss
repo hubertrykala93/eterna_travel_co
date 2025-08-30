@@ -1,0 +1,24 @@
+:host {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.dropdown {
+  width: max-content;
+  padding: 10px 15px;
+  border: var(--border-color-05);
+  border-radius: var(--radius-medium);
+  background: white;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__flag {
+    width: 20px;
+  }
+}

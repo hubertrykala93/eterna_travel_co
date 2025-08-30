@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LocaleMenuComponent } from './locale-menu.component';
+import { HeaderComponent } from './header.component';
 
-describe('LocaleMenuComponent', () => {
-  let component: LocaleMenuComponent;
-  let fixture: ComponentFixture<LocaleMenuComponent>;
+describe('HeaderComponent', () => {
+  let component: HeaderComponent;
+  let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
-      declarations: [LocaleMenuComponent],
+      declarations: [HeaderComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LocaleMenuComponent);
+    fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

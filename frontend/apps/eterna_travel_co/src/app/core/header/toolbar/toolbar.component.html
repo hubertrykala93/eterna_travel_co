@@ -1,0 +1,83 @@
+<div class="toolbar">
+  <ul class="toolbar__contact-section toolbar__contact-section--mobile">
+    <li class="toolbar__menu-item">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="toolbar__icon fa-brands fa-square-facebook"></i>
+      </a>
+    </li>
+
+    <li class="toolbar__menu-item">
+      <a href="https://www.instagram.com/" target="_blank">
+        <i class="toolbar__icon fa-brands fa-square-instagram"></i>
+      </a>
+    </li>
+
+    <li class="toolbar__menu-item">
+      <a href="https://x.com/" target="_blank">
+        <i class="toolbar__icon fa-brands fa-square-x-twitter"></i>
+      </a>
+    </li>
+  </ul>
+
+  <div class="toolbar__contact-section toolbar__contact-section--desktop">
+    <span>+1 (213) 555-4820</span>
+    <span class="toolbar__email">contact&#64;eternatravelco.com</span>
+  </div>
+
+  <div class="toolbar__locale-section">
+    <ul class="toolbar__contact-section toolbar__contact-section--desktop">
+      <li class="toolbar__menu-item">
+        <a href="https://www.facebook.com/" target="_blank">
+          <i class="toolbar__icon fa-brands fa-square-facebook"></i>
+        </a>
+      </li>
+
+      <li class="toolbar__menu-item">
+        <a href="https://www.instagram.com/" target="_blank">
+          <i class="toolbar__icon fa-brands fa-square-instagram"></i>
+        </a>
+      </li>
+
+      <li class="toolbar__menu-item">
+        <a href="https://x.com/" target="_blank">
+          <i class="toolbar__icon fa-brands fa-square-x-twitter"></i>
+        </a>
+      </li>
+    </ul>
+
+    <div
+      class="toolbar__language-section toolbar__language-section--spacing-left"
+      role="button"
+      tabindex="0"
+      (click)="onMenuOpen()"
+    >
+      <div class="toolbar__language-section toolbar__language-section--hover">
+        <span>EUR</span>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+
+      @if (isMenuOpen()) {
+        <et-dropdown-selector [dropdownButtonsConfig]="currencyButtonsConfig$" />
+      }
+    </div>
+
+    <div class="toolbar__language-section">
+      <span
+        class="toolbar__language-section--hover"
+        role="button"
+        tabindex="0"
+        (click)="onSecondMenuOpen()"
+        >English (US)</span
+      >
+      <img
+        class="toolbar__flag"
+        src="assets/header/flags/united-states-flag.jpg"
+        alt="United states flag"
+      />
+
+      @if (isSecondMenuOpen()) {
+        <et-dropdown-selector [dropdownButtonsConfig]="languagesButtonConfig$" />
+      }
+    </div>
+  </div>
+</div>
