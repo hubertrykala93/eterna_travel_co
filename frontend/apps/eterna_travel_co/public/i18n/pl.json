@@ -12,6 +12,10 @@
         "destinations": "Kierunki",
         "blog": "Blog",
         "contact-us": "Kontakt"
+      },
+      "middlebar": {
+        "login": "Zaloguj się",
+        "register": "Zarejestruj"
       }
     }
   }

@@ -16,5 +16,5 @@ export class NavComponent {
   private readonly navService = inject(NavService);
 
   protected readonly navigationButtons$: Observable<DropdownButtonConfig[]> =
-    this.navService.getNavigationButtons();
+    this.navService.getMainMenuNavigationButtons();
 }

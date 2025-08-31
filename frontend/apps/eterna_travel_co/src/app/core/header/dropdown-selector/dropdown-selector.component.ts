@@ -1,6 +1,5 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, inject, input, InputSignal, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { combineLatest, defer, map, Observable, tap } from 'rxjs';
 import { DropdownButtonConfig, MenuType } from '../header.model';
@@ -9,7 +8,7 @@ import { DropdownButtonConfig, MenuType } from '../header.model';
   selector: 'et-dropdown-selector',
   templateUrl: './dropdown-selector.component.html',
   styleUrl: './dropdown-selector.component.scss',
-  imports: [AsyncPipe, TranslatePipe, RouterLink, CommonModule],
+  imports: [AsyncPipe, TranslatePipe, CommonModule],
 })
 export class DropdownSelectorComponent implements OnInit {
   private readonly translateService = inject(TranslateService);

@@ -4,13 +4,21 @@
   </a>
 
   <ul class="middlebar__menu middlebar__menu--mobile">
-    <li class="middlebar__menu-item">
+    <li class="middlebar__menu-item" role="button" tabindex="0" (click)="onMainMenuOpen()">
       <i class="fa-solid fa-bars"></i>
     </li>
 
-    <li class="middlebar__menu-item">
+    @if (isMainMenuOpen()) {
+      <et-dropdown-selector [dropdownButtonsConfig]="mainMenuButtonConfig$" />
+    }
+
+    <li class="middlebar__menu-item" role="button" tabindex="0" (click)="onAuthMenuOpen()">
       <i class="fa-regular fa-user"></i>
     </li>
+
+    @if (isAuthMenuOpen()) {
+      <et-dropdown-selector [dropdownButtonsConfig]="authMenuButtonConfig$" />
+    }
   </ul>
 
   <et-nav />

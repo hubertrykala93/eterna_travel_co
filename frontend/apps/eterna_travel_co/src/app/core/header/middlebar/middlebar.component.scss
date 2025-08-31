@@ -16,6 +16,7 @@
   &__menu {
     display: flex;
     gap: 20px;
+    position: relative;
     font-size: 16px;
     color: var(--color-primary-80);
 
@@ -30,7 +31,7 @@
     }
 
     &--mobile {
-      @media (min-width: 576px) {
+      @media (min-width: 992px) {
         display: none;
       }
     }
@@ -39,7 +40,7 @@
       font-family: var(--font-workSans);
       font-weight: 600;
 
-      @media (max-width: 576px) {
+      @media (max-width: 992px) {
         display: none;
       }
     }

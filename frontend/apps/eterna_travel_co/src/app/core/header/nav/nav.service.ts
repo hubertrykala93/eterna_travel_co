@@ -6,7 +6,7 @@ import { DropdownButtonConfig, MenuType } from '../header.model';
   providedIn: 'root',
 })
 export class NavService {
-  public getNavigationButtons(): Observable<DropdownButtonConfig[]> {
+  public getMainMenuNavigationButtons(): Observable<DropdownButtonConfig[]> {
     return of([
       {
         key: 'core.header.nav.home',
@@ -43,6 +43,23 @@ export class NavService {
         defaultLabel: 'Contact Us',
         link: '/contact-us',
         type: MenuType.NAV,
+      },
+    ]);
+  }
+
+  public getAuthMenuNavigationButtons(): Observable<DropdownButtonConfig[]> {
+    return of([
+      {
+        key: 'core.header.middlebar.login',
+        defaultLabel: 'Login',
+        link: '/authentication/login',
+        type: MenuType.AUTHENTICATION,
+      },
+      {
+        key: 'core.header.middlebar.register',
+        defaultLabel: 'Register',
+        link: '/authentication/login',
+        type: MenuType.AUTHENTICATION,
       },
     ]);
   }
