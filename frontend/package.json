@@ -6,7 +6,19 @@
     "eterna-travel-co:start": "nx serve eterna_travel_co",
     "eterna-travel-co:build": "nx build eterna_travel_co",
     "eterna-travel-co:lint": "nx lint eterna_travel_co",
-    "eterna-travel-co:test": "nx test eterna_travel_co"
+    "eterna-travel-co:test": "nx test eterna_travel_co",
+
+    "currency-data-access:lint": "nx lint currency-data-access",
+    "currency-data-access:test": "nx test currency-data-access",
+
+    "language-data-access:lint": "nx lint language-data-access",
+    "language-data-access:test": "nx test language-data-access",
+
+    "shared-models:lint": "nx lint shared-models",
+    "shared-models:test": "nx test shared-models",
+
+    "shared-util:lint": "nx lint shared-util",
+    "shared-util:test": "nx test shared-util"
   },
   "private": true,
   "dependencies": {

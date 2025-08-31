@@ -2,9 +2,9 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
+import { NavigationButtonConfig } from '@shared/models';
+import { HeaderService } from '@shared/util';
 import { Observable } from 'rxjs';
-import { DropdownButtonConfig } from '../header.model';
-import { NavService } from './nav.service';
 
 @Component({
   selector: 'et-nav',
@@ -13,8 +13,8 @@ import { NavService } from './nav.service';
   imports: [AsyncPipe, RouterLink, TranslatePipe],
 })
 export class NavComponent {
-  private readonly navService = inject(NavService);
+  private readonly headerService = inject(HeaderService);
 
-  protected readonly navigationButtons$: Observable<DropdownButtonConfig[]> =
-    this.navService.getMainMenuNavigationButtons();
+  protected readonly navigationButtons$: Observable<NavigationButtonConfig[]> =
+    this.headerService.getMainMenuNavigationButtons();
 }

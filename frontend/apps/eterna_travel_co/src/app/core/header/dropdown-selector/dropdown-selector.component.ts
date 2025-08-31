@@ -1,8 +1,8 @@
 import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component, inject, input, InputSignal, OnInit } from '@angular/core';
+import { Component, inject, input, InputSignal } from '@angular/core';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { combineLatest, defer, map, Observable, tap } from 'rxjs';
-import { DropdownButtonConfig, MenuType } from '../header.model';
+import { MenuType, NavigationButtonConfig } from '@shared/models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'et-dropdown-selector',
@@ -10,34 +10,17 @@ import { DropdownButtonConfig, MenuType } from '../header.model';
   styleUrl: './dropdown-selector.component.scss',
   imports: [AsyncPipe, TranslatePipe, CommonModule],
 })
-export class DropdownSelectorComponent implements OnInit {
+export class DropdownSelectorComponent {
   private readonly translateService = inject(TranslateService);
 
-  public dropdownButtonsConfig: InputSignal<Observable<DropdownButtonConfig[]>> =
-    input.required<Observable<DropdownButtonConfig[]>>();
+  public navigationButtonsConfig: InputSignal<Observable<NavigationButtonConfig[]>> =
+    input.required<Observable<NavigationButtonConfig[]>>();
 
-  protected readonly isNavbar$: Observable<boolean> = defer(() =>
-    this.dropdownButtonsConfig().pipe(
-      map((buttons) => buttons.some((button) => button.type === MenuType.NAV)),
-    ),
-  );
-
-  protected onChange(button: DropdownButtonConfig): void {
+  protected onChange(button: NavigationButtonConfig): void {
     if (button.type === MenuType.LANGUAGE) {
       if (button.lang) {
         this.translateService.use(button.lang);
       }
     }
-  }
-
-  ngOnInit(): void {
-    combineLatest([this.dropdownButtonsConfig(), this.isNavbar$])
-      .pipe(
-        tap(([buttons, isNavbar]) => {
-          console.log('Buttons ->', buttons);
-          console.log('Is Navbar -> ', isNavbar);
-        }),
-      )
-      .subscribe();
   }
 }

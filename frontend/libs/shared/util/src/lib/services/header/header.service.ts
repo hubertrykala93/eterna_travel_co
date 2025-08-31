@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
+import { MenuType, NavigationButtonConfig } from '@shared/models';
 import { Observable, of } from 'rxjs';
-import { DropdownButtonConfig, MenuType } from '../header.model';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NavService {
-  public getMainMenuNavigationButtons(): Observable<DropdownButtonConfig[]> {
+export class HeaderService {
+  public getMainMenuNavigationButtons(): Observable<NavigationButtonConfig[]> {
     return of([
       {
         key: 'core.header.nav.home',
@@ -47,7 +47,7 @@ export class NavService {
     ]);
   }
 
-  public getAuthMenuNavigationButtons(): Observable<DropdownButtonConfig[]> {
+  public getAuthMenuNavigationButtons(): Observable<NavigationButtonConfig[]> {
     return of([
       {
         key: 'core.header.middlebar.login',
@@ -60,6 +60,48 @@ export class NavService {
         defaultLabel: 'Register',
         link: '/authentication/login',
         type: MenuType.AUTHENTICATION,
+      },
+    ]);
+  }
+
+  public getCurrencyMenuNavigationButtons(): Observable<NavigationButtonConfig[]> {
+    return of([
+      {
+        defaultLabel: 'USD',
+        type: MenuType.CURRENCY,
+      },
+      {
+        defaultLabel: 'EUR',
+        type: MenuType.CURRENCY,
+      },
+      {
+        defaultLabel: 'PLN',
+        type: MenuType.CURRENCY,
+      },
+      {
+        defaultLabel: 'GBP',
+        type: MenuType.CURRENCY,
+      },
+    ]);
+  }
+
+  public getLanguageMenuNavigationButtons(): Observable<NavigationButtonConfig[]> {
+    return of([
+      {
+        key: 'core.header.toolbar.english-us',
+        defaultLabel: 'English (US)',
+        lang: 'en',
+        iconUrl: 'assets/header/flags/united-states-flag.jpg',
+        alt: 'United states flag',
+        type: MenuType.LANGUAGE,
+      },
+      {
+        key: 'core.header.toolbar.polish-pl',
+        defaultLabel: 'Polish (PL)',
+        lang: 'pl',
+        iconUrl: 'assets/header/flags/poland-flag.jpg',
+        alt: 'Poland flag',
+        type: MenuType.LANGUAGE,
       },
     ]);
   }

@@ -9,7 +9,7 @@
     </li>
 
     @if (isMainMenuOpen()) {
-      <et-dropdown-selector [dropdownButtonsConfig]="mainMenuButtonConfig$" />
+      <et-dropdown-selector [navigationButtonsConfig]="mainMenuButtonConfig$" />
     }
 
     <li class="middlebar__menu-item" role="button" tabindex="0" (click)="onAuthMenuOpen()">
@@ -17,7 +17,7 @@
     </li>
 
     @if (isAuthMenuOpen()) {
-      <et-dropdown-selector [dropdownButtonsConfig]="authMenuButtonConfig$" />
+      <et-dropdown-selector [navigationButtonsConfig]="authMenuButtonConfig$" />
     }
   </ul>
 

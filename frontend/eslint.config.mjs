@@ -24,7 +24,36 @@ export default [
           depConstraints: [
             {
               sourceTag: 'type:app',
-              onlyDependOnLibsWithTags: ['type:api'],
+              onlyDependOnLibsWithTags: ['*'],
+            },
+            {
+              sourceTag: 'type:data-access',
+              onlyDependOnLibsWithTags: [
+                'type:data-access',
+                'type:models',
+                'type:util',
+                'scope:shared',
+              ],
+            },
+            {
+              sourceTag: 'type:models',
+              onlyDependOnLibsWithTags: ['type:models', 'type:util', 'scope:shared'],
+            },
+            {
+              sourceTag: 'type:util',
+              onlyDependOnLibsWithTags: ['type:util', 'type:models', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:shared',
+              onlyDependOnLibsWithTags: ['type:models', 'type:util', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:currency',
+              onlyDependOnLibsWithTags: ['type:models', 'scope:currency', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:language',
+              onlyDependOnLibsWithTags: ['type:models', 'scope:language', 'scope:shared'],
             },
           ],
         },

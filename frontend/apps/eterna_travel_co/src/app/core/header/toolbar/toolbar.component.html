@@ -57,7 +57,7 @@
       </div>
 
       @if (isMenuOpen()) {
-        <et-dropdown-selector [dropdownButtonsConfig]="currencyButtonsConfig$" />
+        <et-dropdown-selector [navigationButtonsConfig]="currencyNavigationButtons$" />
       }
     </div>
 
@@ -76,7 +76,7 @@
       />
 
       @if (isSecondMenuOpen()) {
-        <et-dropdown-selector [dropdownButtonsConfig]="languagesButtonConfig$" />
+        <et-dropdown-selector [navigationButtonsConfig]="languageNavigationButtons$" />
       }
     </div>
   </div>
