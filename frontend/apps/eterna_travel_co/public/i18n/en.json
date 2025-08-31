@@ -2,8 +2,8 @@
   "core": {
     "header": {
       "toolbar": {
-        "polish-pl": "Polish (PL)",
-        "english-us": "English (US)"
+        "language-pl": "Polish (PL)",
+        "language-en": "English (US)"
       },
       "nav": {
         "home": "Home",

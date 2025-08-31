@@ -49,15 +49,15 @@
       class="toolbar__language-section toolbar__language-section--spacing-left"
       role="button"
       tabindex="0"
-      (click)="onMenuOpen()"
+      (click)="onCurrencyMenuOpen()"
     >
       <div class="toolbar__language-section toolbar__language-section--hover">
-        <span>EUR</span>
-        <i class="fa-solid fa-chevron-down"></i>
+        <span>{{ selectedCurrency() }}</span>
+        <i [class]="'fa-solid fa-chevron-' + (isCurrencyMenuOpen() ? 'up' : 'down')"></i>
       </div>
 
-      @if (isMenuOpen()) {
-        <et-dropdown-selector [navigationButtonsConfig]="currencyNavigationButtons$" />
+      @if (isCurrencyMenuOpen()) {
+        <et-dropdown-selector [menuType]="MenuType.CURRENCY" (menuClosed)="onMenuClosed()" />
       }
     </div>
 
@@ -66,17 +66,18 @@
         class="toolbar__language-section--hover"
         role="button"
         tabindex="0"
-        (click)="onSecondMenuOpen()"
-        >English (US)</span
+        (click)="onLanguageMenuOpen()"
       >
+        {{ 'core.header.toolbar.language-' + selectedLanguage() | translate }}
+      </span>
       <img
         class="toolbar__flag"
-        src="assets/header/flags/united-states-flag.jpg"
         alt="United states flag"
+        [src]="'assets/header/flags/' + selectedLanguage() + '-flag.jpg'"
       />
 
-      @if (isSecondMenuOpen()) {
-        <et-dropdown-selector [navigationButtonsConfig]="languageNavigationButtons$" />
+      @if (isLanguageMenuOpen()) {
+        <et-dropdown-selector [menuType]="MenuType.LANGUAGE" (menuClosed)="onMenuClosed()" />
       }
     </div>
   </div>

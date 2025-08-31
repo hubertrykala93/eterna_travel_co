@@ -7,6 +7,7 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideAppInitializer } from './app.providers';
 import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -21,7 +22,8 @@ export const appConfig: ApplicationConfig = {
         suffix: '.json',
       }),
       fallbackLang: 'en',
-      lang: 'pl',
+      lang: 'en',
     }),
+    provideAppInitializer(),
   ],
 };

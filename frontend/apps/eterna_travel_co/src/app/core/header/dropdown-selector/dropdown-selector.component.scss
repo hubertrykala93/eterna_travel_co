@@ -35,6 +35,12 @@
     &:hover {
       color: var(--color-secondary);
     }
+
+    &-label {
+      &--active {
+        color: var(--color-secondary);
+      }
+    }
   }
 
   &__flag {

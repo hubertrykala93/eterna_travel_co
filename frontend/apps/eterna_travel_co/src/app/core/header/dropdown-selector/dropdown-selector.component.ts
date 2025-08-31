@@ -1,26 +1,53 @@
-import { AsyncPipe, CommonModule } from '@angular/common';
-import { Component, inject, input, InputSignal } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
+import { ACTIVE_CURRENCY } from '@currency/data-access';
+import { ACTIVE_LANGUAGE } from '@language/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { MenuType, NavigationButtonConfig } from '@shared/models';
-import { Observable } from 'rxjs';
+import { Currency, DropDownSelectorButtonConfig, LanguageCode, MenuType } from '@shared/models';
+import { HeaderService, StorageService } from '@shared/util';
+import { defer, Observable } from 'rxjs';
 
 @Component({
   selector: 'et-dropdown-selector',
   templateUrl: './dropdown-selector.component.html',
   styleUrl: './dropdown-selector.component.scss',
-  imports: [AsyncPipe, TranslatePipe, CommonModule],
+  imports: [AsyncPipe, TranslatePipe],
 })
 export class DropdownSelectorComponent {
+  private readonly headerService = inject(HeaderService);
+  private readonly storageService = inject(StorageService);
   private readonly translateService = inject(TranslateService);
 
-  public navigationButtonsConfig: InputSignal<Observable<NavigationButtonConfig[]>> =
-    input.required<Observable<NavigationButtonConfig[]>>();
+  public menuType: InputSignal<MenuType> = input.required<MenuType>();
 
-  protected onChange(button: NavigationButtonConfig): void {
+  public menuClosed: OutputEmitterRef<void> = output<void>();
+
+  protected selectedCurrency = this.storageService.getSignal<Currency>(
+    ACTIVE_CURRENCY,
+    Currency.USD,
+  );
+  protected selectedLanguage = this.storageService.getSignal<LanguageCode>(
+    ACTIVE_LANGUAGE,
+    LanguageCode.EN,
+  );
+
+  protected readonly MenuType = MenuType;
+
+  protected readonly dropdownNavigationButtonsConfig$: Observable<DropDownSelectorButtonConfig[]> =
+    defer(() => this.headerService.getFilteredDropDownNavigationButtons(this.menuType()));
+
+  protected onChange(button: DropDownSelectorButtonConfig): void {
+    this.menuClosed.emit();
+
+    if (!button.value) {
+      return;
+    }
+
     if (button.type === MenuType.LANGUAGE) {
-      if (button.lang) {
-        this.translateService.use(button.lang);
-      }
+      this.storageService.setItem(ACTIVE_LANGUAGE, button.value);
+      this.translateService.use(button.value);
+    } else {
+      this.storageService.setItem(ACTIVE_CURRENCY, button.value);
     }
   }
 }

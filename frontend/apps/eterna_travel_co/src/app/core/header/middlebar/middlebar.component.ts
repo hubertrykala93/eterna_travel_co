@@ -1,8 +1,7 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NavigationButtonConfig } from '@shared/models';
-import { HeaderService } from '@shared/util';
-import { Observable } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
+import { MenuType } from '@shared/models';
 import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
 import { NavComponent } from '../nav/nav.component';
 
@@ -10,18 +9,13 @@ import { NavComponent } from '../nav/nav.component';
   selector: 'et-middlebar',
   templateUrl: './middlebar.component.html',
   styleUrl: './middlebar.component.scss',
-  imports: [RouterLink, NavComponent, DropdownSelectorComponent],
+  imports: [RouterLink, NavComponent, DropdownSelectorComponent, TranslatePipe],
 })
 export class MiddlebarComponent {
-  private readonly headerService = inject(HeaderService);
   protected isMainMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
   protected isAuthMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
 
-  protected readonly mainMenuButtonConfig$: Observable<NavigationButtonConfig[]> =
-    this.headerService.getMainMenuNavigationButtons();
-
-  protected readonly authMenuButtonConfig$: Observable<NavigationButtonConfig[]> =
-    this.headerService.getAuthMenuNavigationButtons();
+  protected readonly MenuType = MenuType;
 
   protected onMainMenuOpen(): void {
     this.isMainMenuOpen.set(!this.isMainMenuOpen());
@@ -29,5 +23,10 @@ export class MiddlebarComponent {
 
   protected onAuthMenuOpen(): void {
     this.isAuthMenuOpen.set(!this.isAuthMenuOpen());
+  }
+
+  protected onMenuClosed(): void {
+    this.isMainMenuOpen.set(false);
+    this.isAuthMenuOpen.set(false);
   }
 }

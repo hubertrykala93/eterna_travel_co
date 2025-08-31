@@ -9,7 +9,7 @@
     </li>
 
     @if (isMainMenuOpen()) {
-      <et-dropdown-selector [navigationButtonsConfig]="mainMenuButtonConfig$" />
+      <et-dropdown-selector [menuType]="MenuType.MAIN" (menuClosed)="onMenuClosed()" />
     }
 
     <li class="middlebar__menu-item" role="button" tabindex="0" (click)="onAuthMenuOpen()">
@@ -17,7 +17,7 @@
     </li>
 
     @if (isAuthMenuOpen()) {
-      <et-dropdown-selector [navigationButtonsConfig]="authMenuButtonConfig$" />
+      <et-dropdown-selector [menuType]="MenuType.AUTHENTICATION" (menuClosed)="onMenuClosed()" />
     }
   </ul>
 
@@ -25,13 +25,17 @@
 
   <ul class="middlebar__menu middlebar__menu--desktop middlebar__menu--spacing">
     <li class="middlebar__menu-item">
-      <a routerLink="/authentication/login">Login</a>
+      <a routerLink="/authentication/login">{{
+        ('core.header.middlebar.login' | translate) || 'Login'
+      }}</a>
     </li>
 
     <li>/</li>
 
     <li class="middlebar__menu-item">
-      <a routerLink="/authentication/register">Register</a>
+      <a routerLink="/authentication/register">{{
+        ('core.header.middlebar.register' | translate) || 'Register'
+      }}</a>
     </li>
   </ul>
 </div>

@@ -1,9 +1,11 @@
-@let buttons = navigationButtonsConfig() | async;
+@let buttons = dropdownNavigationButtonsConfig$ | async;
 
 <ul class="dropdown">
   @for (button of buttons; track $index) {
     <li class="dropdown__item" role="button" tabindex="0" (click)="onChange(button)">
-      {{ (button.key | translate) || button.defaultLabel }}
+      <span>
+        {{ (button.key | translate) || button.defaultLabel }}
+      </span>
 
       @if (button.iconUrl) {
         <img class="dropdown__flag" [src]="button.iconUrl" [alt]="button.alt" />

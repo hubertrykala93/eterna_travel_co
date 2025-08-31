@@ -67,6 +67,7 @@ export default [
       indent: ['error', 2],
       'no-multiple-empty-lines': ['error', { max: 1 }],
 
+      '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
@@ -80,6 +81,7 @@ export default [
       ],
       'prefer-const': 'error',
       'no-console': 'warn',
+      'no-unused-expressions': 'off',
     },
   },
   {

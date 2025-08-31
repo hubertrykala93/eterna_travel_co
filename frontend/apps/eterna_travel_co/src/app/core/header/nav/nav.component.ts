@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { NavigationButtonConfig } from '@shared/models';
+import { DropDownSelectorButtonConfig, MenuType } from '@shared/models';
 import { HeaderService } from '@shared/util';
 import { Observable } from 'rxjs';
 
@@ -15,6 +15,6 @@ import { Observable } from 'rxjs';
 export class NavComponent {
   private readonly headerService = inject(HeaderService);
 
-  protected readonly navigationButtons$: Observable<NavigationButtonConfig[]> =
-    this.headerService.getMainMenuNavigationButtons();
+  protected navigationButtons$: Observable<DropDownSelectorButtonConfig[]> =
+    this.headerService.getFilteredDropDownNavigationButtons(MenuType.MAIN);
 }
