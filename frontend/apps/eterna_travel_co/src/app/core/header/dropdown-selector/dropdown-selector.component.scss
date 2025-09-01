@@ -36,6 +36,11 @@
       color: var(--color-secondary);
     }
 
+    &--disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
     &-label {
       &--active {
         color: var(--color-secondary);

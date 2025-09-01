@@ -2,7 +2,15 @@
 
 <ul class="dropdown">
   @for (button of buttons; track $index) {
-    <li class="dropdown__item" role="button" tabindex="0" (click)="onChange(button)">
+    <li
+      class="dropdown__item"
+      role="button"
+      tabindex="0"
+      [class.dropdown__item--disabled]="
+        button.defaultLabel === selectedCurrency() || button.value === selectedLanguage()
+      "
+      (click)="onChange(button)"
+    >
       <span
         [class.dropdown__item-label--active]="
           button.defaultLabel === selectedCurrency() || button.value === selectedLanguage()
