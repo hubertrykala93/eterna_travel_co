@@ -3,7 +3,11 @@
 <ul class="dropdown">
   @for (button of buttons; track $index) {
     <li class="dropdown__item" role="button" tabindex="0" (click)="onChange(button)">
-      <span>
+      <span
+        [class.dropdown__item-label--active]="
+          button.defaultLabel === selectedCurrency() || button.value === selectedLanguage()
+        "
+      >
         {{ (button.key | translate) || button.defaultLabel }}
       </span>
 

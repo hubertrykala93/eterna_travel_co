@@ -26,6 +26,7 @@ export class DropdownSelectorComponent {
     ACTIVE_CURRENCY,
     Currency.USD,
   );
+
   protected selectedLanguage = this.storageService.getSignal<LanguageCode>(
     ACTIVE_LANGUAGE,
     LanguageCode.EN,
