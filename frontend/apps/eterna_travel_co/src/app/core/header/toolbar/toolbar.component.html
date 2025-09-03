@@ -1,0 +1,84 @@
+<div class="toolbar">
+  <ul class="toolbar__contact-section toolbar__contact-section--mobile">
+    <li class="toolbar__menu-item">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="toolbar__icon fa-brands fa-square-facebook"></i>
+      </a>
+    </li>
+
+    <li class="toolbar__menu-item">
+      <a href="https://www.instagram.com/" target="_blank">
+        <i class="toolbar__icon fa-brands fa-square-instagram"></i>
+      </a>
+    </li>
+
+    <li class="toolbar__menu-item">
+      <a href="https://x.com/" target="_blank">
+        <i class="toolbar__icon fa-brands fa-square-x-twitter"></i>
+      </a>
+    </li>
+  </ul>
+
+  <div class="toolbar__contact-section toolbar__contact-section--desktop">
+    <span>+1 (213) 555-4820</span>
+    <span class="toolbar__email">contact&#64;eternatravelco.com</span>
+  </div>
+
+  <div class="toolbar__locale-section">
+    <ul class="toolbar__contact-section toolbar__contact-section--desktop">
+      <li class="toolbar__menu-item">
+        <a href="https://www.facebook.com/" target="_blank">
+          <i class="toolbar__icon fa-brands fa-square-facebook"></i>
+        </a>
+      </li>
+
+      <li class="toolbar__menu-item">
+        <a href="https://www.instagram.com/" target="_blank">
+          <i class="toolbar__icon fa-brands fa-square-instagram"></i>
+        </a>
+      </li>
+
+      <li class="toolbar__menu-item">
+        <a href="https://x.com/" target="_blank">
+          <i class="toolbar__icon fa-brands fa-square-x-twitter"></i>
+        </a>
+      </li>
+    </ul>
+
+    <div
+      class="toolbar__language-section toolbar__language-section--spacing-left"
+      role="button"
+      tabindex="0"
+      (click)="onCurrencyMenuOpen()"
+    >
+      <div class="toolbar__language-section toolbar__language-section--hover">
+        <span>{{ selectedCurrency() }}</span>
+        <i [class]="'fa-solid fa-chevron-' + (isCurrencyMenuOpen() ? 'up' : 'down')"></i>
+      </div>
+
+      @if (isCurrencyMenuOpen()) {
+        <et-dropdown-selector [menuType]="MenuType.CURRENCY" (menuClosed)="onMenuClosed()" />
+      }
+    </div>
+
+    <div class="toolbar__language-section">
+      <span
+        class="toolbar__language-section--hover"
+        role="button"
+        tabindex="0"
+        (click)="onLanguageMenuOpen()"
+      >
+        {{ 'core.header.toolbar.language-' + selectedLanguage() | translate }}
+      </span>
+      <img
+        class="toolbar__flag"
+        alt="United states flag"
+        [src]="'assets/header/flags/' + selectedLanguage() + '-flag.jpg'"
+      />
+
+      @if (isLanguageMenuOpen()) {
+        <et-dropdown-selector [menuType]="MenuType.LANGUAGE" (menuClosed)="onMenuClosed()" />
+      }
+    </div>
+  </div>
+</div>

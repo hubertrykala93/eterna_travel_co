@@ -1,0 +1,27 @@
+@let buttons = dropdownNavigationButtonsConfig$ | async;
+
+<ul class="dropdown">
+  @for (button of buttons; track $index) {
+    <li
+      class="dropdown__item"
+      role="button"
+      tabindex="0"
+      [class.dropdown__item--disabled]="
+        button.defaultLabel === selectedCurrency() || button.value === selectedLanguage()
+      "
+      (click)="onChange(button)"
+    >
+      <span
+        [class.dropdown__item-label--active]="
+          button.defaultLabel === selectedCurrency() || button.value === selectedLanguage()
+        "
+      >
+        {{ (button.key | translate) || button.defaultLabel }}
+      </span>
+
+      @if (button.iconUrl) {
+        <img class="dropdown__flag" [src]="button.iconUrl" [alt]="button.alt" />
+      }
+    </li>
+  }
+</ul>

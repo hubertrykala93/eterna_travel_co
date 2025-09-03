@@ -2,7 +2,7 @@
   "name": "eterna_travel_co",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "app",
+  "prefix": "et",
   "sourceRoot": "apps/eterna_travel_co/src",
   "tags": ["type:app"],
   "targets": {

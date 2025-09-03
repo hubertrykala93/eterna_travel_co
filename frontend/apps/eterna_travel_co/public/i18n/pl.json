@@ -1,0 +1,22 @@
+{
+  "core": {
+    "header": {
+      "toolbar": {
+        "language-pl": "Polski (PL)",
+        "language-en": "Angielski (US)"
+      },
+      "nav": {
+        "home": "Home",
+        "about": "O Nas",
+        "tours": "Wycieczki",
+        "destinations": "Kierunki",
+        "blog": "Blog",
+        "contact-us": "Kontakt"
+      },
+      "middlebar": {
+        "login": "Zaloguj się",
+        "register": "Zarejestruj"
+      }
+    }
+  }
+}

@@ -24,7 +24,36 @@ export default [
           depConstraints: [
             {
               sourceTag: 'type:app',
-              onlyDependOnLibsWithTags: ['type:api'],
+              onlyDependOnLibsWithTags: ['*'],
+            },
+            {
+              sourceTag: 'type:data-access',
+              onlyDependOnLibsWithTags: [
+                'type:data-access',
+                'type:models',
+                'type:util',
+                'scope:shared',
+              ],
+            },
+            {
+              sourceTag: 'type:models',
+              onlyDependOnLibsWithTags: [],
+            },
+            {
+              sourceTag: 'type:util',
+              onlyDependOnLibsWithTags: ['type:util', 'type:models', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:shared',
+              onlyDependOnLibsWithTags: ['type:models', 'type:util', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:currency',
+              onlyDependOnLibsWithTags: ['type:models', 'scope:currency', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:language',
+              onlyDependOnLibsWithTags: ['type:models', 'scope:language', 'scope:shared'],
             },
           ],
         },
@@ -38,6 +67,7 @@ export default [
       indent: ['error', 2],
       'no-multiple-empty-lines': ['error', { max: 1 }],
 
+      '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
@@ -49,21 +79,9 @@ export default [
           fixMixedExportsWithInlineTypeSpecifier: true,
         },
       ],
-      '@typescript-eslint/typedef': [
-        'warn',
-        {
-          arrayDestructuring: true,
-          arrowParameter: true,
-          memberVariableDeclaration: true,
-          objectDestructuring: true,
-          parameter: true,
-          propertyDeclaration: true,
-          variableDeclaration: false,
-          variableDeclarationIgnoreFunction: false,
-        },
-      ],
       'prefer-const': 'error',
       'no-console': 'warn',
+      'no-unused-expressions': 'off',
     },
   },
   {
