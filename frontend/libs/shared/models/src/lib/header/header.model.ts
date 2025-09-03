@@ -1,5 +1,6 @@
-import { Currency } from '../currency/currency.model';
-import { LanguageCode } from '../language/language.model';
+import { Currency } from '../currency/currency.enum';
+import { LanguageCode } from '../language/language.enum';
+import { MenuType } from './header.enum';
 
 export interface DropDownSelectorButtonConfig {
   key?: string;
@@ -9,11 +10,4 @@ export interface DropDownSelectorButtonConfig {
   url?: string;
   value?: Currency | LanguageCode;
   type: MenuType;
-}
-
-export enum MenuType {
-  CURRENCY = 'Currency',
-  LANGUAGE = 'Language',
-  MAIN = 'Main',
-  AUTHENTICATION = 'Authentication',
 }

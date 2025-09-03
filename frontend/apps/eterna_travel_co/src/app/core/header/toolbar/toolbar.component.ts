@@ -3,7 +3,7 @@ import { ACTIVE_CURRENCY } from '@currency/data-access';
 import { ACTIVE_LANGUAGE } from '@language/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
 import { Currency, LanguageCode, MenuType } from '@shared/models';
-import { StorageService } from '@shared/util';
+import { StorageService } from '@shared/util/services';
 import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
 
 @Component({

@@ -37,7 +37,7 @@ export default [
             },
             {
               sourceTag: 'type:models',
-              onlyDependOnLibsWithTags: ['type:models', 'type:util', 'scope:shared'],
+              onlyDependOnLibsWithTags: [],
             },
             {
               sourceTag: 'type:util',

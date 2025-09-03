@@ -3,7 +3,7 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { DropDownSelectorButtonConfig, MenuType } from '@shared/models';
-import { HeaderService } from '@shared/util';
+import { HeaderService } from '@shared/util/services';
 import { Observable } from 'rxjs';
 
 @Component({

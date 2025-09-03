@@ -19,8 +19,15 @@ export class StorageService {
 
   public getItem<T>(key: string): T | null {
     const value = sessionStorage.getItem(key);
+    if (!value) {
+      return null;
+    }
 
-    return value ? (JSON.parse(value) as T) : null;
+    try {
+      return JSON.parse(value) as T;
+    } catch {
+      return value as unknown as T;
+    }
   }
 
   public setItem<T>(key: string, value: T): void {

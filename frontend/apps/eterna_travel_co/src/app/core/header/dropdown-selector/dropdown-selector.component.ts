@@ -4,7 +4,7 @@ import { ACTIVE_CURRENCY } from '@currency/data-access';
 import { ACTIVE_LANGUAGE } from '@language/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { Currency, DropDownSelectorButtonConfig, LanguageCode, MenuType } from '@shared/models';
-import { HeaderService, StorageService } from '@shared/util';
+import { HeaderService, StorageService } from '@shared/util/services';
 import { defer, Observable } from 'rxjs';
 
 @Component({
