@@ -2,7 +2,7 @@
   position: absolute;
   top: 100%;
   right: 0;
-  z-index: 1;
+  z-index: 10;
 }
 
 :host(navbar) {
@@ -11,7 +11,7 @@
 
 .dropdown {
   width: max-content;
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem;
   border: var(--border-color-05);
   border-radius: var(--radius-medium);
   background: white;
@@ -20,8 +20,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 10px;
+    gap: 1rem;
+    margin-bottom: 0.625rem;
 
     font-size: var(--text-body-small-size);
     cursor: pointer;
@@ -49,7 +49,7 @@
   }
 
   &__flag {
-    width: 20px;
+    width: 1.25rem;
     border: var(--border-color-10);
   }
 }

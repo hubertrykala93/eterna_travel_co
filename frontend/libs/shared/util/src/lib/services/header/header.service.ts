@@ -55,37 +55,37 @@ export class HeaderService {
       {
         key: 'core.header.nav.home',
         defaultLabel: 'Home',
-        link: '/',
+        url: '/',
         type: MenuType.MAIN,
       },
       {
         key: 'core.header.nav.about',
         defaultLabel: 'About',
-        link: '/about',
+        url: '/about',
         type: MenuType.MAIN,
       },
       {
         key: 'core.header.nav.tours',
         defaultLabel: 'Tours',
-        link: '/tours',
+        url: '/tours',
         type: MenuType.MAIN,
       },
       {
         key: 'core.header.nav.destinations',
         defaultLabel: 'Destinations',
-        link: '/destinations',
+        url: '/destinations',
         type: MenuType.MAIN,
       },
       {
         key: 'core.header.nav.blog',
         defaultLabel: 'Blog',
-        link: '/blog',
+        url: '/blog',
         type: MenuType.MAIN,
       },
       {
         key: 'core.header.nav.contact-us',
         defaultLabel: 'Contact Us',
-        link: '/contact-us',
+        url: '/contact-us',
         type: MenuType.MAIN,
       },
 
@@ -93,13 +93,13 @@ export class HeaderService {
       {
         key: 'core.header.middlebar.login',
         defaultLabel: 'Login',
-        link: '/authentication/login',
+        url: '/authentication/login',
         type: MenuType.AUTHENTICATION,
       },
       {
         key: 'core.header.middlebar.register',
         defaultLabel: 'Register',
-        link: '/authentication/login',
+        url: '/authentication/login',
         type: MenuType.AUTHENTICATION,
       },
     ]);

@@ -1,5 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject, input, InputSignal, output, OutputEmitterRef } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { ACTIVE_CURRENCY } from '@currency/data-access';
 import { ACTIVE_LANGUAGE } from '@language/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
@@ -11,7 +12,7 @@ import { defer, Observable } from 'rxjs';
   selector: 'et-dropdown-selector',
   templateUrl: './dropdown-selector.component.html',
   styleUrl: './dropdown-selector.component.scss',
-  imports: [AsyncPipe, TranslatePipe],
+  imports: [AsyncPipe, TranslatePipe, RouterLink],
 })
 export class DropdownSelectorComponent {
   private readonly headerService = inject(HeaderService);

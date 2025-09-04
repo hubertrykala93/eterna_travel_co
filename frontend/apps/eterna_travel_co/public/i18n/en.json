@@ -17,6 +17,12 @@
         "login": "Login",
         "register": "Register"
       }
+    },
+    "hero": {
+      "save-off": "Save 15% off in Worldwide",
+      "travel": "Travel & Adventures",
+      "find": "Find awesome hotel, tour, car and activities in London",
+      "home": "Home"
     }
   }
 }
