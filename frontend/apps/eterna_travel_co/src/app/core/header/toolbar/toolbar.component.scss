@@ -12,7 +12,7 @@
   }
 
   &__contact-section {
-    gap: 12px;
+    gap: 0.75rem;
 
     &--mobile {
       @media (min-width: 576px) {
@@ -37,28 +37,28 @@
   }
 
   &__icon {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   &__email {
     border-left: var(--border-color-40);
-    padding-left: 12px;
+    padding-left: 0.75rem;
   }
 
   &__locale-section {
     align-items: center;
-    gap: 20px;
+    gap: 1.25rem;
   }
 
   &__language-section {
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     position: relative;
 
     &--spacing-left {
       @media (min-width: 576px) {
         border-left: var(--border-color-40);
-        padding-left: 20px;
+        padding-left: 1.25rem;
       }
     }
 
@@ -73,7 +73,7 @@
   }
 
   &__flag {
-    width: 25px;
+    width: 1.5625rem;
     object-fit: contain;
   }
 }

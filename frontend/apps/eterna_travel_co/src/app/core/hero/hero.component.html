@@ -1,0 +1,38 @@
+@let isHomePage = isHomePage$ | async;
+@let pageTitle = pageTitle$ | async;
+
+<section class="hero">
+  <div class="hero__content">
+    @if (isHomePage) {
+      <p class="hero__header">
+        {{ ('core.hero.save-off' | translate) || 'Save 15% off in Worldwide' }}
+      </p>
+    }
+    <p class="hero__title">
+      {{
+        isHomePage
+          ? ('core.hero.travel' | translate) || 'Travel & Adventures'
+          : ((pageTitle | transformUrl: 'core.header.nav' | translate) || pageTitle | transformUrl)
+      }}
+    </p>
+    <a
+      class="hero__subtitle"
+      [class.hero__subtitle--clickable]="!isHomePage"
+      [routerLink]="!isHomePage ? '/' : null"
+      >{{
+        isHomePage
+          ? ('core.hero.find' | translate) ||
+            'Find awesome hotel, tour, car and activities in London'
+          : ('core.hero.home' | translate) || 'Home'
+      }}</a
+    >
+
+    @if (!isHomePage) {
+      <span class="hero__subtitle hero__subtitle--spacing">/</span>
+    }
+
+    <span class="hero__subtitle hero__subtitle--active">{{
+      (pageTitle | transformUrl: 'core.header.nav' | translate) || pageTitle | transformUrl
+    }}</span>
+  </div>
+</section>

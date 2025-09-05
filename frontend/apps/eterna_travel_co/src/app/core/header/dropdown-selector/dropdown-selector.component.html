@@ -9,6 +9,7 @@
       [class.dropdown__item--disabled]="
         button.defaultLabel === selectedCurrency() || button.value === selectedLanguage()
       "
+      [routerLink]="button.url"
       (click)="onChange(button)"
     >
       <span

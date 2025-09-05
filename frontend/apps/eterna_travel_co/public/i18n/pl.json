@@ -17,6 +17,12 @@
         "login": "Zaloguj się",
         "register": "Zarejestruj"
       }
+    },
+    "hero": {
+      "save-off": "Oszczędź 15% na podróżach",
+      "travel": "Podróże i przygody",
+      "find": "Hotele, wycieczki, samochody i atrakcje w Londynie",
+      "home": "Strona główna"
     }
   }
 }
