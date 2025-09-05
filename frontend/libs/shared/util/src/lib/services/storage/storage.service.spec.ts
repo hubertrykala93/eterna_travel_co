@@ -2,8 +2,8 @@ import { TestBed, inject } from '@angular/core/testing';
 import { StorageService } from './storage.service';
 
 describe('Service: Storage', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       providers: [StorageService],
     });
   });

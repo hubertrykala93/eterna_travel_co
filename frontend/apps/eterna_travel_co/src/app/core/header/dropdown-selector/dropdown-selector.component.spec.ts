@@ -6,7 +6,7 @@ describe('DropdownSelectorComponent', () => {
   let fixture: ComponentFixture<DropdownSelectorComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       declarations: [DropdownSelectorComponent],
     }).compileComponents();
   });

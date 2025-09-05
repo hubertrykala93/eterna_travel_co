@@ -19,7 +19,8 @@
       "@language/data-access": ["libs/language/data-access/src/index.ts"],
       "@shared/models": ["libs/shared/models/src/index.ts"],
       "@shared/util/pipes": ["libs/shared/util/src/lib/pipes/index.ts"],
-      "@shared/util/services": ["libs/shared/util/src/lib/services/index.ts"]
+      "@shared/util/services": ["libs/shared/util/src/lib/services/index.ts"],
+      "@shared/ui": ["libs/shared/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
