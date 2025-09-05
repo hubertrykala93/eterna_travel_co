@@ -6,7 +6,7 @@ describe('MiddlebarComponent', () => {
   let fixture: ComponentFixture<MiddlebarComponent>;
 
   beforeEach(async () => {
-    TestBed.configureTestingModule({
+    await TestBed.configureTestingModule({
       declarations: [MiddlebarComponent],
     }).compileComponents();
   });

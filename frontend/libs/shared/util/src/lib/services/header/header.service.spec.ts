@@ -2,8 +2,8 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HeaderService } from './header.service';
 
 describe('Service: Header', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       providers: [HeaderService],
     });
   });
