@@ -44,6 +44,10 @@ export default [
               onlyDependOnLibsWithTags: ['type:util', 'type:models', 'scope:shared'],
             },
             {
+              sourceTag: 'type:ui',
+              onlyDependOnLibsWithTags: ['type:util', 'type:models'],
+            },
+            {
               sourceTag: 'scope:shared',
               onlyDependOnLibsWithTags: ['type:models', 'type:util', 'scope:shared'],
             },

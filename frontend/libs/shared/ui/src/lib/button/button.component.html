@@ -1,0 +1,32 @@
+<!-- <button
+  class="button"
+  [class.button--primary]="color() === ButtonColor.PRIMARY"
+  [class.button--secondary]="color() === ButtonColor.SECONDARY"
+  [class.button--tertiary]="color() === ButtonColor.TERTIARY"
+  [class.button--small]="size() === ButtonSize.SMALL"
+  [class.button--medium]="size() === ButtonSize.MEDIUM"
+  [class.button--large]="size() === ButtonSize.LARGE"
+  [class.button--disabled]="disabled()"
+  [class.button--fullwidth]="fullWidth()"
+  [class.button--outline]="variant() === ButtonVariant.OUTLINE"
+  [type]="type()"
+>
+  {{ (translateKey() | translate) || defaultText() }}
+</button> -->
+
+<button
+  class="button"
+  [class.button--primary]="color() === ButtonColor.PRIMARY"
+  [class.button--secondary]="color() === ButtonColor.SECONDARY"
+  [class.button--tertiary]="color() === ButtonColor.TERTIARY"
+  [class.button--small]="size() === ButtonSize.SMALL"
+  [class.button--medium]="size() === ButtonSize.MEDIUM"
+  [class.button--large]="size() === ButtonSize.LARGE"
+  [class.button--disabled]="disabled()"
+  [class.button--fullwidth]="fullWidth()"
+  [class.button--solid]="variant() === ButtonVariant.SOLID"
+  [class.button--outline]="variant() === ButtonVariant.OUTLINE"
+  [type]="type()"
+>
+  {{ (translateKey() | translate) || defaultText() }}
+</button>

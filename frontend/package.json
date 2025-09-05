@@ -17,6 +17,9 @@
     "shared-models:lint": "nx lint shared-models",
     "shared-models:test": "nx test shared-models",
 
+    "shared-ui:lint": "nx lint shared-ui",
+    "shared-ui:test": "nx test shared-ui",
+
     "shared-util:lint": "nx lint shared-util",
     "shared-util:test": "nx test shared-util"
   },
