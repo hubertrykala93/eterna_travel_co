@@ -8,7 +8,6 @@ import { HeroComponent } from './core/hero/hero.component';
   selector: 'et-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',
-  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {}

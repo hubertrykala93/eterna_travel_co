@@ -41,7 +41,7 @@
   }
 
   &__email {
-    border-left: var(--border-color-40);
+    border-left: var(--border-transparent-40);
     padding-left: 0.75rem;
   }
 
@@ -57,7 +57,7 @@
 
     &--spacing-left {
       @media (min-width: 576px) {
-        border-left: var(--border-color-40);
+        border-left: var(--border-transparent-40);
         padding-left: 1.25rem;
       }
     }

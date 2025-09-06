@@ -1,3 +1,46 @@
-<p>
-  contact-us works!
-</p>
+@let contactCards = contactCards$ | async;
+@let formOptions = formOptions$ | async;
+
+<section class="contact-info spacing-vertical">
+  @for (card of contactCards; track $index) {
+    <div class="contact-info__card">
+      <i class="contact-info__icon" [class]="card.iconClass"></i>
+      <p class="contact-info__title">{{ (card.key | translate) || card.defaultText }}</p>
+      <p class="contact-info__subtitle">{{ card.subtitle }}</p>
+    </div>
+  }
+</section>
+
+<section class="contact-form spacing-bottom">
+  <div>
+    <h1 class="contact-form__title">{{ 'features.contact-us.any-question' | translate }}</h1>
+    <h3 class="contact-form__subtitle">{{ 'features.contact-us.get-in-touch' | translate }}</h3>
+
+    <form>
+      @for (option of formOptions; track $index) {
+        @if (option.type === FormType.TEXT) {
+          <input
+            class="contact-form__input"
+            type="text"
+            [placeholder]="option.placeholderKey | translate"
+          />
+        } @else {
+          <textarea
+            class="contact-form__input"
+            [placeholder]="option.placeholderKey | translate"
+          ></textarea>
+        }
+      }
+
+      <ui-button class="contact-form__button" translateKey="core.send" />
+    </form>
+  </div>
+  <iframe
+    class="contact-form__map"
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3593.0308209479945!2d-80.13589162460381!3d25.769545508280938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9b4f1ecac0e3b%3A0x94bec0189dd05233!2s88%20Ocean%20Dr%2C%20Miami%20Beach%2C%20FL%2033139%2C%20Stany%20Zjednoczone!5e0!3m2!1spl!2spl!4v1757148218642!5m2!1spl!2spl"
+    style="border: 0"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</section>
