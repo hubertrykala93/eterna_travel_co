@@ -1,5 +1,10 @@
 {
   "core": {
+    "firstname": "Firstname",
+    "email": "E-mail Address",
+    "message": "Message",
+    "send": "Send",
+
     "header": {
       "toolbar": {
         "language-pl": "Polish (PL)",
@@ -23,6 +28,15 @@
       "travel": "Travel & Adventures",
       "find": "Find awesome hotel, tour, car and activities in London",
       "home": "Home"
+    }
+  },
+  "features": {
+    "contact-us": {
+      "location": "Location",
+      "phone": "Phone Number",
+      "mail": "E-mail Address",
+      "any-question": "Have any question?",
+      "get-in-touch": "Get in Touch"
     }
   }
 }
