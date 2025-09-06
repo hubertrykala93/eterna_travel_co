@@ -1,0 +1,13 @@
+.input {
+  border-radius: 6px;
+  border: var(--border-color-40);
+  padding: 4px;
+
+  @media (min-width: 576px) {
+    padding: 16px;
+  }
+
+  &::placeholder {
+    color: var(--color-primary-40);
+  }
+}
