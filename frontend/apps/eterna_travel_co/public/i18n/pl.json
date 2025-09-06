@@ -1,5 +1,10 @@
 {
   "core": {
+    "firstname": "Imię",
+    "email": "Adres E-mail",
+    "message": "Wiadomość",
+    "send": "Wyślij",
+
     "header": {
       "toolbar": {
         "language-pl": "Polski (PL)",
@@ -23,6 +28,15 @@
       "travel": "Podróże i przygody",
       "find": "Hotele, wycieczki, samochody i atrakcje w Londynie",
       "home": "Strona główna"
+    }
+  },
+  "features": {
+    "contact-us": {
+      "location": "Lokalizacja",
+      "phone": "Numer Telefonu",
+      "mail": "Adres E-mail",
+      "any-question": "Masz pytania?",
+      "get-in-touch": "Skontaktuj się z nami"
     }
   }
 }
