@@ -12,24 +12,18 @@
 </section>
 
 <section class="contact-form spacing-bottom">
-  <div>
+  <div class="contact-form__wrapper">
     <h1 class="contact-form__title">{{ 'features.contact-us.any-question' | translate }}</h1>
     <h3 class="contact-form__subtitle">{{ 'features.contact-us.get-in-touch' | translate }}</h3>
 
-    <form>
+    <form class="contact-form__form">
       @for (option of formOptions; track $index) {
-        @if (option.type === FormType.TEXT) {
-          <input
-            class="contact-form__input"
-            type="text"
-            [placeholder]="option.placeholderKey | translate"
-          />
-        } @else {
-          <textarea
-            class="contact-form__input"
-            [placeholder]="option.placeholderKey | translate"
-          ></textarea>
-        }
+        <ui-input
+          class="contact-form__input"
+          [type]="option.type"
+          [fullWidth]="true"
+          [placeholderKey]="option.placeholderKey"
+        />
       }
 
       <ui-button class="contact-form__button" translateKey="core.send" />

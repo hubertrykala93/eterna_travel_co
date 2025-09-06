@@ -1,0 +1,40 @@
+@if (type() === InputType.TEXT) {
+  @if (iconClass()) {
+    <div class="input__wrapper">
+      @if (iconPosition() === IconPosition.LEFT) {
+        <i class="input__icon input__icon--left" [class]="iconClass()"></i>
+      }
+      <input
+        class="input"
+        [class.input--disabled]="disabled()"
+        [class.input--fullwidth]="fullWidth()"
+        [class.input--spacing-left]="iconClass() && iconPosition() === IconPosition.LEFT"
+        [type]="type()"
+        [id]="id()"
+        [placeholder]="placeholderKey() | translate"
+      />
+
+      @if (iconPosition() === IconPosition.RIGHT) {
+        <i class="input__icon input__icon--right" [class]="iconClass()"></i>
+      }
+    </div>
+  } @else {
+    <input
+      class="input"
+      [class.input--disabled]="disabled()"
+      [class.input--fullwidth]="fullWidth()"
+      [type]="type()"
+      [id]="id()"
+      [placeholder]="placeholderKey() | translate"
+    />
+  }
+}
+
+@if (type() === InputType.TEXTAREA) {
+  <textarea
+    class="input"
+    [class.input--disabled]="disabled()"
+    [class.input--fullwidth]="fullWidth()"
+    [placeholder]="placeholderKey() | translate"
+  ></textarea>
+}
