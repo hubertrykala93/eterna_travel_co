@@ -1,15 +1,16 @@
 import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ButtonComponent } from '@shared/ui';
+import { FormOptions } from '@shared/models';
+import { ButtonComponent, InputComponent, InputType } from '@shared/ui';
 import { Observable, of } from 'rxjs';
-import { ContactCard, FormOptions, FormType } from './contact.model';
+import { ContactCard } from './contact.model';
 
 @Component({
   selector: 'et-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
-  imports: [AsyncPipe, TranslatePipe, ButtonComponent],
+  imports: [AsyncPipe, TranslatePipe, ButtonComponent, InputComponent],
 })
 export class ContactUsComponent {
   protected readonly contactCards$: Observable<ContactCard[]> = of([
@@ -51,5 +52,5 @@ export class ContactUsComponent {
     },
   ]);
 
-  protected readonly FormType = FormType;
+  protected readonly InputType = InputType;
 }
