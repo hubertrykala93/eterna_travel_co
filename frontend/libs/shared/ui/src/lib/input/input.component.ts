@@ -18,6 +18,7 @@ export class InputComponent {
     IconPosition.LEFT,
   );
   public readonly fullWidth: InputSignal<boolean> = input<boolean>(false);
+  public readonly fullHeight: InputSignal<boolean> = input<boolean>(false);
   public readonly disabled: InputSignal<boolean> = input<boolean>(false);
 
   protected readonly InputType = InputType;

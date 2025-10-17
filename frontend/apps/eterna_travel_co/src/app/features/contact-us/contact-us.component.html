@@ -20,8 +20,10 @@
       @for (option of formOptions; track $index) {
         <ui-input
           class="contact-form__input"
+          [class.contact-form__input--expanding]="option.type === InputType.TEXTAREA"
           [type]="option.type"
           [fullWidth]="true"
+          [fullHeight]="true"
           [placeholderKey]="option.placeholderKey"
         />
       }
