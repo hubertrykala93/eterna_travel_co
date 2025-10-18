@@ -1,9 +1,19 @@
 {
   "core": {
-    "firstname": "Firstname",
-    "email": "E-mail Address",
-    "message": "Message",
     "send": "Send",
+
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "Please enter at least {{ requiredLength }} characters.",
+      "maxlength": "Please enter no more than {{ requiredLength }} characters.",
+      "invalidEmail": "Please enter a valid email address."
+    },
+
+    "placeholder": {
+      "name": "Name *",
+      "email": "E-mail Address *",
+      "message": "Message *"
+    },
 
     "header": {
       "toolbar": {
@@ -23,6 +33,7 @@
         "register": "Register"
       }
     },
+
     "hero": {
       "save-off": "Save 15% off in Worldwide",
       "travel": "Travel & Adventures",
@@ -30,6 +41,7 @@
       "home": "Home"
     }
   },
+
   "features": {
     "contact-us": {
       "location": "Location",

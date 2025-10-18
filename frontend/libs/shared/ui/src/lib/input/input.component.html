@@ -12,6 +12,9 @@
         [type]="type()"
         [id]="id()"
         [placeholder]="placeholderKey() | translate"
+        [value]="value()"
+        (input)="onInput($event)"
+        (blur)="onBlur()"
       />
 
       @if (iconPosition() === IconPosition.RIGHT) {
@@ -26,6 +29,9 @@
       [type]="type()"
       [id]="id()"
       [placeholder]="placeholderKey() | translate"
+      [value]="value()"
+      (input)="onInput($event)"
+      (blur)="onBlur()"
     />
   }
 }
@@ -35,6 +41,14 @@
     class="input"
     [class.input--disabled]="disabled()"
     [class.input--fullwidth]="fullWidth()"
+    [class.input--fullheight]="fullHeight()"
     [placeholder]="placeholderKey() | translate"
+    [value]="value()"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
   ></textarea>
+}
+
+@if (errorMessage()) {
+  <ui-error-message [errorMessage]="errorMessage()" />
 }

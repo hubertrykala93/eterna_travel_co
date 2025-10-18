@@ -1,9 +1,19 @@
 {
   "core": {
-    "firstname": "Imię",
-    "email": "Adres E-mail",
-    "message": "Wiadomość",
     "send": "Wyślij",
+
+    "validation": {
+      "required": "To pole jest wymagane.",
+      "minlength": "Wpisz co najmniej {{ requiredLength }} znaków.",
+      "maxlength": "Wpisz maksymalnie {{ requiredLength }} znaków.",
+      "invalidEmail": "Podaj poprawny adres e-mail."
+    },
+
+    "placeholder": {
+      "name": "Imię *",
+      "email": "Adres E-mail *",
+      "message": "Wiadomość *"
+    },
 
     "header": {
       "toolbar": {
@@ -23,6 +33,7 @@
         "register": "Zarejestruj"
       }
     },
+
     "hero": {
       "save-off": "Oszczędź 15% na podróżach",
       "travel": "Podróże i przygody",
@@ -30,6 +41,7 @@
       "home": "Strona główna"
     }
   },
+
   "features": {
     "contact-us": {
       "location": "Lokalizacja",

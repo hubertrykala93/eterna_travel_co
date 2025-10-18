@@ -44,6 +44,7 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 nx-command.txt
+todo.txt
 
 .angular
 
@@ -96,3 +97,4 @@ htmlcov/
 .env
 .env.local
 .env.*.local
+frontend/todo.txt
