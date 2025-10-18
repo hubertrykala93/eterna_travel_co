@@ -1,6 +1,11 @@
 {
   "core": {
-    "firstname": "Firstname",
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "Minimum number of characters is {{requiredLength}}.",
+      "maxlength": "Maximum number of characters is {{requiredLength}}."
+    },
+    "name": "Name",
     "email": "E-mail Address",
     "message": "Message",
     "send": "Send",

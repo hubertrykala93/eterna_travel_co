@@ -1,56 +1,36 @@
-import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FormOptions } from '@shared/models';
 import { ButtonComponent, InputComponent, InputType } from '@shared/ui';
-import { Observable, of } from 'rxjs';
-import { ContactCard } from './contact.model';
+import { contactCards, formOptions } from './contact-us.const';
+import { ContactCard, ContactUsControls } from './contact-us.model';
+import { ContactUsService } from './contact-us.service';
 
 @Component({
   selector: 'et-contact-us',
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
-  imports: [AsyncPipe, TranslatePipe, ButtonComponent, InputComponent],
+  imports: [TranslatePipe, ButtonComponent, InputComponent, ReactiveFormsModule],
 })
 export class ContactUsComponent {
-  protected readonly contactCards$: Observable<ContactCard[]> = of([
-    {
-      key: 'features.contact-us.location',
-      defaultText: 'Location',
-      subtitle: '88 Ocean Dr, Miami, FL 33139, USA',
-      iconClass: 'fa-solid fa-location-dot',
-    },
-    {
-      key: 'features.contact-us.phone',
-      defaultText: 'Phone Number',
-      subtitle: '+1 (213) 555-4820',
-      iconClass: 'fa-solid fa-mobile-screen',
-    },
-    {
-      key: 'features.contact-us.mail',
-      defaultText: 'E-mail Address',
-      subtitle: 'contact@eternatravelco.com',
-      iconClass: 'fa-solid fa-envelope',
-    },
-  ]);
+  private readonly contactUsService = inject(ContactUsService);
 
-  protected formOptions$: Observable<FormOptions[]> = of([
-    {
-      placeholderKey: 'core.firstname',
-      formControlName: 'firstname',
-      type: 'text',
-    },
-    {
-      placeholderKey: 'core.email',
-      formControlName: 'email',
-      type: 'text',
-    },
-    {
-      placeholderKey: 'core.message',
-      formControlName: 'message',
-      type: 'textarea',
-    },
-  ]);
+  protected readonly form: FormGroup<ContactUsControls> = this.contactUsService.getFormGroup();
+
+  protected readonly contactCards: ContactCard[] = contactCards;
+  protected readonly formOptions: FormOptions[] = formOptions;
 
   protected readonly InputType = InputType;
+
+  protected sendMessage(): void {
+    if (this.form.invalid) {
+      Object.values(this.form.controls).forEach((control: FormControl) => {
+        control.markAsTouched();
+        control.updateValueAndValidity();
+      });
+
+      return;
+    }
+  }
 }

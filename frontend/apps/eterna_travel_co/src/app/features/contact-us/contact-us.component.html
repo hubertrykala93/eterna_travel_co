@@ -1,6 +1,3 @@
-@let contactCards = contactCards$ | async;
-@let formOptions = formOptions$ | async;
-
 <section class="contact-info spacing-vertical">
   @for (card of contactCards; track $index) {
     <div class="contact-info__card">
@@ -16,7 +13,7 @@
     <h1 class="contact-form__title">{{ 'features.contact-us.any-question' | translate }}</h1>
     <h3 class="contact-form__subtitle">{{ 'features.contact-us.get-in-touch' | translate }}</h3>
 
-    <form class="contact-form__form">
+    <form class="contact-form__form" [formGroup]="form" (ngSubmit)="sendMessage()">
       @for (option of formOptions; track $index) {
         <ui-input
           class="contact-form__input"
@@ -25,10 +22,11 @@
           [fullWidth]="true"
           [fullHeight]="true"
           [placeholderKey]="option.placeholderKey"
+          [formControlName]="option.formControlName"
         />
       }
 
-      <ui-button class="contact-form__button" translateKey="core.send" />
+      <ui-button class="contact-form__button" translateKey="core.send" type="submit" />
     </form>
   </div>
   <iframe
