@@ -24,17 +24,17 @@ export const contactCards: ContactCard[] = [
 
 export const formOptions: FormOptions[] = [
   {
-    placeholderKey: 'core.name',
+    placeholderKey: 'core.placeholder.name',
     formControlName: 'name',
     type: 'text',
   },
   {
-    placeholderKey: 'core.email',
+    placeholderKey: 'core.placeholder.email',
     formControlName: 'email',
     type: 'text',
   },
   {
-    placeholderKey: 'core.message',
+    placeholderKey: 'core.placeholder.message',
     formControlName: 'message',
     type: 'textarea',
   },

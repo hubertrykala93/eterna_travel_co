@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FormOptions } from '@shared/models';
 import { ButtonComponent, InputComponent, InputType } from '@shared/ui';
+import { ValidationUtil } from '@shared/util/validators';
+import { tap } from 'rxjs';
 import { contactCards, formOptions } from './contact-us.const';
 import { ContactCard, ContactUsControls } from './contact-us.model';
 import { ContactUsService } from './contact-us.service';
@@ -23,14 +25,25 @@ export class ContactUsComponent {
 
   protected readonly InputType = InputType;
 
-  protected sendMessage(): void {
+  protected send(): void {
     if (this.form.invalid) {
-      Object.values(this.form.controls).forEach((control: FormControl) => {
-        control.markAsTouched();
-        control.updateValueAndValidity();
-      });
+      ValidationUtil.fireValidation(this.form);
 
       return;
     }
+
+    this.contactUsService
+      .sendMessage(this.form.getRawValue())
+      .pipe(
+        // tap(() => {
+        //   this.form.reset({ name: '', email: '', message: '' }, { emitEvent: false });
+
+        //   this.form.markAsPristine();
+        //   this.form.markAsUntouched();
+        //   this.form.updateValueAndValidity({ emitEvent: false });
+        // }),
+        tap(() => ValidationUtil.resetForm(this.form)),
+      )
+      .subscribe();
   }
 }

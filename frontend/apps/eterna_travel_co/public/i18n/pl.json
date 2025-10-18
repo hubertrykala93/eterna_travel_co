@@ -1,14 +1,19 @@
 {
   "core": {
+    "send": "Wyślij",
+
     "validation": {
       "required": "To pole jest wymagane.",
-      "minlength": "Minimalna ilość znaków to {{requiredLength}}, aktualna ilość {{actualLength}}.",
-      "maxlength": "Maksymalna ilość znaków to {{requiredLength}}, aktualna ilość {{actualLength}}."
+      "minlength": "Wpisz co najmniej {{ requiredLength }} znaków.",
+      "maxlength": "Wpisz maksymalnie {{ requiredLength }} znaków.",
+      "invalidEmail": "Podaj poprawny adres e-mail."
     },
-    "name": "Imię",
-    "email": "Adres E-mail",
-    "message": "Wiadomość",
-    "send": "Wyślij",
+
+    "placeholder": {
+      "name": "Imię *",
+      "email": "Adres E-mail *",
+      "message": "Wiadomość *"
+    },
 
     "header": {
       "toolbar": {
@@ -28,6 +33,7 @@
         "register": "Zarejestruj"
       }
     },
+
     "hero": {
       "save-off": "Oszczędź 15% na podróżach",
       "travel": "Podróże i przygody",
@@ -35,6 +41,7 @@
       "home": "Strona główna"
     }
   },
+
   "features": {
     "contact-us": {
       "location": "Lokalizacja",

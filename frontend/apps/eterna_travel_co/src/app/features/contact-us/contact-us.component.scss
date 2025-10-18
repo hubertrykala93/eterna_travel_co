@@ -75,12 +75,9 @@
   }
 
   &__input {
-    display: block;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 0.875rem;
-
-    &:last-of-type {
-      margin-bottom: 0.3125rem;
-    }
 
     &--expanding {
       flex-grow: 1;

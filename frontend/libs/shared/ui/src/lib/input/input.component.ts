@@ -1,6 +1,7 @@
 import { Component, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
+import { getErrorKey } from '@shared/util/helpers';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
 import { IconPosition, InputSize, InputType } from './input.enum';
@@ -50,7 +51,7 @@ export class InputComponent extends DisplayErrorComponent implements ControlValu
     }
 
     if (control.invalid && control.touched) {
-      const message = this.getErrorKey(control);
+      const message = getErrorKey(this.translateService, control);
       this.errorMessage.set(message ?? null);
     } else {
       this.errorMessage.set(null);

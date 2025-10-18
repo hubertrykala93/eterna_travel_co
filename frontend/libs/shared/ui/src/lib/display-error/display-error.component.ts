@@ -8,15 +8,16 @@ import {
   NgControl,
 } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { getErrorKey } from '@shared/util/helpers';
 import { tap } from 'rxjs';
 
 @Component({
   template: '',
 })
 export class DisplayErrorComponent implements OnInit, ControlValueAccessor {
-  private readonly injector = inject(Injector);
-  private readonly translateService = inject(TranslateService);
+  protected readonly translateService = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly injector = inject(Injector);
 
   protected readonly formControl = signal<AbstractControl | null>(null);
   protected readonly errorMessage = signal<string | null>(null);
@@ -50,28 +51,13 @@ export class DisplayErrorComponent implements OnInit, ControlValueAccessor {
     control.statusChanges
       .pipe(
         tap(() => {
-          const message = this.getErrorKey(control);
+          const message = getErrorKey(this.translateService, control);
 
           message ? this.errorMessage.set(message) : this.errorMessage.set(null);
         }),
         takeUntilDestroyed(this.destroyRef),
       )
       .subscribe();
-  }
-
-  protected getErrorKey(control: AbstractControl): string | void {
-    const [errorKey] = Object.keys(control.errors || {});
-    const errorValue = control.errors?.[errorKey];
-
-    if (!errorKey) {
-      return;
-    }
-
-    const params = errorValue && typeof errorValue === 'object' ? errorValue : {};
-
-    if (errorKey) {
-      return this.translateService.instant(`core.validation.${errorKey}`, params);
-    }
   }
 
   public writeValue(value: string | number | null): void {

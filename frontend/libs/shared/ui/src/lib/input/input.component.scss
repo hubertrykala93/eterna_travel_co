@@ -54,4 +54,11 @@
       right: 1rem;
     }
   }
+
+  &__error {
+    display: block;
+    color: var(--color-error, red);
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+  }
 }

@@ -1,4 +1,11 @@
 import { FormControl } from '@angular/forms';
+import { AuditableDto } from '@shared/models';
+
+export interface ContactUsDto extends AuditableDto {
+  name: string;
+  email: string;
+  message: string;
+}
 
 export interface ContactCard {
   key: string;
@@ -8,7 +15,7 @@ export interface ContactCard {
 }
 
 export interface ContactUsControls {
-  name: FormControl<string | null>;
-  email: FormControl<string | null>;
-  message: FormControl<string | null>;
+  name: FormControl<string>;
+  email: FormControl<string>;
+  message: FormControl<string>;
 }

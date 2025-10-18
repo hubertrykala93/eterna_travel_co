@@ -1,23 +1,37 @@
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContactUsControls } from './contact-us.model';
+import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { EmailValidators } from '@shared/util/validators';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { ContactUsControls, ContactUsDto } from './contact-us.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ContactUsService {
-  private readonly _formBuilder = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
+  private readonly _nonNullableFormBuilder = inject(NonNullableFormBuilder);
+
+  public sendMessage(data: ContactUsDto): Observable<void> {
+    return this.http.put<void>(`${environment.backendUrl}/contact`, data);
+  }
 
   public getFormGroup(): FormGroup<ContactUsControls> {
-    return this._formBuilder.group<ContactUsControls>({
-      name: this._formBuilder.control<string | null>(null, {
-        validators: [Validators.required],
+    return this._nonNullableFormBuilder.group<ContactUsControls>({
+      name: this._nonNullableFormBuilder.control<string>('', {
+        validators: [Validators.required, Validators.maxLength(64)],
       }),
-      email: this._formBuilder.control<string | null>(null, {
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(8)],
+      email: this._nonNullableFormBuilder.control<string>('', {
+        validators: [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.maxLength(64),
+          EmailValidators.patternValidator(),
+        ],
       }),
-      message: this._formBuilder.control<string | null>(null, {
-        validators: [Validators.required],
+      message: this._nonNullableFormBuilder.control<string>('', {
+        validators: [Validators.required, Validators.minLength(10), Validators.maxLength(1000)],
       }),
     });
   }
