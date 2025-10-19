@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MenuType } from '@shared/models';
@@ -10,6 +10,7 @@ import { NavComponent } from '../nav/nav.component';
   templateUrl: './middlebar.component.html',
   styleUrl: './middlebar.component.scss',
   imports: [RouterLink, NavComponent, DropdownSelectorComponent, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MiddlebarComponent {
   protected isMainMenuOpen: WritableSignal<boolean> = signal<boolean>(false);

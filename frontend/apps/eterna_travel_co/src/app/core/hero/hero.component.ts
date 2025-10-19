@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { TransformUrlPipe } from '@shared/util/pipes';
@@ -10,6 +10,7 @@ import { filter, map, Observable, startWith } from 'rxjs';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   imports: [AsyncPipe, TransformUrlPipe, RouterLink, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
   private readonly router = inject(Router);

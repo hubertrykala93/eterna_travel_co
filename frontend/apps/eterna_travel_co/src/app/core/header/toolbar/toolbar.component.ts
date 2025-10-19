@@ -1,4 +1,4 @@
-import { Component, inject, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { ACTIVE_CURRENCY } from '@currency/data-access';
 import { ACTIVE_LANGUAGE } from '@language/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
@@ -11,6 +11,7 @@ import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selecto
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss',
   imports: [DropdownSelectorComponent, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToolbarComponent {
   private readonly storageService = inject(StorageService);

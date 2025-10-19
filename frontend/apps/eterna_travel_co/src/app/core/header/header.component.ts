@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MiddlebarComponent } from './middlebar/middlebar.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -6,5 +6,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   selector: 'et-header',
   templateUrl: './header.component.html',
   imports: [ToolbarComponent, MiddlebarComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {}
