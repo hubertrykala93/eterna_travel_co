@@ -1,4 +1,4 @@
-import { InputType } from '@shared/ui/controls';
+import { InputType } from '@shared/util/types';
 
 export interface AuditableDto {
   id?: string;

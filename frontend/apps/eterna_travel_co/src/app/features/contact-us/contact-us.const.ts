@@ -1,4 +1,4 @@
-import { FormOptions } from '@shared/models';
+import { FormOptions } from '@shared/data-access';
 import { ContactCard } from './contact-us.model';
 
 export const contactCards: ContactCard[] = [
