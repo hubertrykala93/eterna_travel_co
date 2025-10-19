@@ -1,0 +1,109 @@
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: -0.375rem;
+  padding: 0.9375rem;
+  min-width: 18.75rem;
+  max-width: 28.125rem;
+  border: var(--border-transparent-10);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  overflow: hidden;
+  animation:
+    slide-in 0.5s ease-out forwards,
+    slide-out 0.5s ease-in forwards 5s;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+
+  &__icon {
+    font-size: 1.5rem;
+
+    &--success {
+      color: var(--color-success);
+    }
+
+    &--error {
+      color: var(--color-error);
+    }
+
+    &--warning {
+      color: var(--color-warning);
+    }
+
+    &--info {
+      color: var(--color-info);
+    }
+  }
+
+  &__title {
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  &__message {
+    font-size: 0.8125rem;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  &__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    animation: shrink 5s linear forwards;
+
+    &--success {
+      background-color: var(--color-success);
+    }
+
+    &--error {
+      background-color: var(--color-error);
+    }
+
+    &--warning {
+      background-color: var(--color-warning);
+    }
+
+    &--info {
+      background-color: var(--color-info);
+    }
+  }
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shrink {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
