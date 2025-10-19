@@ -7,13 +7,16 @@ describe('ErrorMessageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ErrorMessageComponent],
+      imports: [ErrorMessageComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ErrorMessageComponent);
     component = fixture.componentInstance;
+
+    fixture.componentRef.setInput('errorMessage', '');
+
     fixture.detectChanges();
   });
 

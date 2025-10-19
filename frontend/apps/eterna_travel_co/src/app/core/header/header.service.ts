@@ -1,7 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { Currency, DropDownSelectorButtonConfig, LanguageCode, MenuType } from '@shared/models';
+import { Currency } from '@currency/data-access';
+import { LanguageCode } from '@language/data-access';
+import { StorageService } from '@shared/util/services';
 import { map, Observable, of } from 'rxjs';
-import { StorageService } from '../storage/storage.service';
+import { MenuType } from './header.enum';
+import { DropDownSelectorButtonConfig } from './header.model';
 
 @Injectable({
   providedIn: 'root',

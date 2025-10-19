@@ -17,13 +17,14 @@
     "paths": {
       "@currency/data-access": ["libs/currency/data-access/src/index.ts"],
       "@language/data-access": ["libs/language/data-access/src/index.ts"],
-      "@shared/models": ["libs/shared/models/src/index.ts"],
+      "@shared/data-access": ["libs/shared/data-access/src/index.ts"],
+      "@shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@shared/ui/controls": ["libs/shared/ui/src/lib/controls/index.ts"],
       "@shared/util/helpers": ["libs/shared/util/src/lib/helpers/index.ts"],
       "@shared/util/pipes": ["libs/shared/util/src/lib/pipes/index.ts"],
       "@shared/util/services": ["libs/shared/util/src/lib/services/index.ts"],
-      "@shared/util/validators": ["libs/shared/util/src/lib/validators/index.ts"],
-      "@shared/ui": ["libs/shared/ui/src/index.ts"],
-      "@shared/ui/controls": ["libs/shared/ui/src/lib/controls/index.ts"]
+      "@shared/util/types": ["libs/shared/util/src/lib/types/index.ts"],
+      "@shared/util/validators": ["libs/shared/util/src/lib/validators/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { AuditableDto } from '@shared/models';
+import { AuditableDto } from '@shared/data-access';
 
 export interface ContactUsDto extends AuditableDto {
   name: string;
