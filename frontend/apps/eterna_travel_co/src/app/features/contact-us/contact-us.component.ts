@@ -1,8 +1,9 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FormOptions } from '@shared/models';
 import { ButtonComponent, InputComponent, InputType } from '@shared/ui';
+import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
 import { tap } from 'rxjs';
 import { contactCards, formOptions } from './contact-us.const';
@@ -14,9 +15,11 @@ import { ContactUsService } from './contact-us.service';
   templateUrl: './contact-us.component.html',
   styleUrl: './contact-us.component.scss',
   imports: [TranslatePipe, ButtonComponent, InputComponent, ReactiveFormsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactUsComponent {
   private readonly contactUsService = inject(ContactUsService);
+  private readonly toastService = inject(ToastService);
 
   protected readonly form: FormGroup<ContactUsControls> = this.contactUsService.getFormGroup();
 
@@ -35,14 +38,14 @@ export class ContactUsComponent {
     this.contactUsService
       .sendMessage(this.form.getRawValue())
       .pipe(
-        // tap(() => {
-        //   this.form.reset({ name: '', email: '', message: '' }, { emitEvent: false });
-
-        //   this.form.markAsPristine();
-        //   this.form.markAsUntouched();
-        //   this.form.updateValueAndValidity({ emitEvent: false });
-        // }),
-        tap(() => ValidationUtil.resetForm(this.form)),
+        tap(() => {
+          ValidationUtil.resetForm(this.form);
+          this.toastService.open({
+            titleKey: 'core.toast.title.message-sent-successfully',
+            messageKey: 'core.toast.message.received-your-message',
+            status: 'success',
+          });
+        }),
       )
       .subscribe();
   }

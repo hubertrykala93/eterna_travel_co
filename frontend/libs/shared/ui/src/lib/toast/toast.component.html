@@ -1,0 +1,38 @@
+@if (toast()) {
+  <h1>Toast</h1>
+  <pre>{{ toast() | json }}</pre>
+  <div class="toast">
+    <div class="toast__header">
+      <i
+        [class]="
+          'toast__icon ' +
+          'fa-solid ' +
+          (toast()?.status === 'success'
+            ? 'fa-circle-check'
+            : toast()?.status === 'info'
+              ? 'fa-circle-info'
+              : toast()?.status === 'warning'
+                ? 'fa-triangle-exclamation'
+                : toast()?.status === 'error'
+                  ? 'fa-circle-xmark'
+                  : '')
+        "
+        [class.toast__icon--success]="toast()?.status === 'success'"
+        [class.toast__icon--error]="toast()?.status === 'error'"
+        [class.toast__icon--info]="toast()?.status === 'info'"
+        [class.toast__icon--warning]="toast()?.status === 'warning'"
+      ></i>
+      <span class="toast__title">{{ toast()?.titleKey | translate }}</span>
+    </div>
+
+    <span class="toast__message">{{ toast()?.messageKey | translate }}</span>
+
+    <div
+      class="toast__progress"
+      [class.toast__progress--success]="toast()?.status === 'success'"
+      [class.toast__progress--info]="toast()?.status === 'info'"
+      [class.toast__progress--warning]="toast()?.status === 'warning'"
+      [class.toast__progress--error]="toast()?.status === 'error'"
+    ></div>
+  </div>
+}

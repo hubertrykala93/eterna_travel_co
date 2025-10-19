@@ -1,5 +1,14 @@
 {
   "core": {
+    "toast": {
+      "title": {
+        "message-sent-successfully": "Wiadomość została wysłana pomyślnie"
+      },
+      "message": {
+        "received-your-message": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe."
+      }
+    },
+
     "send": "Wyślij",
 
     "validation": {
