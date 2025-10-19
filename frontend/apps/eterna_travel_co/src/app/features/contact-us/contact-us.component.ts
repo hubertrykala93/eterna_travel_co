@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { FormOptions } from '@shared/models';
-import { ButtonComponent, InputComponent, InputType } from '@shared/ui';
+import { ButtonComponent, InputComponent } from '@shared/ui';
 import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
 import { tap } from 'rxjs';
@@ -25,8 +25,6 @@ export class ContactUsComponent {
 
   protected readonly contactCards: ContactCard[] = contactCards;
   protected readonly formOptions: FormOptions[] = formOptions;
-
-  protected readonly InputType = InputType;
 
   protected send(): void {
     if (this.form.invalid) {

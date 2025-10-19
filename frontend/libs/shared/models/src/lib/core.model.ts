@@ -1,3 +1,5 @@
+import { InputType } from '@shared/ui';
+
 export interface AuditableDto {
   id?: string;
   creationTimestamp?: Date;
@@ -7,5 +9,5 @@ export interface AuditableDto {
 export interface FormOptions {
   placeholderKey: string;
   formControlName: string;
-  type: string;
+  type: InputType;
 }
