@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { getErrorKey } from '@shared/util/helpers';
+import { InputType } from '@shared/util/types';
 import { ErrorMessageComponent } from '../../error-message/error-message.component';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
-import { IconPosition, InputSize, InputType } from './input.type';
+import { IconPosition, InputSize } from './input.type';
 
 @Component({
   selector: 'ui-input',
