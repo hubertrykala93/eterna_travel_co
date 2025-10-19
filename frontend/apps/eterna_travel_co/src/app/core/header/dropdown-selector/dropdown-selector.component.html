@@ -1,7 +1,5 @@
-@let buttons = dropdownNavigationButtonsConfig$ | async;
-
 <ul class="dropdown">
-  @for (button of buttons; track $index) {
+  @for (button of dropDownNavigationButtonsConfig(); track $index) {
     <li
       class="dropdown__item"
       role="button"

@@ -1,7 +1,7 @@
-import { AsyncPipe } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   inject,
   input,
   InputSignal,
@@ -13,20 +13,18 @@ import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
 import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { StorageService } from '@shared/util/services';
-import { defer, Observable } from 'rxjs';
 import { MenuType } from '../header.enum';
-import { HeaderService } from '../header.service';
+import { getFilteredDropDownNavigationButtons } from '../header.helper';
 import { DropDownSelectorButtonConfig } from './../header.model';
 
 @Component({
   selector: 'et-dropdown-selector',
   templateUrl: './dropdown-selector.component.html',
   styleUrl: './dropdown-selector.component.scss',
-  imports: [AsyncPipe, TranslatePipe, RouterLink],
+  imports: [TranslatePipe, RouterLink],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownSelectorComponent {
-  private readonly headerService = inject(HeaderService);
   private readonly storageService = inject(StorageService);
   private readonly translateService = inject(TranslateService);
 
@@ -46,8 +44,9 @@ export class DropdownSelectorComponent {
 
   protected readonly MenuType = MenuType;
 
-  protected readonly dropdownNavigationButtonsConfig$: Observable<DropDownSelectorButtonConfig[]> =
-    defer(() => this.headerService.getFilteredDropDownNavigationButtons(this.menuType()));
+  protected readonly dropDownNavigationButtonsConfig = computed(() =>
+    getFilteredDropDownNavigationButtons(this.menuType()),
+  );
 
   protected onChange(button: DropDownSelectorButtonConfig): void {
     this.menuClosed.emit();

@@ -1,8 +1,6 @@
-@let buttons = navigationButtons$ | async;
-
 <nav class="nav">
   <ul class="nav__list">
-    @for (button of buttons; track $index) {
+    @for (button of navigationButtons; track $index) {
       <li class="nav__item">
         <a [routerLink]="button.url">{{ button.key | translate }}</a>
       </li>
