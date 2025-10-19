@@ -13,9 +13,9 @@ import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
 import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { StorageService } from '@shared/util/services';
-import { MenuType } from '../header.enum';
-import { getFilteredDropDownNavigationButtons } from '../header.helper';
-import { DropDownSelectorButtonConfig } from './../header.model';
+import { MenuType } from '../../header.enum';
+import { getFilteredDropDownNavigationButtons } from '../../header.helper';
+import { DropDownSelectorButtonConfig } from '../../header.model';
 
 @Component({
   selector: 'et-dropdown-selector',
@@ -42,11 +42,11 @@ export class DropdownSelectorComponent {
     LanguageCode.EN,
   );
 
-  protected readonly MenuType = MenuType;
-
   protected readonly dropDownNavigationButtonsConfig = computed(() =>
     getFilteredDropDownNavigationButtons(this.menuType()),
   );
+
+  protected readonly MenuType = MenuType;
 
   protected onChange(button: DropDownSelectorButtonConfig): void {
     this.menuClosed.emit();

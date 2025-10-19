@@ -3,8 +3,8 @@ import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
 import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
 import { StorageService } from '@shared/util/services';
-import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
 import { MenuType } from '../header.enum';
+import { DropdownSelectorComponent } from './dropdown-selector/dropdown-selector.component';
 
 @Component({
   selector: 'et-toolbar',
