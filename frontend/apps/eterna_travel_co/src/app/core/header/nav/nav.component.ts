@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { DropDownSelectorButtonConfig, MenuType } from '@shared/models';
@@ -11,6 +11,7 @@ import { Observable } from 'rxjs';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.scss',
   imports: [AsyncPipe, RouterLink, TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavComponent {
   private readonly headerService = inject(HeaderService);
