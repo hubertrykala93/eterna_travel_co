@@ -25,16 +25,14 @@
 
   <ul class="middlebar__menu middlebar__menu--desktop middlebar__menu--spacing">
     <li class="middlebar__menu-item">
-      <a routerLink="/authentication/login">{{
-        ('core.header.middlebar.login' | translate) || 'Login'
-      }}</a>
+      <a routerLink="/authentication/login">{{ 'core.header.middlebar.login' | translate }}</a>
     </li>
 
     <li>/</li>
 
     <li class="middlebar__menu-item">
       <a routerLink="/authentication/register">{{
-        ('core.header.middlebar.register' | translate) || 'Register'
+        'core.header.middlebar.register' | translate
       }}</a>
     </li>
   </ul>

@@ -5,26 +5,21 @@
   <div class="hero__content">
     @if (isHomePage) {
       <p class="hero__header">
-        {{ ('core.hero.save-off' | translate) || 'Save 15% off in Worldwide' }}
+        {{ 'core.hero.save-off' | translate }}
       </p>
     }
     <p class="hero__title">
       {{
         isHomePage
-          ? ('core.hero.travel' | translate) || 'Travel & Adventures'
-          : ((pageTitle | transformUrl: 'core.header.nav' | translate) || pageTitle | transformUrl)
+          ? ('core.hero.travel' | translate)
+          : (pageTitle | transformUrl: 'core.header.nav' | translate)
       }}
     </p>
     <a
       class="hero__subtitle"
       [class.hero__subtitle--clickable]="!isHomePage"
       [routerLink]="!isHomePage ? '/' : null"
-      >{{
-        isHomePage
-          ? ('core.hero.find' | translate) ||
-            'Find awesome hotel, tour, car and activities in London'
-          : ('core.hero.home' | translate) || 'Home'
-      }}</a
+      >{{ isHomePage ? ('core.hero.find' | translate) : ('core.hero.home' | translate) }}</a
     >
 
     @if (!isHomePage) {
@@ -32,7 +27,7 @@
     }
 
     <span class="hero__subtitle hero__subtitle--active">{{
-      (pageTitle | transformUrl: 'core.header.nav' | translate) || pageTitle | transformUrl
+      pageTitle | transformUrl: 'core.header.nav' | translate
     }}</span>
   </div>
 </section>

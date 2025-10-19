@@ -11,7 +11,6 @@ import { ButtonColor, ButtonSize, ButtonType, ButtonVariant } from './button.enu
 })
 export class ButtonComponent {
   public readonly translateKey: InputSignal<string> = input.required<string>();
-  public readonly defaultText: InputSignal<string> = input<string>('');
 
   public readonly type: InputSignal<ButtonType | string> = input<ButtonType | string>(
     ButtonType.SUBMIT,
