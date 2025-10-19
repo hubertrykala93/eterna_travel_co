@@ -9,12 +9,14 @@ import {
   OutputEmitterRef,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ACTIVE_CURRENCY } from '@currency/data-access';
-import { ACTIVE_LANGUAGE } from '@language/data-access';
+import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
+import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { Currency, DropDownSelectorButtonConfig, LanguageCode, MenuType } from '@shared/models';
-import { HeaderService, StorageService } from '@shared/util/services';
+import { StorageService } from '@shared/util/services';
 import { defer, Observable } from 'rxjs';
+import { MenuType } from '../header.enum';
+import { HeaderService } from '../header.service';
+import { DropDownSelectorButtonConfig } from './../header.model';
 
 @Component({
   selector: 'et-dropdown-selector',

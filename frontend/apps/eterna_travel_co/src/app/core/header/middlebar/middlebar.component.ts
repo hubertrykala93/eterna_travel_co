@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { MenuType } from '@shared/models';
 import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
+import { MenuType } from '../header.enum';
 import { NavComponent } from '../nav/nav.component';
 
 @Component({

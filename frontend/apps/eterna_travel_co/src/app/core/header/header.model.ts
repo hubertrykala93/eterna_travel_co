@@ -1,5 +1,5 @@
-import { Currency } from '../currency/currency.enum';
-import { LanguageCode } from '../language/language.enum';
+import { Currency } from '@currency/data-access';
+import { LanguageCode } from '@language/data-access';
 import { MenuType } from './header.enum';
 
 export interface DropDownSelectorButtonConfig {

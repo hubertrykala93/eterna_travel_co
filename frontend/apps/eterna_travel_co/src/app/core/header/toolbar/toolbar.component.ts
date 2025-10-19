@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
-import { ACTIVE_CURRENCY } from '@currency/data-access';
-import { ACTIVE_LANGUAGE } from '@language/data-access';
+import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
+import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
-import { Currency, LanguageCode, MenuType } from '@shared/models';
 import { StorageService } from '@shared/util/services';
 import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
+import { MenuType } from '../header.enum';
 
 @Component({
   selector: 'et-toolbar',

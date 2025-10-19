@@ -1,7 +1,6 @@
-import { ACTIVE_CURRENCY } from '@currency/data-access';
-import { ACTIVE_LANGUAGE } from '@language/data-access';
+import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
+import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslateService } from '@ngx-translate/core';
-import { Currency, LanguageCode } from '@shared/models';
 import { StorageService } from '@shared/util/services';
 
 export function initializeApp(

@@ -2,9 +2,10 @@ import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { DropDownSelectorButtonConfig, MenuType } from '@shared/models';
-import { HeaderService } from '@shared/util/services';
 import { Observable } from 'rxjs';
+import { HeaderService } from '../header.service';
+import { MenuType } from './../header.enum';
+import { DropDownSelectorButtonConfig } from './../header.model';
 
 @Component({
   selector: 'et-nav',
