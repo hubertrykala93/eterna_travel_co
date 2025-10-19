@@ -22,7 +22,8 @@
       "@shared/util/pipes": ["libs/shared/util/src/lib/pipes/index.ts"],
       "@shared/util/services": ["libs/shared/util/src/lib/services/index.ts"],
       "@shared/util/validators": ["libs/shared/util/src/lib/validators/index.ts"],
-      "@shared/ui": ["libs/shared/ui/src/index.ts"]
+      "@shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@shared/ui/controls": ["libs/shared/ui/src/lib/controls/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
