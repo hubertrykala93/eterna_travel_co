@@ -1,4 +1,4 @@
-import { Component, forwardRef, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { getErrorKey } from '@shared/util/helpers';
@@ -18,6 +18,7 @@ import { IconPosition, InputSize, InputType } from './input.enum';
       multi: true,
     },
   ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent extends DisplayErrorComponent implements ControlValueAccessor {
   public readonly type = input<InputType | string>(InputType.TEXT);

@@ -1,4 +1,4 @@
-import { Component, input, InputSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, InputSignal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ButtonColor, ButtonSize, ButtonType, ButtonVariant } from './button.enum';
 
@@ -7,6 +7,7 @@ import { ButtonColor, ButtonSize, ButtonType, ButtonVariant } from './button.enu
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',
   imports: [TranslatePipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
   public readonly translateKey: InputSignal<string> = input.required<string>();
