@@ -62,12 +62,15 @@ export default [
       indent: ['error', 2],
       'no-multiple-empty-lines': ['error', { max: 1 }],
 
+      eqeqeq: ['error', 'always'],
+
       '@typescript-eslint/no-unused-expressions': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-non-null-assertion': 'warn',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/explicit-function-return-type': 'warn',
       '@typescript-eslint/no-inferrable-types': 'off',
+      '@typescript-eslint/prefer-readonly': 'warn',
       '@typescript-eslint/consistent-type-exports': [
         'error',
         {
