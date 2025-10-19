@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
 import { MenuType } from '../header.enum';
 import { NavComponent } from '../nav/nav.component';
+import { DropdownSelectorComponent } from '../toolbar/dropdown-selector/dropdown-selector.component';
 
 @Component({
   selector: 'et-middlebar',
