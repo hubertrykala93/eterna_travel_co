@@ -17,7 +17,7 @@
       @for (option of formOptions; track $index) {
         <ui-input
           class="contact-form__input"
-          [class.contact-form__input--expanding]="option.type === InputType.TEXTAREA"
+          [class.contact-form__input--expanding]="option.type === 'textarea'"
           [type]="option.type"
           [fullWidth]="true"
           [fullHeight]="true"

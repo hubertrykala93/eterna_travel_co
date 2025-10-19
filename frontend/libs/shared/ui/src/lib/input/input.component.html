@@ -1,14 +1,14 @@
-@if (type() === InputType.TEXT) {
+@if (type() === 'text') {
   @if (iconClass()) {
     <div class="input__wrapper">
-      @if (iconPosition() === IconPosition.LEFT) {
+      @if (iconPosition() === 'left') {
         <i class="input__icon input__icon--left" [class]="iconClass()"></i>
       }
       <input
         class="input"
         [class.input--disabled]="disabled()"
         [class.input--fullwidth]="fullWidth()"
-        [class.input--spacing-left]="iconClass() && iconPosition() === IconPosition.LEFT"
+        [class.input--spacing-left]="iconClass() && iconPosition() === 'left'"
         [class.input--valid]="
           formControl()?.valid && (formControl()?.touched || formControl()?.dirty)
         "
@@ -23,7 +23,7 @@
         (blur)="onBlur()"
       />
 
-      @if (iconPosition() === IconPosition.RIGHT) {
+      @if (iconPosition() === 'right') {
         <i class="input__icon input__icon--right" [class]="iconClass()"></i>
       }
     </div>
@@ -48,7 +48,7 @@
   }
 }
 
-@if (type() === InputType.TEXTAREA) {
+@if (type() === 'textarea') {
   <textarea
     class="input"
     [class.input--disabled]="disabled()"

@@ -4,7 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { getErrorKey } from '@shared/util/helpers';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
 import { ErrorMessageComponent } from '../error-message/error-message.component';
-import { IconPosition, InputSize, InputType } from './input.enum';
+import { IconPosition, InputSize, InputType } from './input.type';
 
 @Component({
   selector: 'ui-input',
@@ -21,18 +21,15 @@ import { IconPosition, InputSize, InputType } from './input.enum';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent extends DisplayErrorComponent implements ControlValueAccessor {
-  public readonly type = input<InputType | string>(InputType.TEXT);
+  public readonly type = input<InputType>('text');
   public readonly id = input<string>();
-  public readonly size = input<InputSize | string>(InputSize.MEDIUM);
+  public readonly size = input<InputSize>('medium');
   public readonly placeholderKey = input<string>();
   public readonly iconClass = input<string>();
-  public readonly iconPosition = input<IconPosition | string>(IconPosition.LEFT);
+  public readonly iconPosition = input<IconPosition>('left');
   public readonly fullWidth = input<boolean>();
   public readonly fullHeight = input<boolean>();
   public readonly disabled = input<boolean>();
-
-  protected readonly InputType = InputType;
-  protected readonly IconPosition = IconPosition;
 
   protected onInput(event: Event): void {
     const value = (event.target as HTMLInputElement).value;

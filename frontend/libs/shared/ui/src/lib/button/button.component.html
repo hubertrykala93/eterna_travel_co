@@ -1,15 +1,15 @@
 <button
   class="button"
-  [class.button--primary]="color() === ButtonColor.PRIMARY"
-  [class.button--secondary]="color() === ButtonColor.SECONDARY"
-  [class.button--tertiary]="color() === ButtonColor.TERTIARY"
-  [class.button--small]="size() === ButtonSize.SMALL"
-  [class.button--medium]="size() === ButtonSize.MEDIUM"
-  [class.button--large]="size() === ButtonSize.LARGE"
+  [class.button--primary]="color() === 'primary'"
+  [class.button--secondary]="color() === 'secondary'"
+  [class.button--tertiary]="color() === 'tertiary'"
+  [class.button--small]="size() === 'small'"
+  [class.button--medium]="size() === 'medium'"
+  [class.button--large]="size() === 'large'"
   [class.button--disabled]="disabled()"
   [class.button--fullwidth]="fullWidth()"
-  [class.button--solid]="variant() === ButtonVariant.SOLID"
-  [class.button--outline]="variant() === ButtonVariant.OUTLINE"
+  [class.button--solid]="variant() === 'solid'"
+  [class.button--outline]="variant() === 'outline'"
   [type]="type()"
 >
   {{ translateKey() | translate }}
