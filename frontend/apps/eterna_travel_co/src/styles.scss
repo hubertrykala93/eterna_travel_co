@@ -129,25 +129,25 @@ ol {
 }
 
 .container {
-  padding: 0 30px;
+  padding-inline: 30px;
 
   @media (min-width: 576px) {
-    padding: 0 40px;
+    padding-inline: 40px;
   }
 
   @media (min-width: 992px) {
-    padding: 0 135px;
+    padding-inline: 135px;
   }
 
   &__authentication {
-    padding: 0 60px;
+    padding-inline: 60px;
 
     @media (min-width: 576px) {
-      padding: 0 120px;
+      padding-inline: 120px;
     }
 
     @media (min-width: 1200px) {
-      padding: 0 300px;
+      padding-inline: 300px;
     }
   }
 }
@@ -177,13 +177,13 @@ ol {
 }
 
 .spacing-vertical {
-  padding: 30px 0;
+  padding-block: 30px;
 
   @media (min-width: 576px) {
-    padding: 40px 0;
+    padding-block: 40px;
   }
 
   @media (min-width: 992px) {
-    padding: 80px 0;
+    padding-block: 80px;
   }
 }
