@@ -35,7 +35,8 @@
         "tours": "Wycieczki",
         "destinations": "Kierunki",
         "blog": "Blog",
-        "contact-us": "Kontakt"
+        "contact-us": "Kontakt",
+        "authentication": "Uwierzytelnienie"
       },
       "middlebar": {
         "login": "Zaloguj się",

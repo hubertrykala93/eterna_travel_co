@@ -122,10 +122,14 @@ ol {
   list-style: none;
 }
 
-.container {
-  padding: 0 30px;
+.container,
+.container__authentication {
   margin: auto;
   max-width: 1440px;
+}
+
+.container {
+  padding: 0 30px;
 
   @media (min-width: 576px) {
     padding: 0 40px;
@@ -134,17 +138,29 @@ ol {
   @media (min-width: 992px) {
     padding: 0 135px;
   }
+
+  &__authentication {
+    padding: 0 60px;
+
+    @media (min-width: 576px) {
+      padding: 0 120px;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 0 300px;
+    }
+  }
 }
 
 .spacing-top {
   padding-top: 30px;
 
   @media (min-width: 576px) {
-    padding-top: 0 40px;
+    padding-top: 40px;
   }
 
   @media (min-width: 992px) {
-    padding-top: 0 80px;
+    padding-top: 80px;
   }
 }
 
@@ -152,22 +168,22 @@ ol {
   padding-bottom: 30px;
 
   @media (min-width: 576px) {
-    padding-bottom: 0 40px;
+    padding-bottom: 40px;
   }
 
   @media (min-width: 992px) {
-    padding-bottom: 0 80px;
+    padding-bottom: 80px;
   }
 }
 
 .spacing-vertical {
-  padding: 30px 0 30px 0;
+  padding: 30px 0;
 
   @media (min-width: 576px) {
-    padding: 40px 0 40px 0;
+    padding: 40px 0;
   }
 
   @media (min-width: 992px) {
-    padding: 80px 0 80px 0;
+    padding: 80px 0;
   }
 }
