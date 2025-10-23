@@ -18,10 +18,10 @@
         @if (option.type !== 'textarea') {
           <ui-text-field
             class="contact-form__input"
+            [disabled]="true"
             [type]="option.type"
             [id]="option.formControlName"
             [fullWidth]="true"
-            [fullHeight]="true"
             [labelKey]="option.labelKey"
             [placeholderKey]="option.placeholderKey"
             [formControlName]="option.formControlName"

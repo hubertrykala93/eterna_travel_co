@@ -1,7 +1,11 @@
-<ui-control-field [labelKey]="labelKey()" [id]="id()" [errorMessage]="errorMessage() ?? ''">
+<ui-control-field
+  [labelKey]="labelKey()"
+  [id]="id()"
+  [errorMessage]="errorMessage() ?? ''"
+  [disabled]="disabled()"
+>
   <textarea
     class="input"
-    [class.input--disabled]="disabled()"
     [class.input--fullwidth]="fullWidth()"
     [class.input--fullheight]="fullHeight()"
     [class.input--valid]="formControl()?.valid && (formControl()?.touched || formControl()?.dirty)"
@@ -10,6 +14,7 @@
     "
     [placeholder]="placeholderKey() | translate"
     [value]="value()"
+    [id]="id()"
     (input)="onInput($event)"
     (blur)="onBlur()"
   ></textarea>

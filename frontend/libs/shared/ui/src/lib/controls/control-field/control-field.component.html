@@ -3,11 +3,13 @@
     <label class="control-field__label" [for]="id()">{{ this.labelKey() | translate }}</label>
   }
 
-  <div>
+  <div [class.control-field__control--disabled]="disabled()">
     <ng-content />
   </div>
 
-  @if (errorMessage()) {
-    <ui-error-message [errorMessage]="errorMessage()" />
+  @if (!disabled()) {
+    @if (errorMessage()) {
+      <ui-error-message [errorMessage]="errorMessage()" />
+    }
   }
 </div>

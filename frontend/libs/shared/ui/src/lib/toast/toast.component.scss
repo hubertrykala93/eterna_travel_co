@@ -7,7 +7,7 @@
   max-width: 28.125rem;
   border: var(--border-transparent-10);
   border-radius: var(--radius-medium);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
   background-color: white;
   overflow: hidden;
   animation:
@@ -56,7 +56,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 4px;
+    height: 0.25rem;
     animation: shrink 5s linear forwards;
 
     &--success {

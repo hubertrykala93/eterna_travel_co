@@ -25,9 +25,8 @@ export class InputComponent extends DisplayErrorDirective implements ControlValu
   public readonly iconPosition = input<IconPosition>('left');
 
   public readonly fullWidth = input<boolean>();
-  public readonly fullHeight = input<boolean>();
 
-  public readonly disabled = input<boolean>();
+  public readonly disabled = input<boolean>(false);
 
   protected onInput(event: Event): void {
     const value = (event.target as HTMLInputElement).value;
