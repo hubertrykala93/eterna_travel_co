@@ -1,1 +1,1 @@
-export type { InputType } from './input.type';
+export type { IconPosition, InputType } from './input.type';

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ControlFieldComponent } from '../control-field/control-field.component';
-import { InputComponent } from '../input/input.component';
+import { FormControlBaseDirective } from '../directives/form-control-base.directive';
 
 @Component({
   selector: 'ui-checkbox',
@@ -17,4 +17,4 @@ import { InputComponent } from '../input/input.component';
     },
   ],
 })
-export class CheckboxComponent extends InputComponent {}
+export class CheckboxComponent extends FormControlBaseDirective {}

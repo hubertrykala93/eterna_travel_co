@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ControlFieldComponent } from '../control-field/control-field.component';
-import { InputComponent } from '../input/input.component';
+import { InputDirective } from '../directives/input.component';
 
 @Component({
   selector: 'ui-textarea',
@@ -18,6 +18,6 @@ import { InputComponent } from '../input/input.component';
     },
   ],
 })
-export class TextareaComponent extends InputComponent {
+export class TextareaComponent extends InputDirective {
   public readonly fullHeight = input<boolean>();
 }
