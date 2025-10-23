@@ -2,7 +2,7 @@
   <label class="input__label" [for]="id()">{{ labelKey() | translate }}</label>
 }
 
-@if (type() === 'text') {
+@if (type() === 'text' || type() === 'password') {
   @if (iconClass()) {
     <div class="input__wrapper">
       @if (iconPosition() === 'left') {
@@ -50,29 +50,4 @@
       (blur)="onBlur()"
     />
   }
-}
-
-@if (type() === 'textarea') {
-  <textarea
-    class="input"
-    [class.input--disabled]="disabled()"
-    [class.input--fullwidth]="fullWidth()"
-    [class.input--fullheight]="fullHeight()"
-    [class.input--valid]="formControl()?.valid && (formControl()?.touched || formControl()?.dirty)"
-    [class.input--invalid]="
-      formControl()?.invalid && (formControl()?.touched || formControl()?.dirty)
-    "
-    [placeholder]="placeholderKey() | translate"
-    [value]="value()"
-    (input)="onInput($event)"
-    (blur)="onBlur()"
-  ></textarea>
-}
-
-@if (type() === 'checkbox') {
-  <input type="checkbox" />
-}
-
-@if (errorMessage()) {
-  <ui-error-message [errorMessage]="errorMessage()" />
 }

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, input, InputSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ButtonColor, ButtonSize, ButtonType, ButtonVariant } from './button.type';
+import { ButtonColor, ButtonFontStyle, ButtonSize, ButtonType, ButtonVariant } from './button.type';
 
 @Component({
   selector: 'ui-button',
@@ -10,14 +10,15 @@ import { ButtonColor, ButtonSize, ButtonType, ButtonVariant } from './button.typ
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
-  public readonly translateKey: InputSignal<string> = input.required<string>();
+  public readonly translateKey = input.required<string>();
 
-  public readonly type: InputSignal<ButtonType> = input<ButtonType>('submit');
+  public readonly type = input<ButtonType>('submit');
 
-  public readonly size: InputSignal<ButtonSize> = input<ButtonSize>('medium');
-  public readonly color: InputSignal<ButtonColor> = input<ButtonColor>('secondary');
-  public readonly variant: InputSignal<ButtonVariant> = input<ButtonVariant>('solid');
+  public readonly font = input<ButtonFontStyle>('light');
+  public readonly size = input<ButtonSize>('medium');
+  public readonly color = input<ButtonColor>('secondary');
+  public readonly variant = input<ButtonVariant>('solid');
 
-  public readonly disabled: InputSignal<boolean> = input<boolean>(false);
-  public readonly fullWidth: InputSignal<boolean> = input<boolean>(false);
+  public readonly disabled = input<boolean>(false);
+  public readonly fullWidth = input<boolean>(false);
 }

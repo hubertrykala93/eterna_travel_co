@@ -22,6 +22,7 @@ import { IconPosition, InputSize } from './input.type';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent extends DisplayErrorComponent implements ControlValueAccessor {
+  public readonly labelKey = input<string>();
   public readonly type = input<InputType>('text');
   public readonly id = input<string>();
   public readonly size = input<InputSize>('medium');

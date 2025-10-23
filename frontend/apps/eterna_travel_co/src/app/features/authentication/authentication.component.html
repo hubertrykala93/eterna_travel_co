@@ -1,6 +1,85 @@
 <section class="authentication spacing-vertical">
   <div class="authentication__buttons">
-    <ui-button translateKey="Sign In" [fullWidth]="true" />
-    <ui-button translateKey="Sign Up" variant="outline" [fullWidth]="true" />
+    <ui-button
+      class="authentication__button"
+      translateKey="core.header.middlebar.login"
+      routerLink="/authentication/login"
+      [variant]="isLoginRoute() ? 'solid' : 'outline'"
+      [fullWidth]="true"
+    />
+    <ui-button
+      class="authentication__button"
+      translateKey="core.header.middlebar.register"
+      routerLink="/authentication/register"
+      [variant]="isLoginRoute() ? 'outline' : 'solid'"
+      [fullWidth]="true"
+    />
+  </div>
+
+  <div class="authentication__form">
+    <form [formGroup]="form" (ngSubmit)="loginOrRegister()">
+      <ui-input
+        class="authentication__input"
+        labelKey="core.label.username"
+        placeholderKey="core.placeholder.username"
+        id="username"
+        formControlName="username"
+        [fullWidth]="true"
+      />
+
+      <ui-input
+        class="authentication__input"
+        labelKey="core.label.email"
+        placeholderKey="core.placeholder.email"
+        id="email"
+        formControlName="email"
+        [fullWidth]="true"
+      />
+
+      <ui-input
+        class="authentication__input"
+        labelKey="core.label.password"
+        placeholderKey="core.placeholder.password"
+        id="password"
+        formControlName="password"
+        [fullWidth]="true"
+      />
+
+      <ui-input
+        class="authentication__input"
+        labelKey="core.label.confirmPassword"
+        placeholderKey="core.placeholder.confirmPassword"
+        id="repassword"
+        formControlName="repassword"
+        [fullWidth]="true"
+      />
+
+      <ui-input
+        class="authentication__input"
+        type="checkbox"
+        id="isTermsAccepted"
+        formControlName="isTermsAccepted"
+      ></ui-input>
+
+      <ui-button
+        type="submit"
+        [translateKey]="'core.header.middlebar.' + (isLoginRoute() ? 'login' : 'register')"
+        [fullWidth]="true"
+      />
+    </form>
+  </div>
+
+  <p class="authentication__label">{{ 'features.authentication.orSignUpWith' | translate }}</p>
+
+  <div class="authentication__social-buttons">
+    <a href="https://www.facebook.com/" target="_blank">
+      <ui-button font="italic" translateKey="core.facebook" />
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <ui-button font="italic" translateKey="core.instagram" />
+    </a>
+    <a href="https://x.com/home" target="_blank">
+      <ui-button font="italic" translateKey="core.x" />
+    </a>
   </div>
 </section>

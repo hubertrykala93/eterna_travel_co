@@ -10,17 +10,19 @@
 
 <section class="contact-form spacing-bottom">
   <div class="contact-form__wrapper">
-    <h1 class="contact-form__title">{{ 'features.contact-us.any-question' | translate }}</h1>
-    <h3 class="contact-form__subtitle">{{ 'features.contact-us.get-in-touch' | translate }}</h3>
+    <h1 class="contact-form__title">{{ 'features.contactUs.anyQuestion' | translate }}</h1>
+    <h3 class="contact-form__subtitle">{{ 'features.contactUs.getInTouch' | translate }}</h3>
 
     <form class="contact-form__form" [formGroup]="form" (ngSubmit)="send()">
-      @for (option of formOptions; track $index) {
+      @for (option of contactUsFormOptions; track $index) {
         <ui-input
           class="contact-form__input"
           [class.contact-form__input--expanding]="option.type === 'textarea'"
           [type]="option.type"
+          [id]="option.formControlName"
           [fullWidth]="true"
           [fullHeight]="true"
+          [labelKey]="option.labelKey"
           [placeholderKey]="option.placeholderKey"
           [formControlName]="option.formControlName"
         />

@@ -10,6 +10,9 @@
   [class.button--fullwidth]="fullWidth()"
   [class.button--solid]="variant() === 'solid'"
   [class.button--outline]="variant() === 'outline'"
+  [class.button--light]="font() === 'light'"
+  [class.button--bold]="font() === 'bold'"
+  [class.button--italic]="font() === 'italic'"
   [type]="type()"
 >
   {{ translateKey() | translate }}

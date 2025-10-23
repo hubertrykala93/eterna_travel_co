@@ -1,15 +1,27 @@
 {
   "core": {
-    "toast": {
-      "title": {
-        "message-sent-successfully": "Wiadomość została wysłana pomyślnie"
-      },
-      "message": {
-        "received-your-message": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe."
-      }
+    "send": "Wyślij",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "Twitter",
+
+    "label": {
+      "name": "Imię *",
+      "email": "Adres E-mail *",
+      "message": "Wiadomość *",
+      "username": "Nazwa Użytkownika *",
+      "password": "Hasło *",
+      "confirmPassword": "Powtórz Hasło *"
     },
 
-    "send": "Wyślij",
+    "placeholder": {
+      "name": "Imię",
+      "email": "Adres E-mail",
+      "message": "Wiadomość",
+      "username": "Nazwa Użytkownika",
+      "password": "Hasło",
+      "confirmPassword": "Powtórz Hasło"
+    },
 
     "validation": {
       "required": "To pole jest wymagane.",
@@ -18,10 +30,13 @@
       "invalidEmail": "Podaj poprawny adres e-mail."
     },
 
-    "placeholder": {
-      "name": "Imię *",
-      "email": "Adres E-mail *",
-      "message": "Wiadomość *"
+    "toast": {
+      "title": {
+        "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie"
+      },
+      "message": {
+        "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe."
+      }
     },
 
     "header": {
@@ -35,7 +50,7 @@
         "tours": "Wycieczki",
         "destinations": "Kierunki",
         "blog": "Blog",
-        "contact-us": "Kontakt",
+        "contactUs": "Kontakt",
         "authentication": "Uwierzytelnienie"
       },
       "middlebar": {
@@ -45,7 +60,7 @@
     },
 
     "hero": {
-      "save-off": "Oszczędź 15% na podróżach",
+      "saveOff": "Oszczędź 15% na podróżach",
       "travel": "Podróże i przygody",
       "find": "Hotele, wycieczki, samochody i atrakcje w Londynie",
       "home": "Strona główna"
@@ -53,12 +68,15 @@
   },
 
   "features": {
-    "contact-us": {
+    "contactUs": {
       "location": "Lokalizacja",
       "phone": "Numer Telefonu",
       "mail": "Adres E-mail",
-      "any-question": "Masz pytania?",
-      "get-in-touch": "Skontaktuj się z nami"
+      "anyQuestion": "Masz pytania?",
+      "getInTouch": "Skontaktuj się z nami"
+    },
+    "authentication": {
+      "orSignUpWith": "Lub zarejestruj się z:"
     }
   }
 }

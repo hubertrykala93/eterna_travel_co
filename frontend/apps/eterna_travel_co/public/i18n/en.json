@@ -1,15 +1,27 @@
 {
   "core": {
-    "toast": {
-      "title": {
-        "message-sent-successfully": "Message sent successfully"
-      },
-      "message": {
-        "received-your-message": "We’ve received your message and will get back to you as soon as possible."
-      }
+    "send": "Send",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "Twitter",
+
+    "label": {
+      "name": "Name *",
+      "email": "E-mail Address *",
+      "message": "Message *",
+      "username": "Username *",
+      "password": "Password *",
+      "confirmPassword": "Confirm Password *"
     },
 
-    "send": "Send",
+    "placeholder": {
+      "name": "Name",
+      "email": "E-mail Address",
+      "message": "Message",
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm Password"
+    },
 
     "validation": {
       "required": "This field is required.",
@@ -18,10 +30,13 @@
       "invalidEmail": "Please enter a valid email address."
     },
 
-    "placeholder": {
-      "name": "Name *",
-      "email": "E-mail Address *",
-      "message": "Message *"
+    "toast": {
+      "title": {
+        "messageSentSuccessfully": "Message sent successfully"
+      },
+      "message": {
+        "receivedYourMessage": "We’ve received your message and will get back to you as soon as possible."
+      }
     },
 
     "header": {
@@ -35,7 +50,7 @@
         "tours": "Tours",
         "destinations": "Destinations",
         "blog": "Blog",
-        "contact-us": "Contact Us",
+        "contactUs": "Contact Us",
         "authentication": "Authentication"
       },
       "middlebar": {
@@ -45,7 +60,7 @@
     },
 
     "hero": {
-      "save-off": "Save 15% off in Worldwide",
+      "saveOff": "Save 15% off in Worldwide",
       "travel": "Travel & Adventures",
       "find": "Find awesome hotel, tour, car and activities in London",
       "home": "Home"
@@ -53,12 +68,15 @@
   },
 
   "features": {
-    "contact-us": {
+    "contactUs": {
       "location": "Location",
       "phone": "Phone Number",
       "mail": "E-mail Address",
-      "any-question": "Have any question?",
-      "get-in-touch": "Get in Touch"
+      "anyQuestion": "Have any question?",
+      "getInTouch": "Get in Touch"
+    },
+    "authentication": {
+      "orSignUpWith": "Or Sign Up with:"
     }
   }
 }
