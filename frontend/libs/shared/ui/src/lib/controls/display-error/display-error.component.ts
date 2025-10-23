@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, Injector, OnInit, signal } from '@angular/core';
+import { DestroyRef, Directive, inject, Injector, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   AbstractControl,
@@ -11,9 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { getErrorKey } from '@shared/util/helpers';
 import { tap } from 'rxjs';
 
-@Component({
-  template: '',
-})
+@Directive({})
 export class DisplayErrorComponent implements OnInit, ControlValueAccessor {
   protected readonly translateService = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);

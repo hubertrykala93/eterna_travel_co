@@ -51,3 +51,7 @@
     />
   }
 }
+
+@if (errorMessage()) {
+  <ui-error-message [errorMessage]="errorMessage()" />
+}

@@ -18,7 +18,7 @@
 
   <div class="authentication__form">
     <form [formGroup]="form" (ngSubmit)="loginOrRegister()">
-      <ui-input
+      <ui-text-field
         class="authentication__input"
         labelKey="core.label.username"
         placeholderKey="core.placeholder.username"
@@ -27,7 +27,7 @@
         [fullWidth]="true"
       />
 
-      <ui-input
+      <ui-text-field
         class="authentication__input"
         labelKey="core.label.email"
         placeholderKey="core.placeholder.email"
@@ -36,7 +36,7 @@
         [fullWidth]="true"
       />
 
-      <ui-input
+      <ui-text-field
         class="authentication__input"
         labelKey="core.label.password"
         placeholderKey="core.placeholder.password"
@@ -45,7 +45,7 @@
         [fullWidth]="true"
       />
 
-      <ui-input
+      <ui-text-field
         class="authentication__input"
         labelKey="core.label.confirmPassword"
         placeholderKey="core.placeholder.confirmPassword"
@@ -53,13 +53,6 @@
         formControlName="repassword"
         [fullWidth]="true"
       />
-
-      <ui-input
-        class="authentication__input"
-        type="checkbox"
-        id="isTermsAccepted"
-        formControlName="isTermsAccepted"
-      ></ui-input>
 
       <ui-button
         type="submit"

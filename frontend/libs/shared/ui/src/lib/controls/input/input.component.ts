@@ -1,17 +1,11 @@
-import { ChangeDetectionStrategy, Component, forwardRef, input } from '@angular/core';
+import { Directive, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
 import { getErrorKey } from '@shared/util/helpers';
 import { InputType } from '@shared/util/types';
-import { ErrorMessageComponent } from '../../error-message/error-message.component';
 import { DisplayErrorComponent } from '../display-error/display-error.component';
 import { IconPosition, InputSize } from './input.type';
 
-@Component({
-  selector: 'ui-input',
-  templateUrl: './input.component.html',
-  styleUrl: './input.component.scss',
-  imports: [TranslatePipe, ErrorMessageComponent],
+@Directive({
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -19,7 +13,6 @@ import { IconPosition, InputSize } from './input.type';
       multi: true,
     },
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputComponent extends DisplayErrorComponent implements ControlValueAccessor {
   public readonly labelKey = input<string>();

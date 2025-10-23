@@ -5,17 +5,17 @@ import { ErrorMessageComponent } from '../../error-message/error-message.compone
 import { InputComponent } from '../input/input.component';
 
 @Component({
-  selector: 'ui-text-field',
-  templateUrl: './text-field.component.html',
-  styleUrl: './text-field.component.scss',
+  selector: 'ui-textarea',
+  templateUrl: './textarea.component.html',
+  styleUrl: './textarea.component.scss',
   imports: [TranslatePipe, ErrorMessageComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: TextFieldComponent,
+      useExisting: TextareaComponent,
       multi: true,
     },
   ],
 })
-export class TextFieldComponent extends InputComponent {}
+export class TextareaComponent extends InputComponent {}

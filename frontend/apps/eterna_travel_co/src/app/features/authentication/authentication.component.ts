@@ -3,7 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { ButtonComponent, InputComponent } from '@shared/ui/controls';
+import { ButtonComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ValidationUtil } from '@shared/util/validators';
 import { filter, map } from 'rxjs';
 import { getAuthenticationFormGroup } from './authentication.const';
@@ -13,7 +13,7 @@ import { AuthenticationFormControls } from './authentication.model';
   selector: 'et-authentication',
   templateUrl: './authentication.component.html',
   styleUrl: './authentication.component.scss',
-  imports: [ButtonComponent, InputComponent, TranslatePipe, RouterLink, ReactiveFormsModule],
+  imports: [ButtonComponent, TextFieldComponent, TranslatePipe, RouterLink, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AuthenticationComponent {
