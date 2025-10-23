@@ -1,0 +1,15 @@
+<ui-control-field
+  [labelKey]="labelKey()"
+  [id]="id()"
+  [errorMessage]="errorMessage() ?? ''"
+  [disabled]="disabled()"
+>
+  <input
+    class="input"
+    type="checkbox"
+    [id]="id()"
+    [value]="value()"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+  />
+</ui-control-field>

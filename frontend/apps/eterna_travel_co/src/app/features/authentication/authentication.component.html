@@ -54,6 +54,8 @@
         [fullWidth]="true"
       />
 
+      <ui-checkbox id="isTermsAccepted" formControlName="isTermsAccepted" />
+
       <ui-button
         type="submit"
         [translateKey]="'core.header.middlebar.' + (isLoginRoute() ? 'login' : 'register')"
