@@ -1,8 +1,4 @@
-@if (labelKey()) {
-  <label class="input__label" [for]="id()">{{ labelKey() | translate }}</label>
-}
-
-@if (type() === 'textarea') {
+<ui-control-field [labelKey]="labelKey()" [id]="id()" [errorMessage]="errorMessage() ?? ''">
   <textarea
     class="input"
     [class.input--disabled]="disabled()"
@@ -17,8 +13,4 @@
     (input)="onInput($event)"
     (blur)="onBlur()"
   ></textarea>
-}
-
-@if (errorMessage()) {
-  <ui-error-message [errorMessage]="errorMessage()" />
-}
+</ui-control-field>

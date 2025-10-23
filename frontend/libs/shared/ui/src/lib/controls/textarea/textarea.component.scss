@@ -19,29 +19,12 @@
     color: var(--color-primary-40);
   }
 
-  &__label {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-primary-60);
-    margin-bottom: 0.5rem;
-  }
-
-  &__wrapper {
-    position: relative;
-    align-items: center;
-  }
-
   &--fullwidth {
     width: 100%;
   }
 
   &--fullheight {
     height: 100%;
-  }
-
-  &--spacing-left {
-    padding-left: 2.5rem;
   }
 
   &--disabled {
@@ -63,27 +46,5 @@
     &:focus {
       border-color: var(--color-error);
     }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--color-primary-40);
-
-    &--left {
-      left: 1rem;
-    }
-
-    &--right {
-      right: 1rem;
-    }
-  }
-
-  &__error {
-    display: block;
-    color: var(--color-error, red);
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
   }
 }

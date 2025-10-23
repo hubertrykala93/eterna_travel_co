@@ -1,0 +1,13 @@
+<div class="control-field">
+  @if (this.labelKey()) {
+    <label class="control-field__label" [for]="id()">{{ this.labelKey() | translate }}</label>
+  }
+
+  <div>
+    <ng-content />
+  </div>
+
+  @if (errorMessage()) {
+    <ui-error-message [errorMessage]="errorMessage()" />
+  }
+</div>

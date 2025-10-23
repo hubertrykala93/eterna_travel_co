@@ -2,8 +2,8 @@ import { Directive, forwardRef, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { getErrorKey } from '@shared/util/helpers';
 import { InputType } from '@shared/util/types';
-import { DisplayErrorComponent } from '../display-error/display-error.component';
-import { IconPosition, InputSize } from './input.type';
+import { DisplayErrorDirective } from '../display-error/display-error.directive';
+import { IconPosition } from './input.type';
 
 @Directive({
   providers: [
@@ -14,16 +14,19 @@ import { IconPosition, InputSize } from './input.type';
     },
   ],
 })
-export class InputComponent extends DisplayErrorComponent implements ControlValueAccessor {
+export class InputComponent extends DisplayErrorDirective implements ControlValueAccessor {
   public readonly labelKey = input<string>();
-  public readonly type = input<InputType>('text');
-  public readonly id = input<string>();
-  public readonly size = input<InputSize>('medium');
   public readonly placeholderKey = input<string>();
+
+  public readonly id = input<string>();
+  public readonly type = input<InputType>('text');
+
   public readonly iconClass = input<string>();
   public readonly iconPosition = input<IconPosition>('left');
+
   public readonly fullWidth = input<boolean>();
   public readonly fullHeight = input<boolean>();
+
   public readonly disabled = input<boolean>();
 
   protected onInput(event: Event): void {

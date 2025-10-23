@@ -11,8 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { getErrorKey } from '@shared/util/helpers';
 import { tap } from 'rxjs';
 
-@Directive({})
-export class DisplayErrorComponent implements OnInit, ControlValueAccessor {
+@Directive()
+export class DisplayErrorDirective implements OnInit, ControlValueAccessor {
   protected readonly translateService = inject(TranslateService);
   private readonly destroyRef = inject(DestroyRef);
   private readonly injector = inject(Injector);

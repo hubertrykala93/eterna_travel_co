@@ -1,18 +1,38 @@
-@if (labelKey()) {
-  <label class="input__label" [for]="id()">{{ labelKey() | translate }}</label>
-}
+<ui-control-field [labelKey]="labelKey()" [id]="id()" [errorMessage]="errorMessage() ?? ''">
+  @if (type() === 'text' || type() === 'password') {
+    @if (iconClass()) {
+      <div class="input__wrapper">
+        @if (iconPosition() === 'left') {
+          <i class="input__icon input__icon--left" [class]="iconClass()"></i>
+        }
+        <input
+          class="input"
+          [class.input--disabled]="disabled()"
+          [class.input--fullwidth]="fullWidth()"
+          [class.input--spacing-left]="iconClass() && iconPosition() === 'left'"
+          [class.input--valid]="
+            formControl()?.valid && (formControl()?.touched || formControl()?.dirty)
+          "
+          [class.input--invalid]="
+            formControl()?.invalid && (formControl()?.touched || formControl()?.dirty)
+          "
+          [type]="type()"
+          [id]="id()"
+          [placeholder]="placeholderKey() | translate"
+          [value]="value()"
+          (input)="onInput($event)"
+          (blur)="onBlur()"
+        />
 
-@if (type() === 'text' || type() === 'password') {
-  @if (iconClass()) {
-    <div class="input__wrapper">
-      @if (iconPosition() === 'left') {
-        <i class="input__icon input__icon--left" [class]="iconClass()"></i>
-      }
+        @if (iconPosition() === 'right') {
+          <i class="input__icon input__icon--right" [class]="iconClass()"></i>
+        }
+      </div>
+    } @else {
       <input
         class="input"
         [class.input--disabled]="disabled()"
         [class.input--fullwidth]="fullWidth()"
-        [class.input--spacing-left]="iconClass() && iconPosition() === 'left'"
         [class.input--valid]="
           formControl()?.valid && (formControl()?.touched || formControl()?.dirty)
         "
@@ -26,32 +46,6 @@
         (input)="onInput($event)"
         (blur)="onBlur()"
       />
-
-      @if (iconPosition() === 'right') {
-        <i class="input__icon input__icon--right" [class]="iconClass()"></i>
-      }
-    </div>
-  } @else {
-    <input
-      class="input"
-      [class.input--disabled]="disabled()"
-      [class.input--fullwidth]="fullWidth()"
-      [class.input--valid]="
-        formControl()?.valid && (formControl()?.touched || formControl()?.dirty)
-      "
-      [class.input--invalid]="
-        formControl()?.invalid && (formControl()?.touched || formControl()?.dirty)
-      "
-      [type]="type()"
-      [id]="id()"
-      [placeholder]="placeholderKey() | translate"
-      [value]="value()"
-      (input)="onInput($event)"
-      (blur)="onBlur()"
-    />
+    }
   }
-}
-
-@if (errorMessage()) {
-  <ui-error-message [errorMessage]="errorMessage()" />
-}
+</ui-control-field>

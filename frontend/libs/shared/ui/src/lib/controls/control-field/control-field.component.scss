@@ -1,0 +1,9 @@
+.control-field {
+  &__label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary-60);
+    margin-bottom: 0.5rem;
+  }
+}
