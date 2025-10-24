@@ -11,7 +11,8 @@
       "message": "Message *",
       "username": "Username *",
       "password": "Password *",
-      "confirmPassword": "Confirm Password *"
+      "confirmPassword": "Confirm Password *",
+      "termsAccepting": "I confirm that I have read and agree to the Terms of Service and Privacy Policy. *"
     },
 
     "placeholder": {
@@ -27,7 +28,9 @@
       "required": "This field is required.",
       "minlength": "Please enter at least {{ requiredLength }} characters.",
       "maxlength": "Please enter no more than {{ requiredLength }} characters.",
-      "invalidEmail": "Please enter a valid email address."
+      "invalidEmail": "Please enter a valid email address.",
+      "passwordWeak": "Password must contain at least 8 characters, including uppercase, lowercase, number, and special character.",
+      "passwordsDontMatch": "Passwords must match."
     },
 
     "toast": {

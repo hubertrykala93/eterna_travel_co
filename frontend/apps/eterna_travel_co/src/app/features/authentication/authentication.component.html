@@ -18,43 +18,28 @@
 
   <div class="authentication__form">
     <form [formGroup]="form" (ngSubmit)="loginOrRegister()">
-      <ui-text-field
-        class="authentication__input"
-        labelKey="core.label.username"
-        placeholderKey="core.placeholder.username"
-        id="username"
-        formControlName="username"
-        [fullWidth]="true"
-      />
-
-      <ui-text-field
-        class="authentication__input"
-        labelKey="core.label.email"
-        placeholderKey="core.placeholder.email"
-        id="email"
-        formControlName="email"
-        [fullWidth]="true"
-      />
-
-      <ui-text-field
-        class="authentication__input"
-        labelKey="core.label.password"
-        placeholderKey="core.placeholder.password"
-        id="password"
-        formControlName="password"
-        [fullWidth]="true"
-      />
-
-      <ui-text-field
-        class="authentication__input"
-        labelKey="core.label.confirmPassword"
-        placeholderKey="core.placeholder.confirmPassword"
-        id="repassword"
-        formControlName="repassword"
-        [fullWidth]="true"
-      />
-
-      <ui-checkbox id="isTermsAccepted" formControlName="isTermsAccepted" />
+      @for (option of authenticationFormOptions; track $index) {
+        @if (option.visible) {
+          @if (option.type === 'text' || option.type === 'password') {
+            <ui-text-field
+              class="authentication__input"
+              [labelKey]="option.labelKey"
+              [placeholderKey]="option.placeholderKey"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [type]="option.type"
+              [fullWidth]="true"
+            />
+          } @else {
+            <ui-checkbox
+              class="authentication__input"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [labelKey]="option.labelKey"
+            />
+          }
+        }
+      }
 
       <ui-button
         type="submit"

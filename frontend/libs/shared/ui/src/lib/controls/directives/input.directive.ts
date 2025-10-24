@@ -1,7 +1,6 @@
 import { Directive, forwardRef, input } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IconPosition, InputType } from '@shared/util/types';
-
 import { FormControlBaseDirective } from './form-control-base.directive';
 
 @Directive({

@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { InputLabelPlacement } from '@shared/util/types';
 import { ControlFieldComponent } from '../control-field/control-field.component';
 import { FormControlBaseDirective } from '../directives/form-control-base.directive';
 
@@ -17,4 +18,6 @@ import { FormControlBaseDirective } from '../directives/form-control-base.direct
     },
   ],
 })
-export class CheckboxComponent extends FormControlBaseDirective {}
+export class CheckboxComponent extends FormControlBaseDirective {
+  public readonly labelPlacement = signal<InputLabelPlacement>('right');
+}

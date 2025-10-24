@@ -1,13 +1,15 @@
-<div class="control-field">
-  @if (this.labelKey()) {
-    <label class="control-field__label" [for]="id()">{{ this.labelKey() | translate }}</label>
+<div class="control-field" [class.control-field--right]="labelPlacement() === 'right'">
+  @if (labelKey()) {
+    <label class="control-field__label" [for]="id()">
+      {{ labelKey() | translate }}
+    </label>
   }
 
   <div class="control-field__control" [class.control-field__control--disabled]="disabled()">
     <ng-content />
   </div>
-
-  @if (errorMessage()) {
-    <ui-error-message [errorMessage]="errorMessage()" />
-  }
 </div>
+
+@if (errorMessage()) {
+  <ui-error-message [errorMessage]="errorMessage()" />
+}

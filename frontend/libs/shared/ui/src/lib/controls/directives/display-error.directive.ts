@@ -19,7 +19,7 @@ export class DisplayErrorDirective implements OnInit, ControlValueAccessor {
 
   protected readonly formControl = signal<AbstractControl | null>(null);
   protected readonly errorMessage = signal<string | null>(null);
-  protected readonly value = signal<string | number | null>(null);
+  protected readonly value = signal<string | number | boolean | null>(null);
 
   public ngOnInit(): void {
     this.assignFormControl();
@@ -58,7 +58,7 @@ export class DisplayErrorDirective implements OnInit, ControlValueAccessor {
       .subscribe();
   }
 
-  public writeValue(value: string | number | null): void {
+  public writeValue(value: string | number | boolean | null): void {
     this.value.set(value);
   }
 
@@ -73,7 +73,7 @@ export class DisplayErrorDirective implements OnInit, ControlValueAccessor {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected onChange(value: string): void {
+  protected onChange(value: string | number | boolean): void {
     return;
   }
 

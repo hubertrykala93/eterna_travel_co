@@ -1,27 +1,18 @@
-import { Directive, forwardRef, input } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Directive, input } from '@angular/core';
 import { getErrorKey } from '@shared/util/helpers';
-import { DisplayErrorDirective } from '../display-error/display-error.directive';
+import { DisplayErrorDirective } from './display-error.directive';
 
-@Directive({
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => FormControlBaseDirective),
-      multi: true,
-    },
-  ],
-})
+@Directive()
 export class FormControlBaseDirective extends DisplayErrorDirective {
   public readonly labelKey = input<string>();
   public readonly id = input<string>();
   public readonly disabled = input<boolean>(false);
 
   protected onInput(event: Event): void {
-    const value = (event.target as HTMLInputElement).value;
+    const element = event.target as HTMLInputElement;
+    const value = element.type === 'checkbox' ? element.checked : element.value;
 
     this.value.set(value);
-
     this.onChange(value);
   }
 

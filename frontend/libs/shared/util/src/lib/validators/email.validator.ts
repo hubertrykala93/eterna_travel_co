@@ -1,7 +1,7 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-export class EmailValidators {
-  private static EMAIL_PATTERN =
+export class EmailValidator {
+  private static readonly EMAIL_PATTERN =
     '^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,3}$';
 
   public static patternValidator(): ValidatorFn {

@@ -18,7 +18,7 @@
         @if (option.type !== 'textarea') {
           <ui-text-field
             class="contact-form__input"
-            [type]="option.type"
+            [type]="option.type ?? 'text'"
             [id]="option.formControlName"
             [fullWidth]="true"
             [labelKey]="option.labelKey"

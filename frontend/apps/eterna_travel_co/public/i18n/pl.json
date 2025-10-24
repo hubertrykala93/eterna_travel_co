@@ -11,7 +11,8 @@
       "message": "Wiadomość *",
       "username": "Nazwa Użytkownika *",
       "password": "Hasło *",
-      "confirmPassword": "Powtórz Hasło *"
+      "confirmPassword": "Powtórz Hasło *",
+      "termsAccepting": "Oświadczam, że zapoznałem(-am) się z Regulaminem oraz Polityką prywatności i akceptuję ich postanowienia. *"
     },
 
     "placeholder": {
@@ -27,7 +28,9 @@
       "required": "To pole jest wymagane.",
       "minlength": "Wpisz co najmniej {{ requiredLength }} znaków.",
       "maxlength": "Wpisz maksymalnie {{ requiredLength }} znaków.",
-      "invalidEmail": "Podaj poprawny adres e-mail."
+      "invalidEmail": "Podaj poprawny adres e-mail.",
+      "passwordWeak": "Hasło musi zawierać co najmniej 8 znaków, w tym małą i dużą literę, cyfrę oraz znak specjalny.",
+      "passwordsDontMatch": "Hasła muszą być identyczne."
     },
 
     "toast": {

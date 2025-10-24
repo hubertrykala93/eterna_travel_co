@@ -8,7 +8,8 @@ export interface AuditableDto {
 
 export interface FormOptions {
   labelKey: string;
-  placeholderKey: string;
+  placeholderKey?: string;
   formControlName: string;
-  type: InputType;
+  type?: InputType;
+  visible?: boolean;
 }
