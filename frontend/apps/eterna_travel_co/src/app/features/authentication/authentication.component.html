@@ -2,14 +2,14 @@
   <div class="authentication__buttons">
     <ui-button
       class="authentication__button"
-      translateKey="core.header.middlebar.login"
       routerLink="/authentication/login"
+      [label]="'core.header.middlebar.login' | translate"
       [variant]="isLoginRoute() ? 'solid' : 'outline'"
       [fullWidth]="true"
     />
     <ui-button
       class="authentication__button"
-      translateKey="core.header.middlebar.register"
+      [label]="'core.header.middlebar.register' | translate"
       routerLink="/authentication/register"
       [variant]="isLoginRoute() ? 'outline' : 'solid'"
       [fullWidth]="true"
@@ -43,7 +43,7 @@
 
       <ui-button
         type="submit"
-        [translateKey]="'core.header.middlebar.' + (isLoginRoute() ? 'login' : 'register')"
+        [label]="'core.header.middlebar.' + (isLoginRoute() ? 'login' : 'register') | translate"
         [fullWidth]="true"
       />
     </form>
@@ -53,13 +53,13 @@
 
   <div class="authentication__social-buttons">
     <a href="https://www.facebook.com/" target="_blank">
-      <ui-button font="italic" translateKey="core.facebook" />
+      <ui-button font="italic" [label]="'core.facebook' | translate" />
     </a>
     <a href="https://www.instagram.com/" target="_blank">
-      <ui-button font="italic" translateKey="core.instagram" />
+      <ui-button font="italic" [label]="'core.instagram' | translate" />
     </a>
     <a href="https://x.com/home" target="_blank">
-      <ui-button font="italic" translateKey="core.x" />
+      <ui-button font="italic" [label]="'core.x' | translate" />
     </a>
   </div>
 </section>
