@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
 import { InputType } from '@shared/util/types';
 import { ControlFieldComponent } from '../control-field/control-field.component';
 import { InputDirective } from '../directives/input.directive';
@@ -9,7 +8,7 @@ import { InputDirective } from '../directives/input.directive';
   selector: 'ui-text-field',
   templateUrl: './text-field.component.html',
   styleUrl: './text-field.component.scss',
-  imports: [TranslatePipe, ControlFieldComponent],
+  imports: [ControlFieldComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

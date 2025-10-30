@@ -1,7 +1,7 @@
 <div class="control-field" [class.control-field--right]="labelPlacement() === 'right'">
-  @if (labelKey()) {
+  @if (label()) {
     <label class="control-field__label" [for]="id()">
-      {{ labelKey() | translate }}
+      {{ label() }}
     </label>
   }
 

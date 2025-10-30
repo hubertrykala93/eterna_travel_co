@@ -1,5 +1,5 @@
 <ui-control-field
-  [labelKey]="labelKey()"
+  [label]="label()"
   [id]="id()"
   [errorMessage]="errorMessage() ?? ''"
   [disabled]="disabled()"
@@ -13,7 +13,7 @@
     [class.input--invalid]="
       formControl()?.invalid && (formControl()?.touched || formControl()?.dirty)
     "
-    [placeholder]="placeholderKey() | translate"
+    [placeholder]="placeholder()"
     [value]="value()"
     [id]="id()"
     (input)="onInput($event)"

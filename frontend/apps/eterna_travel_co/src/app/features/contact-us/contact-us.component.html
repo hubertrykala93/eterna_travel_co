@@ -21,8 +21,8 @@
             [type]="option.type ?? 'text'"
             [id]="option.formControlName"
             [fullWidth]="true"
-            [labelKey]="option.labelKey"
-            [placeholderKey]="option.placeholderKey"
+            [label]="option.label | translate"
+            [placeholder]="option.placeholder | translate"
             [formControlName]="option.formControlName"
           />
         } @else {
@@ -32,8 +32,8 @@
             [id]="option.formControlName"
             [fullWidth]="true"
             [fullHeight]="true"
-            [labelKey]="option.labelKey"
-            [placeholderKey]="option.placeholderKey"
+            [label]="option.label | translate"
+            [placeholder]="option.placeholder | translate"
             [formControlName]="option.formControlName"
           />
         }

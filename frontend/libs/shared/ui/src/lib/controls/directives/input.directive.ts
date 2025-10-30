@@ -13,7 +13,7 @@ import { FormControlBaseDirective } from './form-control-base.directive';
   ],
 })
 export class InputDirective extends FormControlBaseDirective {
-  public readonly placeholderKey = input<string>();
+  public readonly placeholder = input<string>();
 
   public readonly type = input<InputType>('text');
 

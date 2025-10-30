@@ -21,20 +21,20 @@ export const contactCards: ContactCard[] = [
 
 export const contactUsFormOptions: FormOptions[] = [
   {
-    labelKey: 'core.label.name',
-    placeholderKey: 'core.placeholder.name',
+    label: 'core.label.name',
+    placeholder: 'core.placeholder.name',
     formControlName: 'name',
     type: 'text',
   },
   {
-    labelKey: 'core.label.email',
-    placeholderKey: 'core.placeholder.email',
+    label: 'core.label.email',
+    placeholder: 'core.placeholder.email',
     formControlName: 'email',
     type: 'text',
   },
   {
-    labelKey: 'core.label.message',
-    placeholderKey: 'core.placeholder.message',
+    label: 'core.label.message',
+    placeholder: 'core.placeholder.message',
     formControlName: 'message',
     type: 'textarea',
   },

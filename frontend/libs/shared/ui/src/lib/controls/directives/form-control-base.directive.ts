@@ -4,7 +4,7 @@ import { DisplayErrorDirective } from './display-error.directive';
 
 @Directive()
 export class FormControlBaseDirective extends DisplayErrorDirective {
-  public readonly labelKey = input<string>();
+  public readonly label = input<string>();
   public readonly id = input<string>();
   public readonly disabled = input<boolean>(false);
 

@@ -7,8 +7,8 @@ export interface AuditableDto {
 }
 
 export interface FormOptions {
-  labelKey: string;
-  placeholderKey?: string;
+  label: string;
+  placeholder?: string;
   formControlName: string;
   type?: InputType;
   visible?: boolean;

@@ -23,8 +23,8 @@
           @if (option.type === 'text' || option.type === 'password') {
             <ui-text-field
               class="authentication__input"
-              [labelKey]="option.labelKey"
-              [placeholderKey]="option.placeholderKey"
+              [label]="option.label | translate"
+              [placeholder]="option.placeholder | translate"
               [id]="option.formControlName"
               [formControlName]="option.formControlName"
               [type]="option.type"
@@ -33,9 +33,9 @@
           } @else {
             <ui-checkbox
               class="authentication__input"
+              [label]="option.label | translate"
               [id]="option.formControlName"
               [formControlName]="option.formControlName"
-              [labelKey]="option.labelKey"
             />
           }
         }
