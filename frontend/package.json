@@ -7,6 +7,8 @@
     "eterna-travel-co:build": "nx build eterna_travel_co",
     "eterna-travel-co:lint": "nx lint eterna_travel_co",
     "eterna-travel-co:test": "nx test eterna_travel_co",
+    "authentication-data-access:lint": "nx lint authentication-data-access",
+    "authentication-data-access:test": "nx test authentication-data-access",
     "currency-data-access:lint": "nx lint currency-data-access",
     "currency-data-access:test": "nx test currency-data-access",
     "language-data-access:lint": "nx lint language-data-access",
@@ -16,7 +18,8 @@
     "shared-ui:lint": "nx lint shared-ui",
     "shared-ui:test": "nx test shared-ui",
     "shared-util:lint": "nx lint shared-util",
-    "shared-util:test": "nx test shared-util"
+    "shared-util:test": "nx test shared-util",
+    "lint:all": "nx run-many --target=lint --all --exclude=eterna_travel_co"
   },
   "private": true,
   "dependencies": {

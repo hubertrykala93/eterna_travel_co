@@ -6,6 +6,11 @@ export interface AuditableDto {
   modificationTimestamp?: Date;
 }
 
+export interface Environment {
+  production: boolean;
+  backendUrl: string;
+}
+
 export interface FormOptions {
   label: string;
   placeholder?: string;

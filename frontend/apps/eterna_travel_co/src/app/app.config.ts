@@ -9,9 +9,11 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ENVIRONMENT, provideValue } from '@shared/data-access';
 import { StorageService } from '@shared/util/services';
 import { initializeApp } from './app.initializers';
 import { appRoutes } from './app.routes';
+import { environment } from './environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -20,6 +22,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideHttpClient(),
     provideAppInitializer(() => initializeApp(inject(StorageService), inject(TranslateService))),
+    provideValue(ENVIRONMENT, environment),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',

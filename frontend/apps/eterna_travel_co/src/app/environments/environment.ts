@@ -1,4 +1,4 @@
-import { Environment } from './environment.model';
+import { Environment } from '@shared/data-access';
 
 export const environment: Environment = {
   production: false,

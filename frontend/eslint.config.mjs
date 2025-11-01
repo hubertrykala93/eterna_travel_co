@@ -32,7 +32,7 @@ export default [
             },
             {
               sourceTag: 'type:util',
-              onlyDependOnLibsWithTags: ['type:util', 'scope:shared'],
+              onlyDependOnLibsWithTags: ['type:util'],
             },
             {
               sourceTag: 'type:ui',
@@ -50,6 +50,10 @@ export default [
               sourceTag: 'scope:language',
               onlyDependOnLibsWithTags: ['scope:language', 'scope:shared'],
             },
+            {
+              sourceTag: 'scope:authentication',
+              onlyDependOnLibsWithTags: ['scope:authentication', 'scope:shared'],
+            },
           ],
         },
       ],
@@ -59,7 +63,6 @@ export default [
 
       quotes: ['error', 'single', { avoidEscape: true }],
       semi: ['error', 'always'],
-      indent: ['error', 2],
       'no-multiple-empty-lines': ['error', { max: 1 }],
 
       eqeqeq: ['error', 'always'],

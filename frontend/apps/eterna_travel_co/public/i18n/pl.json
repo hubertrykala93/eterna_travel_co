@@ -35,10 +35,12 @@
 
     "toast": {
       "title": {
-        "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie"
+        "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie",
+        "accountCreatedSuccessfully": "Gotowe! Twoje konto jest już aktywne"
       },
       "message": {
-        "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe."
+        "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe.",
+        "checkYourInboxToVerifyAccount": "Sprawdź swoją skrzynkę odbiorczą — znajdziesz tam link do weryfikacji adresu e-mail."
       }
     },
 

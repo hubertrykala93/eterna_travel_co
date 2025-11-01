@@ -14,7 +14,9 @@ export class ValidationUtil {
     for (const key in form.controls) {
       const control = form.controls[key];
 
-      control.setValue(null, { emitEvent: false });
+      const resetValue = typeof control.value === 'boolean' ? false : null;
+
+      control.setValue(resetValue, { emitEvent: false });
       control.markAsPristine();
       control.markAsUntouched();
     }

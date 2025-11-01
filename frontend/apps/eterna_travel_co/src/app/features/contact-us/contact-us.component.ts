@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { FormOptions } from '@shared/data-access';
 import { ButtonComponent, TextareaComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
@@ -26,6 +26,7 @@ import { ContactUsService } from './contact-us.service';
 export class ContactUsComponent {
   private readonly contactUsService = inject(ContactUsService);
   private readonly toastService = inject(ToastService);
+  private readonly translateService = inject(TranslateService);
 
   protected readonly form: FormGroup<ContactUsControls> = this.contactUsService.getFormGroup();
 
@@ -44,9 +45,10 @@ export class ContactUsComponent {
       .pipe(
         tap(() => {
           ValidationUtil.resetForm(this.form);
+
           this.toastService.open({
-            titleKey: 'core.toast.title.messageSentSuccessfully',
-            messageKey: 'core.toast.message.receivedYourMessage',
+            title: this.translateService.instant('core.toast.title.messageSentSuccessfully'),
+            message: this.translateService.instant('core.toast.message.receivedYourMessage'),
             status: 'success',
           });
         }),

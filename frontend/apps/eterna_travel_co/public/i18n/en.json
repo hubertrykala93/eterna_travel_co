@@ -35,10 +35,12 @@
 
     "toast": {
       "title": {
-        "messageSentSuccessfully": "Message sent successfully"
+        "messageSentSuccessfully": "Message sent successfully",
+        "accountCreatedSuccessfully": "Done! Your account is now active"
       },
       "message": {
-        "receivedYourMessage": "We’ve received your message and will get back to you as soon as possible."
+        "receivedYourMessage": "We’ve received your message and will get back to you as soon as possible.",
+        "checkYourInboxToVerifyAccount": "Check your inbox — you’ll find a link there to verify your email address."
       }
     },
 
