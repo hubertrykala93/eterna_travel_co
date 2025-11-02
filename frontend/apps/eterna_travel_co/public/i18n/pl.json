@@ -37,16 +37,28 @@
       "title": {
         "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie",
         "accountCreatedSuccessfully": "Gotowe! Twoje konto jest już aktywne",
+        "UNEXPECTED_ERROR": "Nieoczekiwany błąd",
         "EMAIL_EXISTS": "Ten adres e-mail jest już zajęty",
         "USERNAME_EXISTS": "Nazwa użytkownika jest już zajęta",
-        "PASSWORDS_DO_NOT_MATCH": "Hasła nie są zgodne"
+        "PASSWORDS_DO_NOT_MATCH": "Hasła nie są zgodne",
+        "INVALID_DATA": "Nieprawidłowe dane",
+        "INVALID_ACTIVATION_LINK": "Nieprawidłowy link aktywacyjny",
+        "ACTIVATION_LINK_IS_MISSING": "Aktywacja nie powiodła się",
+        "ALREADY_VERIFIED": "Konto jest już aktywne",
+        "ACTIVATION_SUCCESSFULLY": "Konto zostało aktywowane"
       },
       "message": {
         "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe.",
         "checkYourInboxToVerifyAccount": "Sprawdź swoją skrzynkę odbiorczą — znajdziesz tam link do weryfikacji adresu e-mail.",
+        "PLEASE_TRY_AGAIN_LATER": "Coś poszło nie tak. Spróbuj ponownie później.",
         "USER_WITH_THIS_EMAIL_ALREADY_EXISTS": "Zaloguj się na istniejące konto lub użyj innego adresu e-mail.",
         "USER_WITH_THIS_USERNAME_ALREADY_EXISTS": "Wybierz inną nazwę użytkownika, aby kontynuować rejestrację.",
-        "PASSWORDS_ARE_NOT_IDENTICAL": "Upewnij się, że oba pola hasła zawierają tę samą wartość."
+        "PASSWORDS_ARE_NOT_IDENTICAL": "Upewnij się, że oba pola hasła zawierają tę samą wartość.",
+        "PROVIDED_USER_DATA_IS_NOT_VALID": "Podane dane są nieprawidłowe. Sprawdź poprawność formularza i spróbuj ponownie.",
+        "ACTIVATION_LINK_IS_MISSING": "Link aktywacyjny nie zawiera wymaganych danych. Sprawdź poprawność linku lub poproś o nowy.",
+        "ACTIVATION_LINK_IS_INVALID": "Ten link aktywacyjny jest nieprawidłowy lub wygasł. Zarejestruj się ponownie, aby otrzymać nowy link.",
+        "ALREADY_VERIFIED_PLEASE_LOG_IN": "Twoje konto zostało już aktywowane. Zaloguj się, aby kontynuować.",
+        "YOUR_ACCOUNT_IS_ACTIVE": "Twoje konto jest już aktywne. Możesz się zalogować i korzystać ze wszystkich funkcji."
       }
     },
 

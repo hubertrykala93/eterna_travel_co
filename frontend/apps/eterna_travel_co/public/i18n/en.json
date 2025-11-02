@@ -37,16 +37,28 @@
       "title": {
         "messageSentSuccessfully": "Message sent successfully",
         "accountCreatedSuccessfully": "Done! Your account is now active",
+        "UNEXPECTED_ERROR": "Unexpected error",
         "EMAIL_EXISTS": "This email address is already in use",
         "USERNAME_EXISTS": "Username already taken",
-        "PASSWORDS_DO_NOT_MATCH": "Passwords don’t match"
+        "PASSWORDS_DO_NOT_MATCH": "Passwords don’t match",
+        "INVALID_DATA": "Invalid data",
+        "INVALID_ACTIVATION_LINK": "Invalid activation link",
+        "ACTIVATION_FAILED": "Activation failed",
+        "ALREADY_VERIFIED": "Account already verified",
+        "ACTIVATION_SUCCESSFULLY": "Account activated successfully"
       },
       "message": {
         "receivedYourMessage": "We’ve received your message and will get back to you as soon as possible.",
         "checkYourInboxToVerifyAccount": "Check your inbox — you’ll find a link there to verify your email address.",
+        "PLEASE_TRY_AGAIN_LATER": "Something went wrong. Please try again later.",
         "USER_WITH_THIS_EMAIL_ALREADY_EXISTS": "Log in to your existing account or use a different email address.",
         "USER_WITH_THIS_USERNAME_ALREADY_EXISTS": "Please choose another username to continue.",
-        "PASSWORDS_ARE_NOT_IDENTICAL": "Make sure both password fields contain the same value."
+        "PASSWORDS_ARE_NOT_IDENTICAL": "Make sure both password fields contain the same value.",
+        "PROVIDED_USER_DATA_IS_NOT_VALID": "The provided information is invalid. Please check your input and try again.",
+        "ACTIVATION_LINK_IS_MISSING": "The activation link is missing required information. Please check the link or request a new one.",
+        "ACTIVATION_LINK_IS_INVALID": "This activation link is invalid or has expired. Please register again to receive a new one.",
+        "ALREADY_VERIFIED_PLEASE_LOG_IN": "Your account has already been activated. Please log in to continue.",
+        "YOUR_ACCOUNT_IS_ACTIVE": "Your account is now active. You can sign in and start using all features."
       }
     },
 

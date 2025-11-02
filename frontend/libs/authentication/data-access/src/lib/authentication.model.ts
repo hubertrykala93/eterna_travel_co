@@ -15,3 +15,8 @@ export interface UserRequest {
   email: string;
   password: string;
 }
+
+export interface ActivationRequest {
+  uid: string;
+  token: string;
+}

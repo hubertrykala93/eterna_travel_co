@@ -1,14 +1,14 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { AuthenticationService } from '@authentication/data-access';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
+import { ActivationRequest, AuthenticationService } from '@authentication/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { FormOptions } from '@shared/data-access';
+import { APIResponse, FormOptions } from '@shared/data-access';
 import { ButtonComponent, CheckboxComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
-import { filter, map, tap } from 'rxjs';
+import { EMPTY, filter, map, Observable, switchMap, tap } from 'rxjs';
 import { authenticationFormOptions, getAuthenticationFormGroup } from './authentication.const';
 import { AuthenticationFormControls } from './authentication.model';
 
@@ -26,11 +26,13 @@ import { AuthenticationFormControls } from './authentication.model';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AuthenticationComponent {
+export class AuthenticationComponent implements OnInit {
   private readonly authenticationService = inject(AuthenticationService);
   private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
   private readonly toastService = inject(ToastService);
   private readonly translateService = inject(TranslateService);
+  private readonly destroyRef = inject(DestroyRef);
   private readonly _nonNullableFormBuilder = inject(NonNullableFormBuilder);
 
   protected readonly isLoginRoute = toSignal(
@@ -49,6 +51,37 @@ export class AuthenticationComponent {
     this._nonNullableFormBuilder,
     this.isLoginRoute() ? 'login' : 'register',
   );
+
+  private readonly activateAccount$: Observable<APIResponse> =
+    this.activatedRoute.queryParamMap.pipe(
+      switchMap((queryParams) => {
+        const uid = queryParams.get('uid');
+        const token = queryParams.get('token');
+
+        if (!uid || !token) return EMPTY;
+
+        const activationRequest: ActivationRequest = {
+          uid,
+          token,
+        };
+
+        return this.authenticationService.activate(activationRequest).pipe(
+          tap((response: APIResponse) => {
+            const { title, message, status } = response;
+
+            this.toastService.open({
+              title: this.translateService.instant(`core.toast.title.${title}`),
+              message: this.translateService.instant(`core.toast.message.${message}`),
+              status: status,
+            });
+          }),
+        );
+      }),
+    );
+
+  public ngOnInit(): void {
+    this.activateAccount$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
+  }
 
   protected loginOrRegister(): void {
     if (this.form.invalid) {
