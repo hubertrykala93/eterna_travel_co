@@ -58,7 +58,7 @@ export class AuthenticationComponent {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { repassword, isTermsAccepted, ...data } = this.form.getRawValue();
+    const { isTermsAccepted, ...data } = this.form.getRawValue();
 
     this.authenticationService
       .createUser(data)
