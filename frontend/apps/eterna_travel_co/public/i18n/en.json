@@ -36,11 +36,17 @@
     "toast": {
       "title": {
         "messageSentSuccessfully": "Message sent successfully",
-        "accountCreatedSuccessfully": "Done! Your account is now active"
+        "accountCreatedSuccessfully": "Done! Your account is now active",
+        "EMAIL_EXISTS": "This email address is already in use",
+        "USERNAME_EXISTS": "Username already taken",
+        "PASSWORDS_DO_NOT_MATCH": "Passwords don’t match"
       },
       "message": {
         "receivedYourMessage": "We’ve received your message and will get back to you as soon as possible.",
-        "checkYourInboxToVerifyAccount": "Check your inbox — you’ll find a link there to verify your email address."
+        "checkYourInboxToVerifyAccount": "Check your inbox — you’ll find a link there to verify your email address.",
+        "USER_WITH_THIS_EMAIL_ALREADY_EXISTS": "Log in to your existing account or use a different email address.",
+        "USER_WITH_THIS_USERNAME_ALREADY_EXISTS": "Please choose another username to continue.",
+        "PASSWORDS_ARE_NOT_IDENTICAL": "Make sure both password fields contain the same value."
       }
     },
 

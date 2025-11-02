@@ -2,7 +2,9 @@
   position: fixed;
   bottom: 2rem;
   right: -0.375rem;
-  padding: 0.9375rem;
+  z-index: 1000;
+  padding-inline: 1.5625rem;
+  padding-block: 0.9375rem;
   min-width: 18.75rem;
   max-width: 28.125rem;
   border: var(--border-transparent-10);
@@ -14,16 +16,8 @@
     slide-in 0.5s ease-out forwards,
     slide-out 0.5s ease-in forwards 5s;
 
-  &__header {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    margin-bottom: 0.625rem;
-  }
-
-  &__icon {
-    font-size: 1.5rem;
-
+  &__icon,
+  &__progress {
     &--success {
       color: var(--color-success);
     }
@@ -39,6 +33,13 @@
     &--info {
       color: var(--color-info);
     }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.625rem;
   }
 
   &__title {
@@ -58,22 +59,6 @@
     left: 0;
     height: 0.25rem;
     animation: shrink 5s linear forwards;
-
-    &--success {
-      background-color: var(--color-success);
-    }
-
-    &--error {
-      background-color: var(--color-error);
-    }
-
-    &--warning {
-      background-color: var(--color-warning);
-    }
-
-    &--info {
-      background-color: var(--color-info);
-    }
   }
 }
 

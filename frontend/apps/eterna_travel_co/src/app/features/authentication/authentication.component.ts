@@ -57,13 +57,13 @@ export class AuthenticationComponent {
       return;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { repassword, isTermsAccepted, ...data } = this.form.getRawValue();
 
     this.authenticationService
       .createUser(data)
       .pipe(
-        tap((user) => {
-          console.log('User -> ', user);
+        tap(() => {
           ValidationUtil.resetForm(this.form);
 
           this.toastService.open({

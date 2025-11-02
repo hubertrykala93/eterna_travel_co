@@ -36,11 +36,17 @@
     "toast": {
       "title": {
         "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie",
-        "accountCreatedSuccessfully": "Gotowe! Twoje konto jest już aktywne"
+        "accountCreatedSuccessfully": "Gotowe! Twoje konto jest już aktywne",
+        "EMAIL_EXISTS": "Ten adres e-mail jest już zajęty",
+        "USERNAME_EXISTS": "Nazwa użytkownika jest już zajęta",
+        "PASSWORDS_DO_NOT_MATCH": "Hasła nie są zgodne"
       },
       "message": {
         "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe.",
-        "checkYourInboxToVerifyAccount": "Sprawdź swoją skrzynkę odbiorczą — znajdziesz tam link do weryfikacji adresu e-mail."
+        "checkYourInboxToVerifyAccount": "Sprawdź swoją skrzynkę odbiorczą — znajdziesz tam link do weryfikacji adresu e-mail.",
+        "USER_WITH_THIS_EMAIL_ALREADY_EXISTS": "Zaloguj się na istniejące konto lub użyj innego adresu e-mail.",
+        "USER_WITH_THIS_USERNAME_ALREADY_EXISTS": "Wybierz inną nazwę użytkownika, aby kontynuować rejestrację.",
+        "PASSWORDS_ARE_NOT_IDENTICAL": "Upewnij się, że oba pola hasła zawierają tę samą wartość."
       }
     },
 

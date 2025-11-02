@@ -1,4 +1,4 @@
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
   inject,
@@ -9,7 +9,12 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { ENVIRONMENT, provideValue } from '@shared/data-access';
+import {
+  ENVIRONMENT,
+  httpErrorInterceptor,
+  loadingInterceptor,
+  provideValue,
+} from '@shared/data-access';
 import { StorageService } from '@shared/util/services';
 import { initializeApp } from './app.initializers';
 import { appRoutes } from './app.routes';
@@ -20,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
-    provideHttpClient(),
+    provideHttpClient(withInterceptors([loadingInterceptor, httpErrorInterceptor])),
     provideAppInitializer(() => initializeApp(inject(StorageService), inject(TranslateService))),
     provideValue(ENVIRONMENT, environment),
     provideTranslateService({
