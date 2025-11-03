@@ -1,13 +1,20 @@
 import { AsyncPipe } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
-import { ToastComponent } from '@shared/ui';
+import { LoaderComponent, ToastComponent } from '@shared/ui';
 import { filter, map, Observable } from 'rxjs';
 import { HeaderComponent } from './core/header/header.component';
 import { HeroComponent } from './core/hero/hero.component';
 
 @Component({
-  imports: [RouterModule, HeaderComponent, HeroComponent, ToastComponent, AsyncPipe],
+  imports: [
+    RouterModule,
+    HeaderComponent,
+    HeroComponent,
+    ToastComponent,
+    AsyncPipe,
+    LoaderComponent,
+  ],
   selector: 'et-root',
   templateUrl: './app.html',
   styleUrl: './app.scss',

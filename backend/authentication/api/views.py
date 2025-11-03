@@ -83,7 +83,7 @@ class RegisterAPIView(APIView):
 
                     return Response(status=HTTP_201_CREATED)
 
-            except Exception as e:
+            except Exception:
                 return Response(
                     data={
                         "title": "UNEXPECTED_ERROR",

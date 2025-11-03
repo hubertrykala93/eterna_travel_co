@@ -1,2 +1,2 @@
-export { LoaderComponent } from './lib/loading/loader.component';
+export { LoaderComponent } from './lib/loader/loader.component';
 export { ToastComponent } from './lib/toast/toast.component';

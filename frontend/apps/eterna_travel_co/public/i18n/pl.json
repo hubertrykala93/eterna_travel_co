@@ -101,5 +101,14 @@
     "authentication": {
       "orSignUpWith": "Lub zarejestruj się z:"
     }
+  },
+  "libs": {
+    "shared": {
+      "ui": {
+        "loader": {
+          "loading": "Ładowanie"
+        }
+      }
+    }
   }
 }
