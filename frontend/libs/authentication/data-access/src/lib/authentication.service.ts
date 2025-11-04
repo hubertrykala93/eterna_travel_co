@@ -20,11 +20,21 @@ export class AuthenticationService {
   }
 
   public login(data: UserRequest): Observable<UserDto> {
-    return this.http.post<UserDto>(`${this.environment.backendUrl}/users/me/login`, data);
+    return this.http.post<UserDto>(`${this.environment.backendUrl}/users/me/login`, data, {
+      withCredentials: true,
+    });
   }
 
-  public token(data: UserRequest): Observable<any> {
-    return this.http.post<any>(`${this.environment.backendUrl}/users/me/token`, data, {
+  public token(): Observable<string> {
+    return this.http.post<string>(
+      `${this.environment.backendUrl}/users/me/token`,
+      {},
+      { withCredentials: true },
+    );
+  }
+
+  public getCurrentUser(): Observable<UserDto> {
+    return this.http.get<UserDto>(`${this.environment.backendUrl}/users/me`, {
       withCredentials: true,
     });
   }

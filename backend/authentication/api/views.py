@@ -6,17 +6,32 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.html import strip_tags
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_201_CREATED, HTTP_200_OK, \
     HTTP_404_NOT_FOUND, HTTP_403_FORBIDDEN
 from rest_framework.views import APIView
+from rest_framework_simplejwt.tokens import RefreshToken
 
+from .backends import CookieJWTAuthentication
 from .serializers import UserSerializer
 from .tokens import token_generator
 from ..models import User
 
 
+class MeAPIView(APIView):
+    authentication_classes = [CookieJWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, *args, **kwargs):
+        user = UserSerializer(instance=request.user)
+
+        return Response(data=user.data)
+
+
 class RegisterAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def put(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)
 
@@ -105,6 +120,8 @@ class RegisterAPIView(APIView):
 
 
 class ActivationAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def put(self, request, *args, **kwargs):
         uid = request.data.get("uid")
         token = request.data.get("token")
@@ -147,6 +164,8 @@ class ActivationAPIView(APIView):
 
 
 class LoginAPIView(APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request, *args, **kwargs):
         username = request.data.get("username")
 
@@ -177,4 +196,29 @@ class LoginAPIView(APIView):
 
         serialized_user = UserSerializer(instance=user).data
 
-        return Response(data=serialized_user, status=HTTP_200_OK)
+        response = Response(
+            data=serialized_user,
+            status=HTTP_200_OK,
+        )
+
+        token = RefreshToken.for_user(user=user)
+
+        response.set_cookie(
+            key="auth_token",
+            value=str(token.access_token),
+            httponly=True,
+            secure=False,
+            samesite=None,
+            max_age=15 * 60,
+        )
+
+        response.set_cookie(
+            key="refresh_token",
+            value=str(token),
+            httponly=True,
+            secure=False,
+            samesite="None",
+            max_age=7 * 24 * 60 * 60,
+        )
+
+        return response

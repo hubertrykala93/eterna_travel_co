@@ -97,18 +97,14 @@ export class AuthenticationComponent implements OnInit {
       () => data.email === null,
       this.authenticationService.login(data).pipe(
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        switchMap((user: UserDto) => {
-          return this.authenticationService.token(data).pipe(
-            tap((user) => {
-              console.log('User -> ', user);
+        tap((user: UserDto) => {
+          this.router.navigateByUrl('/');
 
-              this.toastService.open({
-                title: this.translateService.instant('core.toast.title.loginSuccessful'),
-                message: this.translateService.instant('core.toast.message.successfullySignedIn'),
-                status: 'success',
-              });
-            }),
-          );
+          this.toastService.open({
+            title: this.translateService.instant('core.toast.title.loginSuccessful'),
+            message: this.translateService.instant('core.toast.message.successfullySignedIn'),
+            status: 'success',
+          });
         }),
       ),
       this.authenticationService.register(data).pipe(
