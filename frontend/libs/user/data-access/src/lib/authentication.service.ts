@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { APIResponse, ENVIRONMENT } from '@shared/data-access';
 import { Observable } from 'rxjs';
-import { ActivationRequest, UserDto, UserRequest } from './authentication.model';
+import { ActivationRequest, UserDto, UserRequest } from './user.model';
 
 @Injectable({
   providedIn: 'root',
@@ -33,14 +33,5 @@ export class AuthenticationService {
         withCredentials: true,
       },
     );
-  }
-
-  public getCurrentUser(): Observable<UserDto> {
-    return this.http.get<UserDto>(`${this.environment.backendUrl}/users/me`, {
-      withCredentials: true,
-      headers: {
-        'X-Skip-Error-Toast': 'true',
-      },
-    });
   }
 }

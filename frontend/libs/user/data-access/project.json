@@ -1,16 +1,16 @@
 {
-  "name": "authentication-data-access",
+  "name": "user-data-access",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/authentication/data-access/src",
+  "sourceRoot": "libs/user/data-access/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": ["type:data-access", "scope:authentication"],
+  "tags": ["type:data-access", "scope:user"],
   "targets": {
     "test": {
       "executor": "@nx/vite:test",
       "outputs": ["{options.reportsDirectory}"],
       "options": {
-        "reportsDirectory": "../../../coverage/libs/authentication/data-access"
+        "reportsDirectory": "../../../coverage/libs/user/data-access"
       }
     },
     "lint": {

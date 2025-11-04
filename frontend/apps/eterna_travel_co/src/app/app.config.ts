@@ -5,7 +5,6 @@ import {
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideAuthentication } from '@authentication/data-access';
 import { provideCurrency } from '@currency/data-access';
 import { provideLanguage } from '@language/data-access';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
@@ -17,6 +16,7 @@ import {
   loadingInterceptor,
   provideValue,
 } from '@shared/data-access';
+import { provideUser } from '@user/data-access';
 import { appRoutes } from './app.routes';
 import { environment } from './environments/environment';
 
@@ -33,7 +33,7 @@ export const appConfig: ApplicationConfig = {
     provideValue(ENVIRONMENT, environment),
     provideLanguage(),
     provideCurrency(),
-    provideAuthentication(),
+    provideUser(),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',
