@@ -2,13 +2,13 @@ import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
-import { ActivationRequest, AuthenticationService } from '@authentication/data-access';
+import { ActivationRequest, AuthenticationService, UserDto } from '@authentication/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { APIResponse, FormOptions } from '@shared/data-access';
 import { ButtonComponent, CheckboxComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
-import { EMPTY, filter, map, Observable, switchMap, tap } from 'rxjs';
+import { EMPTY, filter, iif, map, Observable, switchMap, tap } from 'rxjs';
 import { authenticationFormOptions, getAuthenticationFormGroup } from './authentication.const';
 import { AuthenticationFormControls } from './authentication.model';
 
@@ -93,9 +93,25 @@ export class AuthenticationComponent implements OnInit {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { isTermsAccepted, ...data } = this.form.getRawValue();
 
-    this.authenticationService
-      .createUser(data)
-      .pipe(
+    iif(
+      () => data.email === null,
+      this.authenticationService.login(data).pipe(
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        switchMap((user: UserDto) => {
+          return this.authenticationService.token(data).pipe(
+            tap((user) => {
+              console.log('User -> ', user);
+
+              this.toastService.open({
+                title: this.translateService.instant('core.toast.title.loginSuccessful'),
+                message: this.translateService.instant('core.toast.message.successfullySignedIn'),
+                status: 'success',
+              });
+            }),
+          );
+        }),
+      ),
+      this.authenticationService.register(data).pipe(
         tap(() => {
           ValidationUtil.resetForm(this.form);
 
@@ -107,7 +123,7 @@ export class AuthenticationComponent implements OnInit {
             status: 'success',
           });
         }),
-      )
-      .subscribe();
+      ),
+    ).subscribe();
   }
 }

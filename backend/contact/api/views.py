@@ -43,8 +43,7 @@ class ContactUsAPIView(APIView):
 
                     return Response(status=HTTP_200_OK)
 
-            except Exception as e:
-                print(e)
+            except Exception:
                 return Response(data={
                     "title": "UNEXPECTED_ERROR",
                     "message": "PLEASE_TRY_AGAIN_LATER",

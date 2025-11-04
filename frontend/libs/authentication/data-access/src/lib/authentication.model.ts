@@ -12,7 +12,7 @@ export interface UserDto extends AuditableDto {
 
 export interface UserRequest {
   username: string;
-  email: string;
+  email?: string;
   password: string;
 }
 

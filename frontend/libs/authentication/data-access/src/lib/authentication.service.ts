@@ -11,11 +11,21 @@ export class AuthenticationService {
   private readonly http = inject(HttpClient);
   private readonly environment = inject(ENVIRONMENT);
 
-  public createUser(data: UserRequest): Observable<UserDto> {
-    return this.http.put<UserDto>(`${this.environment.backendUrl}/users/me`, data);
+  public register(data: UserRequest): Observable<void> {
+    return this.http.put<void>(`${this.environment.backendUrl}/users/me`, data);
   }
 
   public activate(data: ActivationRequest): Observable<APIResponse> {
     return this.http.put<APIResponse>(`${this.environment.backendUrl}/users/me/activate`, data);
+  }
+
+  public login(data: UserRequest): Observable<UserDto> {
+    return this.http.post<UserDto>(`${this.environment.backendUrl}/users/me/login`, data);
+  }
+
+  public token(data: UserRequest): Observable<any> {
+    return this.http.post<any>(`${this.environment.backendUrl}/users/me/token`, data, {
+      withCredentials: true,
+    });
   }
 }

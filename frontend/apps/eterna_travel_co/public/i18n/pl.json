@@ -37,6 +37,7 @@
       "title": {
         "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie",
         "accountCreatedSuccessfully": "Gotowe! Twoje konto jest już aktywne",
+        "loginSuccessful": "Zalogowano pomyślnie",
         "UNEXPECTED_ERROR": "Nieoczekiwany błąd",
         "EMAIL_EXISTS": "Ten adres e-mail jest już zajęty",
         "USERNAME_EXISTS": "Nazwa użytkownika jest już zajęta",
@@ -45,11 +46,15 @@
         "INVALID_ACTIVATION_LINK": "Nieprawidłowy link aktywacyjny",
         "ACTIVATION_LINK_IS_MISSING": "Aktywacja nie powiodła się",
         "ALREADY_VERIFIED": "Konto jest już aktywne",
-        "ACTIVATION_SUCCESSFULLY": "Konto zostało aktywowane"
+        "ACTIVATION_SUCCESSFULLY": "Konto zostało aktywowane",
+        "USER_NOT_FOUND": "Nie znaleziono użytkownika",
+        "INCORRECT_PASSWORD": "Nieprawidłowe hasło",
+        "ACCOUNT_NOT_VERIFIED": "Konto niezweryfikowane"
       },
       "message": {
         "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe.",
         "checkYourInboxToVerifyAccount": "Sprawdź swoją skrzynkę odbiorczą — znajdziesz tam link do weryfikacji adresu e-mail.",
+        "successfullySignedIn": "Witaj ponownie! Zostałeś pomyślnie zalogowany do swojego konta.",
         "PLEASE_TRY_AGAIN_LATER": "Coś poszło nie tak. Spróbuj ponownie później.",
         "USER_WITH_THIS_EMAIL_ALREADY_EXISTS": "Zaloguj się na istniejące konto lub użyj innego adresu e-mail.",
         "USER_WITH_THIS_USERNAME_ALREADY_EXISTS": "Wybierz inną nazwę użytkownika, aby kontynuować rejestrację.",
@@ -58,7 +63,10 @@
         "ACTIVATION_LINK_IS_MISSING": "Link aktywacyjny nie zawiera wymaganych danych. Sprawdź poprawność linku lub poproś o nowy.",
         "ACTIVATION_LINK_IS_INVALID": "Ten link aktywacyjny jest nieprawidłowy lub wygasł. Zarejestruj się ponownie, aby otrzymać nowy link.",
         "ALREADY_VERIFIED_PLEASE_LOG_IN": "Twoje konto zostało już aktywowane. Zaloguj się, aby kontynuować.",
-        "YOUR_ACCOUNT_IS_ACTIVE": "Twoje konto jest już aktywne. Możesz się zalogować i korzystać ze wszystkich funkcji."
+        "YOUR_ACCOUNT_IS_ACTIVE": "Twoje konto jest już aktywne. Możesz się zalogować i korzystać ze wszystkich funkcji.",
+        "NO_ACCOUNT_FOUND_WITH_THIS_USERNAME": "Konto z podanym loginem nie istnieje. Sprawdź dane lub zarejestruj się, aby kontynuować.",
+        "ENTERED_PASSWORD_IS_INCORRECT": "Wprowadzone hasło jest nieprawidłowe. Spróbuj ponownie lub zresetuj hasło, jeśli je zapomniałeś.",
+        "ACCOUNT_NOT_VERIFIED_YET": "Twoje konto nie zostało jeszcze zweryfikowane. Sprawdź skrzynkę e-mail i kliknij link aktywacyjny, aby dokończyć rejestrację."
       }
     },
 

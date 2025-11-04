@@ -7,7 +7,8 @@ from django.utils.encoding import force_bytes, force_str
 from django.utils.html import strip_tags
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from rest_framework.response import Response
-from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_201_CREATED, HTTP_200_OK
+from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_201_CREATED, HTTP_200_OK, \
+    HTTP_404_NOT_FOUND, HTTP_403_FORBIDDEN
 from rest_framework.views import APIView
 
 from .serializers import UserSerializer
@@ -143,3 +144,37 @@ class ActivationAPIView(APIView):
                 "status": "error",
                 "redirect_url": os.environ.get("REGISTER_URL")
             }, status=HTTP_400_BAD_REQUEST)
+
+
+class LoginAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        username = request.data.get("username")
+
+        if not User.objects.filter(username=username).exists():
+            return Response(data={
+                "title": "USER_NOT_FOUND",
+                "message": "NO_ACCOUNT_FOUND_WITH_THIS_USERNAME",
+                "status": "error",
+            }, status=HTTP_404_NOT_FOUND)
+
+        user = User.objects.get(username=username)
+
+        if not user.is_verified:
+            return Response(data={
+                "title": "ACCOUNT_NOT_VERIFIED",
+                "message": "ACCOUNT_NOT_VERIFIED_YET",
+                "status": "info"
+            }, status=HTTP_403_FORBIDDEN)
+
+        password = request.data.get("password")
+
+        if not user.check_password(raw_password=password):
+            return Response(data={
+                "title": "INCORRECT_PASSWORD",
+                "message": "ENTERED_PASSWORD_IS_INCORRECT",
+                "status": "error",
+            }, status=HTTP_400_BAD_REQUEST)
+
+        serialized_user = UserSerializer(instance=user).data
+
+        return Response(data=serialized_user, status=HTTP_200_OK)
