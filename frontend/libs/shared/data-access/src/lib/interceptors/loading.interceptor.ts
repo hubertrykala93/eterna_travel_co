@@ -7,10 +7,12 @@ export const loadingInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown>,
   const loaderService = inject(LoaderService);
 
   const excludedUrls = ['/assets/i18n'];
+  const excludedHeaders = ['x-skip-error-toast'];
 
-  const isExcluded = excludedUrls.some((url) => req.url.includes(url));
+  const isExcludedUrls = excludedUrls.some((url) => req.url.includes(url));
+  const isExcludedHeaders = excludedHeaders.some((header) => req.headers.has(header));
 
-  if (isExcluded) {
+  if (isExcludedUrls || isExcludedHeaders) {
     return next(req);
   }
 

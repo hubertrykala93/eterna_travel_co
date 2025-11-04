@@ -12,8 +12,14 @@ export const httpErrorInterceptor: HttpInterceptorFn = (req: HttpRequest<unknown
   const errorHandlingService = inject(ErrorHandlingService);
   const router = inject(Router);
 
+  const skipErrorToast = req.headers.get('X-Skip-Error-Toast') === 'true';
+
   return next(req).pipe(
     catchError((error: HttpErrorResponse) => {
+      if (skipErrorToast && error.status === 401) {
+        return throwError(() => error);
+      }
+
       const { title, message, status, redirectUrl } = error.error;
 
       if (redirectUrl) {

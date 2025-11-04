@@ -29,13 +29,18 @@ export class AuthenticationService {
     return this.http.post<string>(
       `${this.environment.backendUrl}/users/me/token`,
       {},
-      { withCredentials: true },
+      {
+        withCredentials: true,
+      },
     );
   }
 
   public getCurrentUser(): Observable<UserDto> {
     return this.http.get<UserDto>(`${this.environment.backendUrl}/users/me`, {
       withCredentials: true,
+      headers: {
+        'X-Skip-Error-Toast': 'true',
+      },
     });
   }
 }

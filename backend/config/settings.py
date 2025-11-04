@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+from corsheaders.defaults import default_headers
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -136,6 +137,9 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8100",
     "http://localhost:8000",
+]
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    "x-skip-error-toast"
 ]
 
 # Rest Framework
