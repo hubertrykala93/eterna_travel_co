@@ -26,9 +26,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes),
     provideHttpClient(withInterceptors([loadingInterceptor, httpErrorInterceptor])),
     provideValue(ENVIRONMENT, environment),
-    provideAuthentication(),
     provideLanguage(),
     provideCurrency(),
+    provideAuthentication(),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',
