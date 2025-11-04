@@ -6,31 +6,30 @@ from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_str
 from django.utils.html import strip_tags
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_201_CREATED, HTTP_200_OK, \
     HTTP_404_NOT_FOUND, HTTP_403_FORBIDDEN
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .backends import CookieJWTAuthentication
 from .serializers import UserSerializer
 from .tokens import token_generator
 from ..models import User
 
 
 class MeAPIView(APIView):
-    authentication_classes = [CookieJWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    def get_permissions(self):
+        if self.request.method == "GET":
+            return [IsAuthenticated()]
+
+        return [AllowAny()]
 
     def get(self, request, *args, **kwargs):
         user = UserSerializer(instance=request.user)
 
         return Response(data=user.data)
-
-
-class RegisterAPIView(APIView):
-    permission_classes = [AllowAny]
 
     def put(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)

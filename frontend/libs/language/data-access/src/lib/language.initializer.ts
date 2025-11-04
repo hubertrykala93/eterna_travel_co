@@ -1,25 +1,19 @@
-import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
-import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageService } from '@shared/util/services';
+import { ACTIVE_LANGUAGE } from './language.const';
+import { LanguageCode } from './language.enum';
 
-export function initializeApp(
+export const initializeLanguage = (
   storageService: StorageService,
   translateService: TranslateService,
-): void {
-  const storedCurrency = storageService.getItem(ACTIVE_CURRENCY);
+): void => {
   const storedLanguage = storageService.getItem(ACTIVE_LANGUAGE);
 
-  const currency = storedCurrency ?? Currency.USD;
   const language = storedLanguage ?? LanguageCode.EN;
 
   translateService.use(language as LanguageCode);
 
-  if (!storedCurrency) {
-    storageService.setItem(ACTIVE_CURRENCY, currency);
-  }
-
   if (!storedLanguage) {
     storageService.setItem(ACTIVE_LANGUAGE, language);
   }
-}
+};

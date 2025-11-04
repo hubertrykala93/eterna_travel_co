@@ -1,13 +1,14 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
-  inject,
-  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
   provideZoneChangeDetection,
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
-import { provideTranslateService, TranslateService } from '@ngx-translate/core';
+import { provideAuthentication } from '@authentication/data-access';
+import { provideCurrency } from '@currency/data-access';
+import { provideLanguage } from '@language/data-access';
+import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
   ENVIRONMENT,
@@ -15,8 +16,6 @@ import {
   loadingInterceptor,
   provideValue,
 } from '@shared/data-access';
-import { StorageService } from '@shared/util/services';
-import { initializeApp } from './app.initializers';
 import { appRoutes } from './app.routes';
 import { environment } from './environments/environment';
 
@@ -26,8 +25,10 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideHttpClient(withInterceptors([loadingInterceptor, httpErrorInterceptor])),
-    provideAppInitializer(() => initializeApp(inject(StorageService), inject(TranslateService))),
     provideValue(ENVIRONMENT, environment),
+    provideAuthentication(),
+    provideLanguage(),
+    provideCurrency(),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',
