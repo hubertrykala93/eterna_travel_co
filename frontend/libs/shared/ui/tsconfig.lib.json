@@ -23,5 +23,9 @@
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx"
   ],
-  "include": ["src/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "../util/src/lib/services/loader/loader.service.ts",
+    "../util/src/lib/services/loader/loader.service.spec.ts"
+  ]
 }

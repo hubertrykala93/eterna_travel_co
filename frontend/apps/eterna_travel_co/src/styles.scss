@@ -61,14 +61,14 @@
   --radius-medium: 0.375rem;
   --radius-large: 0.5rem;
 
-  --border-primary: 1px solid var(--color-primary);
-  --border-secondary: 1px solid var(--color-secondary);
-  --border-tertiary: 1px solid var(--color-tertiary);
+  --border-primary: 0.0625rem solid var(--color-primary);
+  --border-secondary: 0.0625rem solid var(--color-secondary);
+  --border-tertiary: 0.0625rem solid var(--color-tertiary);
 
-  --border-transparent-05: 1px solid rgba(var(--color-primary-rgba), 0.05);
-  --border-transparent-10: 1px solid rgba(var(--color-primary-rgba), 0.1);
-  --border-transparent-40: 1px solid rgba(var(--color-primary-rgba), 0.4);
-  --border-transparent-80: 1px solid rgba(var(--color-primary-rgba), 0.8);
+  --border-transparent-05: 0.0625rem solid rgba(var(--color-primary-rgba), 0.05);
+  --border-transparent-10: 0.0625rem solid rgba(var(--color-primary-rgba), 0.1);
+  --border-transparent-40: 0.0625rem solid rgba(var(--color-primary-rgba), 0.4);
+  --border-transparent-80: 0.0625rem solid rgba(var(--color-primary-rgba), 0.8);
 
   --transition: all 100ms ease-in-out;
   --button-transition: all 300ms ease-in-out;
@@ -122,52 +122,68 @@ ol {
   list-style: none;
 }
 
-.container {
-  padding: 0 30px;
+.container,
+.container__authentication {
   margin: auto;
-  max-width: 1440px;
+  max-width: 90rem;
+}
+
+.container {
+  padding-inline: 1.875rem;
 
   @media (min-width: 576px) {
-    padding: 0 40px;
+    padding-inline: 2.5rem;
   }
 
   @media (min-width: 992px) {
-    padding: 0 135px;
+    padding-inline: 8.4375rem;
+  }
+
+  &__authentication {
+    padding-inline: 3.75rem;
+
+    @media (min-width: 576px) {
+      padding-inline: 7.5rem;
+    }
+
+    @media (min-width: 1200px) {
+      padding-inline: 18.75rem;
+    }
   }
 }
 
 .spacing-top {
-  padding-top: 30px;
+  padding-top: 1.875rem;
 
   @media (min-width: 576px) {
-    padding-top: 0 40px;
+    padding-top: 2.5rem;
   }
 
   @media (min-width: 992px) {
-    padding-top: 0 80px;
+    padding-top: 5rem;
   }
 }
 
 .spacing-bottom {
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
 
   @media (min-width: 576px) {
-    padding-bottom: 0 40px;
+    padding-bottom: 2.5rem;
   }
 
   @media (min-width: 992px) {
-    padding-bottom: 0 80px;
+    padding-bottom: 5rem;
   }
 }
 
 .spacing-vertical {
-  padding: 30px 0 30px 0;
+  padding-block: 1.875rem;
 
   @media (min-width: 576px) {
-    padding: 40px 0 40px 0;
+    padding-block: 2.5rem;
   }
 
   @media (min-width: 992px) {
-    padding: 80px 0 80px 0;
+    padding-block: 5rem;
   }
 }

@@ -1,27 +1,73 @@
 {
   "core": {
-    "toast": {
-      "title": {
-        "message-sent-successfully": "Wiadomość została wysłana pomyślnie"
-      },
-      "message": {
-        "received-your-message": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe."
-      }
+    "send": "Wyślij",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "x": "Twitter",
+
+    "label": {
+      "name": "Imię *",
+      "email": "Adres E-mail *",
+      "message": "Wiadomość *",
+      "username": "Nazwa Użytkownika *",
+      "password": "Hasło *",
+      "confirmPassword": "Powtórz Hasło *",
+      "termsAccepting": "Oświadczam, że zapoznałem(-am) się z Regulaminem oraz Polityką prywatności i akceptuję ich postanowienia. *"
     },
 
-    "send": "Wyślij",
+    "placeholder": {
+      "name": "Imię",
+      "email": "Adres E-mail",
+      "message": "Wiadomość",
+      "username": "Nazwa Użytkownika",
+      "password": "Hasło",
+      "confirmPassword": "Powtórz Hasło"
+    },
 
     "validation": {
       "required": "To pole jest wymagane.",
       "minlength": "Wpisz co najmniej {{ requiredLength }} znaków.",
       "maxlength": "Wpisz maksymalnie {{ requiredLength }} znaków.",
-      "invalidEmail": "Podaj poprawny adres e-mail."
+      "invalidEmail": "Podaj poprawny adres e-mail.",
+      "passwordWeak": "Hasło musi zawierać co najmniej 8 znaków, w tym małą i dużą literę, cyfrę oraz znak specjalny.",
+      "passwordsDontMatch": "Hasła muszą być identyczne."
     },
 
-    "placeholder": {
-      "name": "Imię *",
-      "email": "Adres E-mail *",
-      "message": "Wiadomość *"
+    "toast": {
+      "title": {
+        "messageSentSuccessfully": "Wiadomość została wysłana pomyślnie",
+        "accountCreatedSuccessfully": "Gotowe! Twoje konto jest już aktywne",
+        "loginSuccessful": "Zalogowano pomyślnie",
+        "UNEXPECTED_ERROR": "Nieoczekiwany błąd",
+        "EMAIL_EXISTS": "Ten adres e-mail jest już zajęty",
+        "USERNAME_EXISTS": "Nazwa użytkownika jest już zajęta",
+        "PASSWORDS_DO_NOT_MATCH": "Hasła nie są zgodne",
+        "INVALID_DATA": "Nieprawidłowe dane",
+        "INVALID_ACTIVATION_LINK": "Nieprawidłowy link aktywacyjny",
+        "ACTIVATION_LINK_IS_MISSING": "Aktywacja nie powiodła się",
+        "ALREADY_VERIFIED": "Konto jest już aktywne",
+        "ACTIVATION_SUCCESSFULLY": "Konto zostało aktywowane",
+        "USER_NOT_FOUND": "Nie znaleziono użytkownika",
+        "INCORRECT_PASSWORD": "Nieprawidłowe hasło",
+        "ACCOUNT_NOT_VERIFIED": "Konto niezweryfikowane"
+      },
+      "message": {
+        "receivedYourMessage": "Otrzymaliśmy Twoją wiadomość i skontaktujemy się z Tobą tak szybko, jak to możliwe.",
+        "checkYourInboxToVerifyAccount": "Sprawdź swoją skrzynkę odbiorczą — znajdziesz tam link do weryfikacji adresu e-mail.",
+        "successfullySignedIn": "Witaj ponownie! Zostałeś pomyślnie zalogowany do swojego konta.",
+        "PLEASE_TRY_AGAIN_LATER": "Coś poszło nie tak. Spróbuj ponownie później.",
+        "USER_WITH_THIS_EMAIL_ALREADY_EXISTS": "Zaloguj się na istniejące konto lub użyj innego adresu e-mail.",
+        "USER_WITH_THIS_USERNAME_ALREADY_EXISTS": "Wybierz inną nazwę użytkownika, aby kontynuować rejestrację.",
+        "PASSWORDS_ARE_NOT_IDENTICAL": "Upewnij się, że oba pola hasła zawierają tę samą wartość.",
+        "PROVIDED_USER_DATA_IS_NOT_VALID": "Podane dane są nieprawidłowe. Sprawdź poprawność formularza i spróbuj ponownie.",
+        "ACTIVATION_LINK_IS_MISSING": "Link aktywacyjny nie zawiera wymaganych danych. Sprawdź poprawność linku lub poproś o nowy.",
+        "ACTIVATION_LINK_IS_INVALID": "Ten link aktywacyjny jest nieprawidłowy lub wygasł. Zarejestruj się ponownie, aby otrzymać nowy link.",
+        "ALREADY_VERIFIED_PLEASE_LOG_IN": "Twoje konto zostało już aktywowane. Zaloguj się, aby kontynuować.",
+        "YOUR_ACCOUNT_IS_ACTIVE": "Twoje konto jest już aktywne. Możesz się zalogować i korzystać ze wszystkich funkcji.",
+        "NO_ACCOUNT_FOUND_WITH_THIS_USERNAME": "Konto z podanym loginem nie istnieje. Sprawdź dane lub zarejestruj się, aby kontynuować.",
+        "ENTERED_PASSWORD_IS_INCORRECT": "Wprowadzone hasło jest nieprawidłowe. Spróbuj ponownie lub zresetuj hasło, jeśli je zapomniałeś.",
+        "ACCOUNT_NOT_VERIFIED_YET": "Twoje konto nie zostało jeszcze zweryfikowane. Sprawdź skrzynkę e-mail i kliknij link aktywacyjny, aby dokończyć rejestrację."
+      }
     },
 
     "header": {
@@ -35,7 +81,8 @@
         "tours": "Wycieczki",
         "destinations": "Kierunki",
         "blog": "Blog",
-        "contact-us": "Kontakt"
+        "contactUs": "Kontakt",
+        "authentication": "Uwierzytelnienie"
       },
       "middlebar": {
         "login": "Zaloguj się",
@@ -44,7 +91,7 @@
     },
 
     "hero": {
-      "save-off": "Oszczędź 15% na podróżach",
+      "saveOff": "Oszczędź 15% na podróżach",
       "travel": "Podróże i przygody",
       "find": "Hotele, wycieczki, samochody i atrakcje w Londynie",
       "home": "Strona główna"
@@ -52,12 +99,24 @@
   },
 
   "features": {
-    "contact-us": {
+    "contactUs": {
       "location": "Lokalizacja",
       "phone": "Numer Telefonu",
       "mail": "Adres E-mail",
-      "any-question": "Masz pytania?",
-      "get-in-touch": "Skontaktuj się z nami"
+      "anyQuestion": "Masz pytania?",
+      "getInTouch": "Skontaktuj się z nami"
+    },
+    "authentication": {
+      "orSignUpWith": "Lub zarejestruj się z:"
+    }
+  },
+  "libs": {
+    "shared": {
+      "ui": {
+        "loader": {
+          "loading": "Ładowanie"
+        }
+      }
     }
   }
 }

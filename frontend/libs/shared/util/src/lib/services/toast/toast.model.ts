@@ -1,7 +1,7 @@
 import { ToastStatus } from './toast.type';
 
 export interface ToastOptions {
-  titleKey: string;
-  messageKey: string;
+  title: string;
+  message: string;
   status: ToastStatus;
 }

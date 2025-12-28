@@ -10,23 +10,36 @@
 
 <section class="contact-form spacing-bottom">
   <div class="contact-form__wrapper">
-    <h1 class="contact-form__title">{{ 'features.contact-us.any-question' | translate }}</h1>
-    <h3 class="contact-form__subtitle">{{ 'features.contact-us.get-in-touch' | translate }}</h3>
+    <h1 class="contact-form__title">{{ 'features.contactUs.anyQuestion' | translate }}</h1>
+    <h3 class="contact-form__subtitle">{{ 'features.contactUs.getInTouch' | translate }}</h3>
 
     <form class="contact-form__form" [formGroup]="form" (ngSubmit)="send()">
-      @for (option of formOptions; track $index) {
-        <ui-input
-          class="contact-form__input"
-          [class.contact-form__input--expanding]="option.type === 'textarea'"
-          [type]="option.type"
-          [fullWidth]="true"
-          [fullHeight]="true"
-          [placeholderKey]="option.placeholderKey"
-          [formControlName]="option.formControlName"
-        />
+      @for (option of contactUsFormOptions; track $index) {
+        @if (option.type !== 'textarea') {
+          <ui-text-field
+            class="contact-form__input"
+            [type]="option.type ?? 'text'"
+            [id]="option.formControlName"
+            [fullWidth]="true"
+            [label]="option.label | translate"
+            [placeholder]="option.placeholder | translate"
+            [formControlName]="option.formControlName"
+          />
+        } @else {
+          <ui-textarea
+            class="contact-form__input contact-form__input--expanding"
+            [type]="option.type"
+            [id]="option.formControlName"
+            [fullWidth]="true"
+            [fullHeight]="true"
+            [label]="option.label | translate"
+            [placeholder]="option.placeholder | translate"
+            [formControlName]="option.formControlName"
+          />
+        }
       }
 
-      <ui-button class="contact-form__button" translateKey="core.send" type="submit" />
+      <ui-button class="contact-form__button" [label]="'core.send' | translate" type="submit" />
     </form>
   </div>
   <iframe

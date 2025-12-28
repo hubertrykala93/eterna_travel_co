@@ -1,0 +1,65 @@
+<section class="authentication spacing-vertical">
+  <div class="authentication__buttons">
+    <ui-button
+      class="authentication__button"
+      routerLink="/authentication/login"
+      [label]="'core.header.middlebar.login' | translate"
+      [variant]="isLoginRoute() ? 'solid' : 'outline'"
+      [fullWidth]="true"
+    />
+    <ui-button
+      class="authentication__button"
+      [label]="'core.header.middlebar.register' | translate"
+      routerLink="/authentication/register"
+      [variant]="isLoginRoute() ? 'outline' : 'solid'"
+      [fullWidth]="true"
+    />
+  </div>
+
+  <div class="authentication__form">
+    <form [formGroup]="form" (ngSubmit)="loginOrRegister()">
+      @for (option of authenticationFormOptions; track $index) {
+        @if (option.visible) {
+          @if (option.type === 'text' || option.type === 'password') {
+            <ui-text-field
+              class="authentication__input"
+              [label]="option.label | translate"
+              [placeholder]="option.placeholder | translate"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+              [type]="option.type"
+              [fullWidth]="true"
+            />
+          } @else {
+            <ui-checkbox
+              class="authentication__input"
+              [label]="option.label | translate"
+              [id]="option.formControlName"
+              [formControlName]="option.formControlName"
+            />
+          }
+        }
+      }
+
+      <ui-button
+        type="submit"
+        [label]="'core.header.middlebar.' + (isLoginRoute() ? 'login' : 'register') | translate"
+        [fullWidth]="true"
+      />
+    </form>
+  </div>
+
+  <p class="authentication__label">{{ 'features.authentication.orSignUpWith' | translate }}</p>
+
+  <div class="authentication__social-buttons">
+    <a href="https://www.facebook.com/" target="_blank">
+      <ui-button font="italic" [label]="'core.facebook' | translate" />
+    </a>
+    <a href="https://www.instagram.com/" target="_blank">
+      <ui-button font="italic" [label]="'core.instagram' | translate" />
+    </a>
+    <a href="https://x.com/home" target="_blank">
+      <ui-button font="italic" [label]="'core.x' | translate" />
+    </a>
+  </div>
+</section>

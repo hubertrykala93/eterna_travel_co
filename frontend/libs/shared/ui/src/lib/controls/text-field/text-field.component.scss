@@ -1,0 +1,36 @@
+@use '../input_base' as *;
+
+.input {
+  &__wrapper {
+    position: relative;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-primary-40);
+
+    &--left {
+      left: 1rem;
+    }
+
+    &--right {
+      right: 1rem;
+    }
+
+    &--clickable {
+      cursor: pointer;
+
+      &:hover {
+        color: var(--color-secondary);
+      }
+    }
+  }
+
+  &--spacing-left {
+    padding-left: 2.5rem;
+  }
+}

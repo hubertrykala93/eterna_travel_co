@@ -1,0 +1,7 @@
+@use '../input_base' as *;
+
+.input {
+  &--fullheight {
+    height: 100%;
+  }
+}

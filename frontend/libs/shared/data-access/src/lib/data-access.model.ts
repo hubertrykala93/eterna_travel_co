@@ -1,3 +1,4 @@
+import { ToastStatus } from '@shared/util/services';
 import { InputType } from '@shared/util/types';
 
 export interface AuditableDto {
@@ -6,8 +7,22 @@ export interface AuditableDto {
   modificationTimestamp?: Date;
 }
 
+export interface Environment {
+  production: boolean;
+  backendUrl: string;
+}
+
 export interface FormOptions {
-  placeholderKey: string;
+  label: string;
+  placeholder?: string;
   formControlName: string;
-  type: InputType;
+  type?: InputType;
+  visible?: boolean;
+}
+
+export interface APIResponse {
+  title: string;
+  message: string;
+  status: ToastStatus;
+  redirectUrl?: string;
 }

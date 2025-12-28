@@ -6,8 +6,8 @@ class ContactUs(models.Model):
     id = models.UUIDField(unique=True, default=uuid4, editable=False, primary_key=True)
     creation_timestamp = models.DateTimeField(auto_now_add=True)
     modification_timestamp = models.DateTimeField(auto_now=True)
-    name = models.CharField(max_length=64)
-    email = models.CharField(max_length=64)
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
     message = models.CharField(max_length=1000)
 
     class Meta:

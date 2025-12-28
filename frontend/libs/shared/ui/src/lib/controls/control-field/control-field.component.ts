@@ -1,0 +1,18 @@
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { InputLabelPlacement } from '@shared/util/types';
+import { ErrorMessageComponent } from '../../error-message/error-message.component';
+
+@Component({
+  selector: 'ui-control-field',
+  templateUrl: './control-field.component.html',
+  styleUrl: './control-field.component.scss',
+  imports: [ErrorMessageComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class ControlFieldComponent {
+  public readonly label = input<string>();
+  public readonly id = input<string>();
+  public readonly errorMessage = input<string>('');
+  public readonly disabled = input<boolean>(false);
+  public readonly labelPlacement = input<InputLabelPlacement>('top');
+}

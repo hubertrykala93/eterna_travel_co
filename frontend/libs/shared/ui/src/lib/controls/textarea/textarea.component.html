@@ -1,0 +1,22 @@
+<ui-control-field
+  [label]="label()"
+  [id]="id()"
+  [errorMessage]="errorMessage() ?? ''"
+  [disabled]="disabled()"
+>
+  <textarea
+    class="input"
+    autocomplete="off"
+    [class.input--fullwidth]="fullWidth()"
+    [class.input--fullheight]="fullHeight()"
+    [class.input--valid]="formControl()?.valid && (formControl()?.touched || formControl()?.dirty)"
+    [class.input--invalid]="
+      formControl()?.invalid && (formControl()?.touched || formControl()?.dirty)
+    "
+    [placeholder]="placeholder()"
+    [value]="value()"
+    [id]="id()"
+    (input)="onInput($event)"
+    (blur)="onBlur()"
+  ></textarea>
+</ui-control-field>

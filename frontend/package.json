@@ -7,6 +7,8 @@
     "eterna-travel-co:build": "nx build eterna_travel_co",
     "eterna-travel-co:lint": "nx lint eterna_travel_co",
     "eterna-travel-co:test": "nx test eterna_travel_co",
+    "user-data-access:lint": "nx lint user-data-access",
+    "user-data-access:test": "nx test user-data-access",
     "currency-data-access:lint": "nx lint currency-data-access",
     "currency-data-access:test": "nx test currency-data-access",
     "language-data-access:lint": "nx lint language-data-access",
@@ -16,7 +18,8 @@
     "shared-ui:lint": "nx lint shared-ui",
     "shared-ui:test": "nx test shared-ui",
     "shared-util:lint": "nx lint shared-util",
-    "shared-util:test": "nx test shared-util"
+    "shared-util:test": "nx test shared-util",
+    "lint:all": "nx run-many --target=lint --all --exclude=eterna_travel_co"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +29,8 @@
     "@angular/forms": "~20.1.0",
     "@angular/platform-browser": "~20.1.0",
     "@angular/router": "~20.1.0",
+    "@ngrx/signals": "^20.1.0",
+    "@ngrx/store-devtools": "^20.1.0",
     "@ngx-translate/core": "^17.0.0",
     "@ngx-translate/http-loader": "^17.0.0",
     "rxjs": "~7.8.0",

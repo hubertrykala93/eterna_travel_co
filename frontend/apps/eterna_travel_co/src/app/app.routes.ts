@@ -30,6 +30,11 @@ export const appRoutes: Route[] = [
       import('./features/contact-us/contact-us.component').then((c) => c.ContactUsComponent),
   },
   {
+    path: 'authentication',
+    loadChildren: () =>
+      import('./features/authentication/authentication.routes').then((m) => m.authenticationRoutes),
+  },
+  {
     path: '**',
     redirectTo: '',
   },

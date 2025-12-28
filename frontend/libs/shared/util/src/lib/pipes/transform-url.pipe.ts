@@ -17,6 +17,15 @@ export class TransformUrlPipe implements PipeTransform {
         .join(' ');
     }
 
+    const splittedValue = value.split('-');
+
+    if (splittedValue.length > 1) {
+      const camelCaseValue =
+        splittedValue[0] + splittedValue[1].charAt(0).toUpperCase() + splittedValue[1].slice(1);
+
+      return keyPrefix + '.' + camelCaseValue;
+    }
+
     return keyPrefix + '.' + value.split('-').join('-');
   }
 }

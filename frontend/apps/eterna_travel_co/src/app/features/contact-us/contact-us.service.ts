@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { EmailValidators } from '@shared/util/validators';
+import { EmailValidator } from '@shared/util/validators';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { ContactUsControls, ContactUsDto } from './contact-us.model';
@@ -25,9 +25,9 @@ export class ContactUsService {
       email: this._nonNullableFormBuilder.control<string>('', {
         validators: [
           Validators.required,
-          Validators.minLength(8),
-          Validators.maxLength(64),
-          EmailValidators.patternValidator(),
+          Validators.minLength(2),
+          Validators.maxLength(255),
+          EmailValidator.patternValidator(),
         ],
       }),
       message: this._nonNullableFormBuilder.control<string>('', {

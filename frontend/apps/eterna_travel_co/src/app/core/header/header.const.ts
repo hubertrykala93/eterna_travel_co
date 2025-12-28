@@ -76,7 +76,7 @@ export const dropDownNavigationButtons: DropDownSelectorButtonConfig[] = [
     type: MenuType.MAIN,
   },
   {
-    key: 'core.header.nav.contact-us',
+    key: 'core.header.nav.contactUs',
     defaultLabel: 'Contact Us',
     url: '/contact-us',
     type: MenuType.MAIN,
