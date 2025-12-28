@@ -3,6 +3,8 @@ import { ACTIVE_CURRENCY, Currency } from '@currency/data-access';
 import { ACTIVE_LANGUAGE, LanguageCode } from '@language/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
 import { StorageService } from '@shared/util/services';
+import { AuthenticationService } from '@user/data-access';
+import { tap } from 'rxjs';
 import { MenuType } from '../header.enum';
 import { DropdownSelectorComponent } from './dropdown-selector/dropdown-selector.component';
 
@@ -15,6 +17,7 @@ import { DropdownSelectorComponent } from './dropdown-selector/dropdown-selector
 })
 export class ToolbarComponent {
   private readonly storageService = inject(StorageService);
+  private readonly authenticationService = inject(AuthenticationService);
 
   protected isCurrencyMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
   protected isLanguageMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
@@ -40,5 +43,12 @@ export class ToolbarComponent {
 
   protected onMenuClosed(): void {
     this.isLanguageMenuOpen.set(false);
+  }
+
+  protected logout(): void {
+    this.authenticationService
+      .logout()
+      .pipe(tap((value) => console.log('Value -> ', value)))
+      .subscribe();
   }
 }

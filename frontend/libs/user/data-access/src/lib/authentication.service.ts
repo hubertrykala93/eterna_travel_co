@@ -25,13 +25,19 @@ export class AuthenticationService {
     });
   }
 
-  public token(): Observable<string> {
-    return this.http.post<string>(
+  public token(): Observable<void> {
+    return this.http.post<void>(
       `${this.environment.backendUrl}/users/me/token`,
       {},
-      {
-        withCredentials: true,
-      },
+      { withCredentials: true },
+    );
+  }
+
+  public logout(): Observable<void> {
+    return this.http.post<void>(
+      `${this.environment.backendUrl}/users/me/logout`,
+      {},
+      { withCredentials: true },
     );
   }
 }

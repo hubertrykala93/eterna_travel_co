@@ -7,7 +7,6 @@ import {
 import { provideRouter } from '@angular/router';
 import { provideCurrency } from '@currency/data-access';
 import { provideLanguage } from '@language/data-access';
-import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import {
@@ -26,10 +25,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     provideHttpClient(withInterceptors([loadingInterceptor, httpErrorInterceptor])),
-    provideStoreDevtools({
-      maxAge: 25,
-      logOnly: false,
-    }),
     provideValue(ENVIRONMENT, environment),
     provideLanguage(),
     provideCurrency(),

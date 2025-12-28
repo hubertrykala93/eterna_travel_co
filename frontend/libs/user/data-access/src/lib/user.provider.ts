@@ -4,11 +4,12 @@ import {
   makeEnvironmentProviders,
   provideAppInitializer,
 } from '@angular/core';
+import { AuthenticationService } from './authentication.service';
 import { initializeAuth } from './user.initializer';
 import { UserService } from './user.service';
 
 export const provideUser = (): EnvironmentProviders => {
   return makeEnvironmentProviders([
-    provideAppInitializer(() => initializeAuth(inject(UserService))),
+    provideAppInitializer(() => initializeAuth(inject(UserService), inject(AuthenticationService))),
   ]);
 };

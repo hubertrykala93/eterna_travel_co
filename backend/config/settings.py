@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 
 from corsheaders.defaults import default_headers
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "rest_framework_simplejwt",
+    "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
     "contact",
     "authentication",
@@ -138,9 +140,23 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:8100",
     "http://localhost:8000",
 ]
+
 CORS_ALLOW_HEADERS = list(default_headers) + [
     "x-skip-error-toast"
 ]
+
+CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SAMESITE = "None"
+
+SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SAMESITE = "None"
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(seconds=15),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+}
 
 # Rest Framework
 REST_FRAMEWORK = {

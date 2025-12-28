@@ -9,8 +9,9 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from rest_framework.permissions import AllowAny
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_500_INTERNAL_SERVER_ERROR, HTTP_201_CREATED, HTTP_200_OK, \
-    HTTP_404_NOT_FOUND, HTTP_403_FORBIDDEN
+from rest_framework.status import HTTP_200_OK, HTTP_400_BAD_REQUEST
+from rest_framework.status import HTTP_500_INTERNAL_SERVER_ERROR, HTTP_201_CREATED, HTTP_404_NOT_FOUND, \
+    HTTP_403_FORBIDDEN
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
@@ -203,12 +204,12 @@ class LoginAPIView(APIView):
         token = RefreshToken.for_user(user=user)
 
         response.set_cookie(
-            key="auth_token",
+            key="access_token",
             value=str(token.access_token),
             httponly=True,
             secure=False,
-            samesite=None,
-            max_age=15 * 60,
+            samesite="Lax",
+            max_age=15,
         )
 
         response.set_cookie(
@@ -216,8 +217,61 @@ class LoginAPIView(APIView):
             value=str(token),
             httponly=True,
             secure=False,
-            samesite="None",
+            samesite="Lax",
             max_age=7 * 24 * 60 * 60,
         )
+
+        return response
+
+
+class RefreshTokenAPIView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        refresh_token = request.COOKIES.get("refresh_token")
+
+        refresh = RefreshToken(refresh_token)
+
+        user = User.objects.get(id=refresh["user_id"])
+
+        token = RefreshToken.for_user(user=user)
+        response = Response(status=HTTP_200_OK)
+
+        response.delete_cookie(key="access_token")
+        response.delete_cookie(key="refresh_token")
+
+        response.set_cookie(
+            key="access_token",
+            value=str(token.access_token),
+            httponly=True,
+            secure=False,
+            samesite="Lax",
+            max_age=15,
+        )
+
+        response.set_cookie(
+            key="refresh_token",
+            value=str(token),
+            httponly=True,
+            secure=False,
+            samesite="Lax",
+            max_age=7 * 24 * 60 * 60,
+        )
+
+        return response
+
+
+class LogoutAPIView(APIView):
+    def post(self, request, *args, **kwargs):
+        refresh_token = request.COOKIES.get("refresh_token")
+
+        response = Response(status=HTTP_200_OK)
+
+        response.delete_cookie(key="access_token")
+        response.delete_cookie(key="refresh_token")
+
+        if refresh_token:
+            token = RefreshToken(token=refresh_token)
+            token.blacklist()
 
         return response
