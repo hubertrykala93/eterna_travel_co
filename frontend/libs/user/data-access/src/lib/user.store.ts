@@ -5,11 +5,13 @@ import { UserDto } from './user.model';
 type UserState = {
   user: UserDto | null;
   isLoading: boolean;
+  isLoggedOut: boolean;
 };
 
 const initialState: UserState = {
   user: null,
   isLoading: false,
+  isLoggedOut: false,
 };
 
 export const UserStore = signalStore(
@@ -17,12 +19,16 @@ export const UserStore = signalStore(
   withState(initialState),
 
   withComputed((store) => ({
-    isAuthenticated: computed(() => store.user()),
+    isAuthenticated: computed(() => !!store.user()),
   })),
 
   withMethods((store) => ({
     setUser(user: UserDto | null): void {
-      patchState(store, { user });
+      patchState(store, { user, isLoggedOut: false });
+    },
+
+    logout(): void {
+      patchState(store, { user: null, isLoggedOut: true });
     },
   })),
 );

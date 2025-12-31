@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { AuthenticationService, UserStore } from '@user/data-access';
 import { tap } from 'rxjs';
@@ -17,6 +17,7 @@ import { DropdownSelectorComponent } from '../toolbar/dropdown-selector/dropdown
 export class MiddlebarComponent {
   private readonly authenticationService = inject(AuthenticationService);
   private readonly userStore = inject(UserStore);
+  private readonly router = inject(Router);
 
   protected readonly MenuType = MenuType;
 
@@ -39,9 +40,11 @@ export class MiddlebarComponent {
   }
 
   protected logout(): void {
+    this.userStore.logout();
+
     this.authenticationService
       .logout()
-      .pipe(tap(() => this.userStore.setUser(null)))
+      .pipe(tap(() => this.router.navigateByUrl('/')))
       .subscribe();
   }
 }
