@@ -23,9 +23,5 @@
     "src/**/*.test.jsx",
     "src/**/*.spec.jsx"
   ],
-  "include": [
-    "src/**/*.ts",
-    "../../authentication/data-access/src/lib/authentication.interceptor.ts",
-    "../../authentication/data-access/src/lib/authentication.service.ts"
-  ]
+  "include": ["src/**/*.ts"]
 }

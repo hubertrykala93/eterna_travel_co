@@ -2,9 +2,10 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { FormOptions } from '@shared/data-access';
-import { ButtonComponent, TextareaComponent, TextFieldComponent } from '@shared/ui/controls';
+import { ButtonComponent, TextFieldComponent, TextareaComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
+import { UserStore } from '@user/data-access';
 import { tap } from 'rxjs';
 import { contactCards, contactUsFormOptions } from './contact-us.const';
 import { ContactCard, ContactUsControls } from './contact-us.model';
@@ -27,6 +28,7 @@ export class ContactUsComponent {
   private readonly contactUsService = inject(ContactUsService);
   private readonly toastService = inject(ToastService);
   private readonly translateService = inject(TranslateService);
+  private readonly userStore = inject(UserStore);
 
   protected readonly form: FormGroup<ContactUsControls> = this.contactUsService.getFormGroup();
 

@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { AuthenticationService } from '@authentication/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
+import { UserStore } from '@user/data-access';
+import { tap } from 'rxjs';
 import { MenuType } from '../header.enum';
 import { NavComponent } from '../nav/nav.component';
 import { DropdownSelectorComponent } from '../toolbar/dropdown-selector/dropdown-selector.component';
@@ -13,10 +16,15 @@ import { DropdownSelectorComponent } from '../toolbar/dropdown-selector/dropdown
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MiddlebarComponent {
+  private readonly authenticationService = inject(AuthenticationService);
+  private readonly userStore = inject(UserStore);
+
+  protected readonly MenuType = MenuType;
+
   protected isMainMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
   protected isAuthMenuOpen: WritableSignal<boolean> = signal<boolean>(false);
 
-  protected readonly MenuType = MenuType;
+  protected readonly isAuthenticated = this.userStore.isAuthenticated;
 
   protected onMainMenuOpen(): void {
     this.isMainMenuOpen.set(!this.isMainMenuOpen());
@@ -29,5 +37,12 @@ export class MiddlebarComponent {
   protected onMenuClosed(): void {
     this.isMainMenuOpen.set(false);
     this.isAuthMenuOpen.set(false);
+  }
+
+  protected logout(): void {
+    this.authenticationService
+      .logout()
+      .pipe(tap(() => this.userStore.setUser(null)))
+      .subscribe();
   }
 }

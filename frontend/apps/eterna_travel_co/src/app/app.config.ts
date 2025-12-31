@@ -15,7 +15,6 @@ import {
   loadingInterceptor,
   provideValue,
 } from '@shared/data-access';
-import { provideUser } from '@user/data-access';
 import { appRoutes } from './app.routes';
 import { environment } from './environments/environment';
 
@@ -28,7 +27,6 @@ export const appConfig: ApplicationConfig = {
     provideValue(ENVIRONMENT, environment),
     provideLanguage(),
     provideCurrency(),
-    provideUser(),
     provideTranslateService({
       loader: provideTranslateHttpLoader({
         prefix: '/assets/i18n/',
