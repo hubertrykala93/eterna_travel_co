@@ -26,6 +26,6 @@
   "include": [
     "src/**/*.ts",
     "../../authentication/data-access/src/lib/authentication.interceptor.ts",
-    "../../authentication/data-access/src/lib/authentication.service.ts"
+    "src/lib/authentication.service.ts"
   ]
 }

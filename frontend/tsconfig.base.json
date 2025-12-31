@@ -15,7 +15,6 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@authentication/data-access": ["libs/authentication/data-access/src/index.ts"],
       "@currency/data-access": ["libs/currency/data-access/src/index.ts"],
       "@language/data-access": ["libs/language/data-access/src/index.ts"],
       "@shared/data-access": ["libs/shared/data-access/src/index.ts"],

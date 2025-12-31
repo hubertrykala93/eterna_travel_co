@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AuthenticationService } from '@authentication/data-access';
 import { TranslatePipe } from '@ngx-translate/core';
-import { UserStore } from '@user/data-access';
+import { AuthenticationService, UserStore } from '@user/data-access';
 import { tap } from 'rxjs';
 import { MenuType } from '../header.enum';
 import { NavComponent } from '../nav/nav.component';

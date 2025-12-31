@@ -2,13 +2,18 @@ import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
-import { AuthenticationService } from '@authentication/data-access';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { APIResponse, FormOptions } from '@shared/data-access';
 import { ButtonComponent, CheckboxComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
-import { ActivationRequest, UserDto, UserService, UserStore } from '@user/data-access';
+import {
+  ActivationRequest,
+  AuthenticationService,
+  UserDto,
+  UserService,
+  UserStore,
+} from '@user/data-access';
 
 import { EMPTY, filter, iif, map, Observable, switchMap, tap } from 'rxjs';
 import { authenticationFormOptions, getAuthenticationFormGroup } from './authentication.const';
