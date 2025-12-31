@@ -7,7 +7,14 @@ import { APIResponse, FormOptions } from '@shared/data-access';
 import { ButtonComponent, CheckboxComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
 import { ValidationUtil } from '@shared/util/validators';
-import { ActivationRequest, AuthenticationService, UserDto } from '@user/data-access';
+import {
+  ActivationRequest,
+  AuthenticationService,
+  UserDto,
+  UserService,
+  UserStore,
+} from '@user/data-access';
+
 import { EMPTY, filter, iif, map, Observable, switchMap, tap } from 'rxjs';
 import { authenticationFormOptions, getAuthenticationFormGroup } from './authentication.const';
 import { AuthenticationFormControls } from './authentication.model';
@@ -28,6 +35,8 @@ import { AuthenticationFormControls } from './authentication.model';
 })
 export class AuthenticationComponent implements OnInit {
   private readonly authenticationService = inject(AuthenticationService);
+  private readonly userService = inject(UserService);
+  private readonly userStore = inject(UserStore);
   private readonly router = inject(Router);
   private readonly activatedRoute = inject(ActivatedRoute);
   private readonly toastService = inject(ToastService);
@@ -65,7 +74,7 @@ export class AuthenticationComponent implements OnInit {
           token,
         };
 
-        return this.authenticationService.activate(activationRequest).pipe(
+        return this.userService.activate(activationRequest).pipe(
           tap((response: APIResponse) => {
             const { title, message, status } = response;
 
@@ -106,8 +115,11 @@ export class AuthenticationComponent implements OnInit {
             status: 'success',
           });
         }),
+        switchMap(() =>
+          this.userService.getCurrentUser().pipe(tap((user) => this.userStore.setUser(user))),
+        ),
       ),
-      this.authenticationService.register(data).pipe(
+      this.userService.register(data).pipe(
         tap(() => {
           ValidationUtil.resetForm(this.form);
 

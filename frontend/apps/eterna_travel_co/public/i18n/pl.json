@@ -86,7 +86,9 @@
       },
       "middlebar": {
         "login": "Zaloguj się",
-        "register": "Zarejestruj"
+        "register": "Zarejestruj",
+        "account": "Konto",
+        "logout": "Wyloguj się"
       }
     },
 
