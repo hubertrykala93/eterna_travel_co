@@ -1,12 +1,20 @@
 import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { APIResponse, FormOptions } from '@shared/data-access';
 import { ButtonComponent, CheckboxComponent, TextFieldComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
-import { ValidationUtil } from '@shared/util/validators';
+import {
+  clearValidators,
+  emailValidator,
+  fireValidation,
+  passwordValidator,
+  repasswordMatchValidator,
+  resetForm,
+  setOnlyRequired,
+} from '@shared/util/validators';
 import {
   ActivationRequest,
   AuthenticationService,
@@ -16,8 +24,7 @@ import {
 } from '@user/data-access';
 
 import { EMPTY, filter, iif, map, Observable, switchMap, tap } from 'rxjs';
-import { authenticationFormOptions, getAuthenticationFormGroup } from './authentication.const';
-import { AuthenticationFormControls } from './authentication.model';
+import { AuthenticationFormControls, AuthenticationMode } from './authentication.model';
 
 @Component({
   selector: 'et-authentication',
@@ -52,14 +59,11 @@ export class AuthenticationComponent implements OnInit {
     { initialValue: this.router.url.includes('login') },
   );
 
-  protected readonly authenticationFormOptions: FormOptions[] = authenticationFormOptions(
+  protected readonly authenticationFormOptions: FormOptions[] = this.getAuthenticationFormOptions(
     this.isLoginRoute() ? 'login' : 'register',
   );
 
-  protected readonly form: FormGroup<AuthenticationFormControls> = getAuthenticationFormGroup(
-    this._nonNullableFormBuilder,
-    this.isLoginRoute() ? 'login' : 'register',
-  );
+  protected form!: FormGroup<AuthenticationFormControls>;
 
   private readonly activateAccount$: Observable<APIResponse> =
     this.activatedRoute.queryParamMap.pipe(
@@ -89,12 +93,14 @@ export class AuthenticationComponent implements OnInit {
     );
 
   public ngOnInit(): void {
+    this.buildForm(this.isLoginRoute() ? 'login' : 'register');
+
     this.activateAccount$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe();
   }
 
   protected loginOrRegister(): void {
     if (this.form.invalid) {
-      ValidationUtil.fireValidation(this.form);
+      fireValidation(this.form);
 
       return;
     }
@@ -121,7 +127,7 @@ export class AuthenticationComponent implements OnInit {
       ),
       this.userService.register(data).pipe(
         tap(() => {
-          ValidationUtil.resetForm(this.form);
+          resetForm(this.form);
 
           this.toastService.open({
             title: this.translateService.instant('core.toast.title.accountCreatedSuccessfully'),
@@ -133,5 +139,76 @@ export class AuthenticationComponent implements OnInit {
         }),
       ),
     ).subscribe();
+  }
+
+  private getAuthenticationFormOptions(mode: AuthenticationMode): FormOptions[] {
+    return [
+      {
+        label: 'core.label.username',
+        placeholder: 'core.placeholder.username',
+        formControlName: 'username',
+        type: 'text',
+        visible: mode === 'login' || mode === 'register',
+      },
+      {
+        label: 'core.label.email',
+        placeholder: 'core.placeholder.email',
+        formControlName: 'email',
+        type: 'text',
+        visible: mode === 'register',
+      },
+      {
+        label: 'core.label.password',
+        placeholder: 'core.placeholder.password',
+        formControlName: 'password',
+        type: 'password',
+        visible: mode === 'login' || mode === 'register',
+      },
+      {
+        label: 'core.label.confirmPassword',
+        placeholder: 'core.placeholder.confirmPassword',
+        formControlName: 'repassword',
+        type: 'password',
+        visible: mode === 'register',
+      },
+      {
+        label: 'core.label.termsAccepting',
+        formControlName: 'isTermsAccepted',
+        visible: mode === 'register',
+      },
+    ];
+  }
+
+  private buildForm(mode: AuthenticationMode): void {
+    this.form = this._nonNullableFormBuilder.group<AuthenticationFormControls>({
+      username: this._nonNullableFormBuilder.control<string>('', {
+        validators: [Validators.required, Validators.minLength(8), Validators.maxLength(64)],
+      }),
+      email: this._nonNullableFormBuilder.control<string>('', {
+        validators: [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(255),
+          emailValidator(),
+        ],
+      }),
+      password: this._nonNullableFormBuilder.control<string>('', {
+        validators: [Validators.required, passwordValidator()],
+      }),
+      repassword: this._nonNullableFormBuilder.control<string>('', {
+        validators: [Validators.required, repasswordMatchValidator()],
+      }),
+      isTermsAccepted: this._nonNullableFormBuilder.control<boolean>(false, {
+        validators: [Validators.requiredTrue],
+      }),
+    });
+
+    if (mode === 'login') {
+      const controlsToRemove = ['email', 'repassword', 'isTermsAccepted'];
+      const requiredOnlyControls = ['username', 'password'];
+
+      clearValidators(this.form, controlsToRemove);
+      setOnlyRequired(this.form, requiredOnlyControls);
+    }
   }
 }

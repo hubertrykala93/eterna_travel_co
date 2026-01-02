@@ -7,3 +7,5 @@ export interface AuthenticationFormControls {
   repassword: FormControl<string>;
   isTermsAccepted: FormControl<boolean>;
 }
+
+export type AuthenticationMode = 'login' | 'register';

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ENVIRONMENT } from '@shared/data-access';
-import { UserDto, UserRequest, UserStore } from '@user/data-access';
 import { Observable } from 'rxjs';
+import { UserDto, UserRequest } from './user.model';
+import { UserStore } from './user.store';
 
 @Injectable({
   providedIn: 'root',

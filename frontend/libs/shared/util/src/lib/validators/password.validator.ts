@@ -1,9 +1,8 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
-const EMAIL_PATTERN =
-  '^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\\.)+[a-zA-Z]{2,3}$';
+const PASSWORD_PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{8,64}$/;
 
-export const emailValidator = (): ValidatorFn => {
+export const passwordValidator = (): ValidatorFn => {
   return (control: AbstractControl): ValidationErrors | null => {
     const value = control.value;
 
@@ -11,9 +10,9 @@ export const emailValidator = (): ValidatorFn => {
       return null;
     }
 
-    const regex = new RegExp(EMAIL_PATTERN);
+    const regex = RegExp(PASSWORD_PATTERN);
     const isValid = regex.test(value);
 
-    return isValid ? null : { invalidEmail: true };
+    return isValid ? null : { passwordWeak: true };
   };
 };

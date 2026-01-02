@@ -1,10 +1,10 @@
 import { AbstractControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
-export function getErrorKey(
+export const getErrorKey = (
   translateService: TranslateService,
   control: AbstractControl,
-): string | void {
+): string | void => {
   const [errorKey] = Object.keys(control.errors || {});
   const errorValue = control.errors?.[errorKey];
 
@@ -17,4 +17,4 @@ export function getErrorKey(
   if (errorKey) {
     return translateService.instant(`core.validation.${errorKey}`, params);
   }
-}
+};

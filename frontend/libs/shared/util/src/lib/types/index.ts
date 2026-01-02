@@ -1,1 +1,1 @@
-export type { IconPosition, InputLabelPlacement, InputType } from './input.type';
+export type { ControlLabelPlacement, ControlPosition, ControlType } from './control.type';
