@@ -4,10 +4,8 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { FormOptions } from '@shared/data-access';
 import { ButtonComponent, TextFieldComponent, TextareaComponent } from '@shared/ui/controls';
 import { ToastService } from '@shared/util/services';
-import { ValidationUtil } from '@shared/util/validators';
-import { UserStore } from '@user/data-access';
+import { fireValidation, resetForm } from '@shared/util/validators';
 import { tap } from 'rxjs';
-import { contactCards, contactUsFormOptions } from './contact-us.const';
 import { ContactCard, ContactUsControls } from './contact-us.model';
 import { ContactUsService } from './contact-us.service';
 
@@ -28,16 +26,50 @@ export class ContactUsComponent {
   private readonly contactUsService = inject(ContactUsService);
   private readonly toastService = inject(ToastService);
   private readonly translateService = inject(TranslateService);
-  private readonly userStore = inject(UserStore);
 
   protected readonly form: FormGroup<ContactUsControls> = this.contactUsService.getFormGroup();
 
-  protected readonly contactCards: ContactCard[] = contactCards;
-  protected readonly contactUsFormOptions: FormOptions[] = contactUsFormOptions;
+  protected readonly contactCards: ContactCard[] = [
+    {
+      key: 'features.contactUs.location',
+      subtitle: '88 Ocean Dr, Miami, FL 33139, USA',
+      iconClass: 'fa-solid fa-location-dot',
+    },
+    {
+      key: 'features.contactUs.phone',
+      subtitle: '+1 (213) 555-4820',
+      iconClass: 'fa-solid fa-mobile-screen',
+    },
+    {
+      key: 'features.contactUs.mail',
+      subtitle: 'contact@eternatravelco.com',
+      iconClass: 'fa-solid fa-envelope',
+    },
+  ];
+  protected readonly contactUsFormOptions: FormOptions[] = [
+    {
+      label: 'core.label.name',
+      placeholder: 'core.placeholder.name',
+      formControlName: 'name',
+      type: 'text',
+    },
+    {
+      label: 'core.label.email',
+      placeholder: 'core.placeholder.email',
+      formControlName: 'email',
+      type: 'text',
+    },
+    {
+      label: 'core.label.message',
+      placeholder: 'core.placeholder.message',
+      formControlName: 'message',
+      type: 'textarea',
+    },
+  ];
 
   protected send(): void {
     if (this.form.invalid) {
-      ValidationUtil.fireValidation(this.form);
+      fireValidation(this.form);
 
       return;
     }
@@ -46,7 +78,7 @@ export class ContactUsComponent {
       .sendMessage(this.form.getRawValue())
       .pipe(
         tap(() => {
-          ValidationUtil.resetForm(this.form);
+          resetForm(this.form);
 
           this.toastService.open({
             title: this.translateService.instant('core.toast.title.messageSentSuccessfully'),
