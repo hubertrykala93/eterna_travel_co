@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { InputLabelPlacement } from '@shared/util/types';
+import { ControlLabelPlacement } from '@shared/util/types';
 import { ErrorMessageComponent } from '../../error-message/error-message.component';
 
 @Component({
@@ -14,5 +14,5 @@ export class ControlFieldComponent {
   public readonly id = input<string>();
   public readonly errorMessage = input<string>('');
   public readonly disabled = input<boolean>(false);
-  public readonly labelPlacement = input<InputLabelPlacement>('top');
+  public readonly labelPlacement = input<ControlLabelPlacement>('top');
 }

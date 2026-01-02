@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, signal } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { InputType } from '@shared/util/types';
+import { ControlType } from '@shared/util/types';
 import { ControlFieldComponent } from '../control-field/control-field.component';
 import { InputDirective } from '../directives/input.directive';
 
@@ -29,7 +29,7 @@ export class TextFieldComponent extends InputDirective {
     return this.isPasswordVisible() ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
   });
 
-  protected readonly passwordType = computed<InputType>(() =>
+  protected readonly passwordType = computed<ControlType>(() =>
     this.isPasswordVisible() ? 'text' : 'password',
   );
 

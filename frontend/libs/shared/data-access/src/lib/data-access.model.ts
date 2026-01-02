@@ -1,5 +1,5 @@
 import { ToastStatus } from '@shared/util/services';
-import { InputType } from '@shared/util/types';
+import { ControlType } from '@shared/util/types';
 
 export interface AuditableDto {
   id?: string;
@@ -16,7 +16,7 @@ export interface FormOptions {
   label: string;
   placeholder?: string;
   formControlName: string;
-  type?: InputType;
+  type?: ControlType;
   visible?: boolean;
 }
 

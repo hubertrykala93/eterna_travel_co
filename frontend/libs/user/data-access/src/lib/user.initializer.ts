@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { UserDto } from '@user/data-access';
 import { Observable, catchError, of, switchMap, tap } from 'rxjs';
 import { AuthenticationService } from './authentication.service';
+import { UserDto } from './user.model';
 import { UserService } from './user.service';
 import { UserStoreInstance } from './user.store';
 

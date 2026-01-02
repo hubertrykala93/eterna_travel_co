@@ -34,7 +34,9 @@
 
     <li class="middlebar__menu-item">
       @if (isAuthenticated()) {
-        <span (click)="logout()">{{ 'core.header.middlebar.logout' | translate }}</span>
+        <button (click)="logout()">
+          {{ 'core.header.middlebar.logout' | translate }}
+        </button>
       } @else {
         <a routerLink="/authentication/register">{{
           'core.header.middlebar.register' | translate
